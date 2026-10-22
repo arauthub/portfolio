@@ -44,9 +44,9 @@ Here are highlights from my public [**All-Projects**](https://github.com/arauthu
 * **Stack**: Chrome Manifest V3, JavaScript (ES6+), HTML5 Canvas, CSS3
 * Precision diagram inspection suite with 2x–16x loupe zoom, fullscreen deep-zoom pan & scan lightbox, schematic dark mode inversion, and offline Retina area screen snipping.
 
-### 🌌 [Anti-Gravity Web & Arcade Browser](https://github.com/arauthub/All-Projects/tree/main/extensions/anti-gravity-browser)
+### 🌌 [GraviDrift Web & Space Arcade Browser](https://github.com/arauthub/All-Projects/tree/main/extensions/gravidrift-browser)
 * **Stack**: Chrome Manifest V3, Matter.js Physics Engine, HTML5 Canvas, CSS3
-* Physics-driven extension converting any webpage into an interactive 60 FPS Zero-G sandbox with directional gravity inversion, tractor beams, Asteroids blaster combat, and Katamari absorption.
+* Physics-driven extension converting any webpage into an interactive 60 FPS Zero-G sandbox with directional gravity inversion, tractor beams, Starfighter blaster combat, and Cosmic Orb absorption.
 
 ### 🧩 [Link Inspector Pro & Broken Link Checker](https://github.com/arauthub/All-Projects/tree/main/extensions/link-inspector-extension)
 * **Stack**: Chrome Manifest V3, JavaScript (ES6+), Asynchronous Service Workers

@@ -20,7 +20,7 @@ if [ ! -f "$CV_FILE" ] || [ ! -f "$PROFILE_FILE" ]; then
 fi
 
 # 2. Check that key projects are listed
-REQUIRED_PROJECTS=("ARNAS" "MyAgents" "Link Inspector Pro" "Diagram & Image Lens Pro" "Anti-Gravity Web" "Flashapps" "Wagtailwind")
+REQUIRED_PROJECTS=("ARNAS" "MyAgents" "Link Inspector Pro" "Diagram & Image Lens Pro" "GraviDrift Web" "Flashapps" "Wagtailwind")
 for proj in "${REQUIRED_PROJECTS[@]}"; do
   if ! grep -q "$proj" "$CV_FILE"; then
     echo "⚠️ Warning: Project '$proj' missing from CV_Abhijeet_Raut.md! Please verify."

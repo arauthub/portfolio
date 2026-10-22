@@ -11,7 +11,7 @@ The portal serves as the unified command center and living showcase for the enti
 1. **Ultra-Fast Jamstack Delivery**: Pure vanilla ES Modules, zero bloated JS framework dependencies (0 kB React/Vue runtime penalty), instantaneous First Contentful Paint (< 80ms), and 100/100 Lighthouse performance metrics.
 2. **Git & GitHub Intelligence Layer**: Bi-directional Git integration featuring real-time commit heatmaps, branch status, presubmit test telemetry, and dynamic fallback between live GitHub REST APIs and pre-compiled static snapshots.
 3. **Futuristic "Living" Interface**: A dynamic, kinetic user experience driven by an interactive 60 FPS HTML5 canvas particle constellation (`quantum-canvas`), 3D card tilt physics, holographic glassmorphism, glowing energy conduits, and a native Web Audio API cyber synthesizer.
-4. **Interactive Holodeck Sandboxes**: Live browser-native simulators allowing instant execution of core monorepo architectures (Agentic DAG Swarm, Anti-Gravity Physics sandbox, ARNAS Zero-Knowledge Cryptographic Vault, API Pulse Network Interceptor, and WorkspaceCurator webhook digests).
+4. **Interactive Holodeck Sandboxes**: Live browser-native simulators allowing instant execution of core monorepo architectures (Agentic DAG Swarm, GraviDrift Physics sandbox, ARNAS Zero-Knowledge Cryptographic Vault, API Pulse Network Interceptor, and WorkspaceCurator webhook digests).
 5. **Cyber Quantum Terminal**: An integrated command-line interface directly within the web portal providing keyboard navigation, system diagnostics, commit logs, and cyber matrix visualization.
 
 ---
@@ -116,7 +116,7 @@ The visual identity embodies **Quantum Cybernetic / Obsidian Glassmorphism**:
    - Project modal with rendered architecture markdown, metrics, and launch sandbox triggers.
 5. **Interactive Holodeck Sandboxes**:
    - **Swarm DAG**: Interactive multi-agent topological execution simulator.
-   - **Anti-Gravity Web**: 2D physics floating rigid-body sandbox with mouse gravity.
+   - **GraviDrift Web**: 2D physics floating rigid-body sandbox with mouse gravity.
    - **ARNAS Cryptographic Vault**: Live PBKDF2 key derivation and AES-256-GCM cipher simulator.
    - **API Pulse Pro**: Live HTTP packet inspector and automatic TypeScript interface generator.
    - **WorkspaceCurator**: Live webhook event ingestion ticker and TL;DR briefing synthesizer.

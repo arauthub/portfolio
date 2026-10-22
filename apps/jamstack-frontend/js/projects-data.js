@@ -61,32 +61,32 @@ export const MONOREPO_PROJECTS = [
     designDoc: "apps/arnas/DESIGN.md"
   },
   {
-    id: "anti-gravity-browser",
-    title: "Anti-Gravity Web & Arcade Browser",
+    id: "gravidrift-browser",
+    title: "GraviDrift Web & Space Arcade Browser",
     category: "extensions",
     categoryLabel: "Browser Extensions & DevTools",
     badge: "60 FPS Physics",
     badgeColor: "purple",
-    relPath: "extensions/anti-gravity-browser",
-    githubUrl: "https://github.com/arauthub/portfolio/tree/main/extensions/anti-gravity-browser",
+    relPath: "extensions/gravidrift-browser",
+    githubUrl: "https://github.com/arauthub/portfolio/tree/main/extensions/gravidrift-browser",
     techStack: ["Chrome Manifest V3", "Matter.js Physics", "JavaScript (ES6+)", "HTML5 Canvas", "CSS Transforms"],
     description: "Physics-driven browser extension that non-destructively extracts webpage DOM structures into an isolated 60 FPS 2D rigid-body zero-gravity physics sandbox with directional gravity inversion, tractor beams, and arcade mini-games.",
     metrics: [
       { label: "Physics Rate", value: "60 FPS Steady" },
       { label: "Engine", value: "Matter.js 2D" },
-      { label: "Arcade Modes", value: "Asteroids & Katamari" },
+      { label: "Arcade Modes", value: "Starfighter & Cosmic Orb" },
       { label: "Manifest", value: "Chrome V3" }
     ],
     features: [
       "Invertible directional gravity with arrow key manipulation and mouse fling momentum",
       "Tractor beam mouse attraction mode drawing nearby DOM elements into orbit",
-      "Asteroids Web Blaster arcade mode with WASD thrust controls and laser targeting",
-      "Orbital Katamari Web Absorption mode rolling up DOM nodes into an escalating sphere",
+      "Starfighter Web Blaster arcade mode with WASD thrust controls and laser targeting",
+      "Orbital Cosmic Orb Web Absorption mode rolling up DOM nodes into an escalating sphere",
       "100% client-side zero-tracking execution with non-destructive DOM preservation"
     ],
     simulatorId: "antigravity-sandbox",
     simulatorName: "Launch Zero-G Gravity Sandbox",
-    designDoc: "extensions/anti-gravity-browser/DESIGN.md"
+    designDoc: "extensions/gravidrift-browser/DESIGN.md"
   },
   {
     id: "api-pulse-pro",

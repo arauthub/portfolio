@@ -64,13 +64,13 @@ async def handle_drive_watch(req: Request, bg: BackgroundTasks):
     desc: "Chrome Manifest V3 browser extensions & developer toolkits",
     children: [
       {
-        name: "anti-gravity-browser",
+        name: "gravidrift-browser",
         type: "dir",
-        desc: "Matter.js 2D zero-gravity physics engine & arcade sandbox",
-        snippet: `// extensions/anti-gravity-browser/content/physics-core.js
+        desc: "Matter.js 2D zero-gravity physics engine & space arcade sandbox",
+        snippet: `// extensions/gravidrift-browser/content/content.js
 import Matter from 'matter-js';
 
-export class AntiGravityEngine {
+export class GraviDriftEngine {
   constructor() {
     this.engine = Matter.Engine.create({ gravity: { x: 0, y: 0 } });
     this.runner = Matter.Runner.create();

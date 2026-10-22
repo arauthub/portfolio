@@ -21,7 +21,7 @@ Welcome to the **All-Projects** repository — a curated enterprise monorepo arc
 All-Projects/
 ├── extensions/                         # 🧩 Browser Extensions
 │   ├── api-pulse-pro/                  # API Pulse Pro: Network Traffic Inspector & Replay Studio
-│   ├── anti-gravity-browser/           # Anti-Gravity Web (Matter.js 2D Physics & Arcade Browser)
+│   ├── gravidrift-browser/             # GraviDrift Web (Matter.js 2D Physics & Space Arcade Browser)
 │   ├── diagram-image-lens/             # Diagram & Image Lens Pro (Magnifier, Deep-Zoom & Screenshots)
 │   └── link-inspector-extension/       # Link Inspector Pro & Broken Link Checker (Manifest V3)
 │
@@ -51,7 +51,7 @@ All-Projects/
 | [**Nexus Prime**](apps/jamstack-frontend/) | Git Jamstack & Frontend Portal | HTML5, Vanilla CSS, Modern ES Modules, Web Audio API | [DESIGN.md](apps/jamstack-frontend/DESIGN.md) | Futuristic living engineering command center featuring real-time Git commit telemetry, 60 FPS quantum particle nexus canvas, 3D card tilt physics, 5 interactive browser-native Holodeck architecture sandboxes, and an in-browser Cyber Quantum CLI terminal. |
 | [**API Pulse Pro**](extensions/api-pulse-pro/) | Browser Extension & DevTools Studio | JavaScript (ES6+), Manifest V3, Chrome DevTools Protocol, HTML5, CSS3 | [DESIGN.md](extensions/api-pulse-pro/DESIGN.md) | Real-time network traffic inspector, POST payload interceptor, live API replay with browser cookies/session, in-browser synthetic mock engine, JWT decoder, JSON diffing, and auto-generated TypeScript & cURL/Axios/Python snippets. |
 | [**ARNAS Enterprise Cloud NAS**](apps/arnas/) | Distributed Storage & Mobile Sync | Fastify, React Native / Expo, PostgreSQL, Prisma, S3/MinIO, AES-256-GCM, Expo Location | [DESIGN.md](apps/arnas/DESIGN.md) | Distributed private cloud storage with multi-server storage clustering, location-geofenced auto-sync (trusted locations + trusted Wi-Fi only), full NAS suite (folder hierarchy, search, in-place rename, duplicate, 30-day recycle bin, expiring share links, live S.M.A.R.T. telemetry, IOPS), instant ingest + fan-out replication, zero-knowledge E2EE (AES-256-GCM), and cross-platform iOS & Android support. |
-| [**Anti-Gravity Web Browser**](extensions/anti-gravity-browser/) | Browser Extension & Game | JavaScript (ES6+), Manifest V3, Matter.js, HTML5 Canvas, CSS3 | [DESIGN.md](extensions/anti-gravity-browser/DESIGN.md) | Converts any webpage into a 2D zero-gravity physics sandbox with Matter.js rigid-body dynamics, directional gravity inversion, tractor beams, Asteroids arcade combat, and Katamari web absorption. |
+| [**GraviDrift Web Browser**](extensions/gravidrift-browser/) | Browser Extension & Game | JavaScript (ES6+), Manifest V3, Matter.js, HTML5 Canvas, CSS3 | [DESIGN.md](extensions/gravidrift-browser/DESIGN.md) | Converts any webpage into a 2D zero-gravity physics sandbox with Matter.js rigid-body dynamics, directional gravity inversion, tractor beams, Starfighter arcade combat, and Cosmic Orb web absorption. |
 | [**Diagram & Image Lens Pro**](extensions/diagram-image-lens/) | Browser Extension | JavaScript (ES6+), Manifest V3, HTML5 Canvas, CSS3 | [DESIGN.md](extensions/diagram-image-lens/DESIGN.md) | HD hover loupe (2x–16x), fullscreen blueprint deep-zoom lightbox with schematic invert mode, 1-click PNG/SVG clipboard copying, and Retina area snipping tool. |
 | [**Link Inspector Pro**](extensions/link-inspector-extension/) | Browser Extension | JavaScript (ES6+), Manifest V3, CSS3 | [DESIGN.md](extensions/link-inspector-extension/DESIGN.md) | Real-time link inspector, broken link auditor (404/5xx), redirect tracker, Wayback Machine recovery, UTM parameter stripper, and CSV/JSON exporter. |
 | [**Flashapps**](apps/flashapps/) | Fullstack Web App | Django, Angular, SQLite, Docker | [DESIGN.md](apps/flashapps/DESIGN.md) | Fullstack web platform featuring a Django REST backend and Angular modern frontend with containerized deployment. |
@@ -83,20 +83,20 @@ All-Projects/
      * `Cmd+Shift+A` (Mac) / `Alt+Shift+A` (Win): Toggle In-Page HUD & Drawer.
      * `Cmd+Shift+S` (Mac) / `Alt+Shift+S` (Win): Open Full-Screen API Studio Workbench.
 
-#### **Anti-Gravity Web Browser & Arcade Sandbox**
-* **Location**: [`extensions/anti-gravity-browser/`](extensions/anti-gravity-browser/) • [Technical Design](extensions/anti-gravity-browser/DESIGN.md)
+#### **GraviDrift Web Browser & Space Arcade Sandbox**
+* **Location**: [`extensions/gravidrift-browser/`](extensions/gravidrift-browser/) • [Technical Design](extensions/gravidrift-browser/DESIGN.md)
 * **Installation**:
   1. Open Chrome / Edge / Brave and go to `chrome://extensions`.
   2. Toggle **Developer mode** to **ON**.
   3. Click **Load unpacked** and select the folder:
      ```text
-     /Users/abhijeetraut/Documents/All-Projects/extensions/anti-gravity-browser
+     /Users/abhijeetraut/Documents/All-Projects/extensions/gravidrift-browser
      ```
   4. Shortcuts & Controls:
      * `0` or `Z`: Toggle Zero-G floating mode.
      * Arrow Keys (`▲`, `▼`, `◄`, `►`): Invert directional gravity.
      * Click & Drag: Fling DOM elements with physics momentum.
-     * Arcade Modes: Switch between **Asteroids Blaster** (`WASD` + Spacebar lasers) and **Orbital Katamari** (magnetic rolling absorber).
+     * Arcade Modes: Switch between **Starfighter** (`WASD` + Spacebar lasers) and **Cosmic Orb** (magnetic rolling absorber).
 
 #### **Diagram & Image Lens Pro**
 * **Location**: [`extensions/diagram-image-lens/`](extensions/diagram-image-lens/) • [Technical Design](extensions/diagram-image-lens/DESIGN.md)

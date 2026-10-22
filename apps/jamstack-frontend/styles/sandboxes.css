@@ -215,7 +215,8 @@
 .log-purple { color: var(--purple); }
 .log-emerald { color: var(--emerald); font-weight: 600; }
 
-/* 2. ANTI-GRAVITY CANVAS */
+/* 2. GRAVIDRIFT CANVAS */
+.gravidrift-canvas-wrapper,
 .antigravity-canvas-wrapper {
   position: relative;
   border: var(--glass-border);

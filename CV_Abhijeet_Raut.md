@@ -84,11 +84,11 @@ Accomplished **Lead Software Engineer and Solutions Architect** with **12 years 
 * Engineered a high-magnification blueprint and architecture diagram lens featuring an interactive hover loupe (2x–16x zoom), fullscreen deep-zoom pan & scan lightbox, schematic dark mode inversion, and direct PNG clipboard export.
 * Built an in-browser Retina area screen capture tool operating entirely offline without external libraries or tracking.
 
-### **5. Anti-Gravity Web: 2D Physics Engine & Arcade Browser (Chrome Manifest V3)**
-*Repository*: [`extensions/anti-gravity-browser/`](https://github.com/arauthub/All-Projects/tree/main/extensions/anti-gravity-browser)  
+### **5. GraviDrift Web: 2D Physics Engine & Space Arcade Browser (Chrome Manifest V3)**
+*Repository*: [`extensions/gravidrift-browser/`](https://github.com/arauthub/All-Projects/tree/main/extensions/gravidrift-browser)  
 *Tech Stack*: JavaScript (ES6+), Chrome Manifest V3, Matter.js Physics Engine, HTML5 Canvas, CSS Transforms
 * Engineered an interactive extension that extracts webpage DOM structures non-destructively into an isolated 60 FPS 2D rigid-body physics simulation.
-* Implemented invertible directional gravity, tractor beam mouse manipulation, and integrated arcade mini-games (*Asteroids Web Blaster* and *Orbital Katamari Web Absorption*).
+* Implemented invertible directional gravity, tractor beam mouse manipulation, and integrated arcade mini-games (*Starfighter Web Blaster* and *Orbital Cosmic Orb Web Absorption*).
 
 ### **6. Flashapps Fullstack Platform & Containerized Architecture**
 *Repository*: [`apps/flashapps/`](https://github.com/arauthub/All-Projects/tree/main/apps/flashapps) & [`devops/docker/`](https://github.com/arauthub/All-Projects/tree/main/devops/docker)  

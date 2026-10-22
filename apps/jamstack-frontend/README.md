@@ -31,7 +31,7 @@ The portal synthesizes the entire **All-Projects** monorepo into a responsive, l
 
 4. **Interactive Holodeck Sandboxes (x5 Live Simulators)**:
    - 🤖 **MyAgents**: Interactive Swarm DAG topological execution simulator with animated agent nodes.
-   - 🌌 **Anti-Gravity Web**: Mini 2D rigid-body floating canvas with mouse fling and gravity inversion.
+   - 🌌 **GraviDrift Web**: Mini 2D rigid-body floating canvas with mouse fling and gravity inversion.
    - 🛡️ **ARNAS Cryptographic Vault**: Live PBKDF2 key derivation and AES-256-GCM cipher simulator.
    - ⚡ **API Pulse Pro**: In-browser network traffic packet inspector and TypeScript interface generator.
    - 🚀 **WorkspaceCurator**: Live webhook ingestion ticker and executive TL;DR briefing synthesizer.
