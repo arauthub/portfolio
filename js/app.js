@@ -26,8 +26,8 @@ class NexusPrimeApp {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
-    if (window.location.hash && window.location.hash !== '#hero-section') {
-      history.replaceState(null, '', window.location.pathname);
+    if (window.location.hash && (window.location.hash === '#hero-section' || !document.querySelector(window.location.hash))) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
     }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 
@@ -49,6 +49,11 @@ class NexusPrimeApp {
     this.initScrollSpy();
     this.commandPalette = new CommandPalette();
     this.terminal = new CyberTerminal('terminal-section', 'term-input', 'term-output');
+
+    // Enforce top landing at headshot photo if no specific deep-link section hash
+    if (!window.location.hash || window.location.hash === '#hero-section') {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
 
     // 4. Initialize Living Particle Canvas (Smooth & Lightweight)
     new QuantumCanvas('quantum-canvas');
@@ -657,6 +662,8 @@ class NexusPrimeApp {
       soundSynth.playWarp();
       const modal = document.getElementById('share-card-modal');
       if (modal) {
+        const cardContent = modal.querySelector('.modal-content-card');
+        if (cardContent) cardContent.scrollTop = 0;
         modal.classList.add('active');
         document.body.classList.add('modal-open');
       }

@@ -2058,9 +2058,33 @@
 .channel-card.linkedin:hover { border-color: #0a66c2; box-shadow: 0 0 14px rgba(10, 102, 194, 0.4); }
 .channel-card.twitter:hover { border-color: #38bdf8; box-shadow: 0 0 14px rgba(56, 189, 248, 0.4); }
 .channel-card.whatsapp:hover { border-color: #25d366; box-shadow: 0 0 14px rgba(37, 211, 102, 0.4); }
+.channel-card.telegram:hover { border-color: #229ed9; box-shadow: 0 0 14px rgba(34, 158, 217, 0.4); }
 .channel-card.email:hover { border-color: var(--cyan); box-shadow: 0 0 14px var(--cyan-glow); }
 .channel-card.native:hover { border-color: var(--purple); box-shadow: 0 0 14px var(--purple-glow); }
 .channel-card.download:hover { border-color: var(--amber); box-shadow: 0 0 14px rgba(245, 158, 11, 0.4); }
+
+.palette-close-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-muted);
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.palette-close-btn:hover {
+  color: #ffffff;
+  background: rgba(244, 63, 94, 0.25);
+  border-color: var(--rose);
+}
 
 /* ==========================================================================
    RESPONSIVE COMPONENT LAYOUTS
@@ -2344,23 +2368,30 @@
     font-size: 12px;
   }
 
-  /* Modals */
+  /* Modals & Safe Area */
   .nexus-modal {
-    padding: 14px;
+    padding: 12px;
   }
 
   .modal-content-card {
-    padding: 24px 16px;
-    max-height: 92vh;
+    padding: 20px 16px;
+    max-height: 94vh;
     border-radius: var(--radius-md);
   }
 
   .modal-close-btn {
-    top: 14px;
-    right: 14px;
-    width: 28px;
-    height: 28px;
-    font-size: 14px;
+    position: sticky;
+    top: 8px;
+    float: right;
+    margin-bottom: -36px;
+    margin-right: -4px;
+    z-index: 25;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(0, 245, 255, 0.4);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7);
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
   }
 
   .command-palette-modal {
@@ -2376,12 +2407,18 @@
     padding: 12px 14px;
   }
 
-  .palette-input {
-    font-size: 14px;
-  }
-
   .palette-results {
     max-height: 300px;
+  }
+
+  /* Prevent iOS Safari Auto-Zoom on Input Focus */
+  input[type="text"],
+  input[type="search"],
+  .cyber-search-input,
+  .palette-input,
+  .share-link-input,
+  .term-input {
+    font-size: 16px !important;
   }
 
   /* Footer */
@@ -2456,11 +2493,11 @@
   }
 
   .share-card-modal-content {
-    padding: 20px 16px;
+    padding: 18px 14px;
   }
 
   .professional-card-preview {
-    padding: 16px;
+    padding: 14px;
   }
 
   .card-preview-body {
@@ -2477,5 +2514,36 @@
 
   .share-channels-grid {
     grid-template-columns: 1fr;
+  }
+
+  .dag-branch-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .share-link-input-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .btn-copy-url {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .hud-share-label {
+    display: none;
+  }
+
+  .btn-hud-share {
+    padding: 6px 10px;
+  }
+
+  .filters-row {
+    gap: 6px;
   }
 }
