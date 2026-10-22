@@ -123,7 +123,7 @@ The visual identity embodies **Quantum Cybernetic / Obsidian Glassmorphism**:
 6. **Cyber Quantum Terminal**:
    - Interactive command-line interface with keyboard commands (`help`, `projects`, `skills`, `git log`, `matrix`, `presubmit`, etc.).
 7. **Executive Profile & 12-Year Career Timeline**:
-   - Chronological engineering journey (Persistent Systems, Cybage Software, University of Pune).
+   - Chronological engineering journey (Cybage Software, Persistent Systems, University of Pune).
    - Technical competencies radar and skill matrix with animated level bars.
    - Interactive CV viewer and quick copy/download utilities.
 

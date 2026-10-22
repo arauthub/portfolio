@@ -1,14 +1,22 @@
 {
-  "buildTime": "2026-10-22T18:35:26.252Z",
+  "buildTime": "2026-10-22T18:50:32.445Z",
   "targetBranch": "main",
   "gitCommitCount": 15,
   "recentCommits": [
+    {
+      "hash": "6e4155f",
+      "fullHash": "6e4155f800a2048e7a9b0346568553f302b2ace2",
+      "author": "Abhijeet Raut",
+      "date": "2026-10-23 00:20:08 +0530",
+      "relativeDate": "24 seconds ago",
+      "message": "fix(portfolio): set Cybage Software as current company, Persistent Systems as past, and correct text inconsistencies"
+    },
     {
       "hash": "23d5560",
       "fullHash": "23d5560c5421fdce0e179213ce997b1401c97778",
       "author": "Abhijeet Raut",
       "date": "2026-10-23 00:04:56 +0530",
-      "relativeDate": "30 seconds ago",
+      "relativeDate": "16 minutes ago",
       "message": "feat(extensions): prepare api-pulse-pro v1.0.0 for Chrome Web Store release and add store assets"
     },
     {
@@ -16,7 +24,7 @@
       "fullHash": "3d5df8a4791c20c24d7cdc6292501c5f29602d57",
       "author": "Abhijeet Raut",
       "date": "2026-10-23 00:02:45 +0530",
-      "relativeDate": "3 minutes ago",
+      "relativeDate": "18 minutes ago",
       "message": "fix(portfolio): optimize mobile layout, ensure universal rich card unfurling across media, and fix modal scrolling"
     },
     {
@@ -58,14 +66,6 @@
       "date": "2026-10-14 20:25:13 +0530",
       "relativeDate": "8 days ago",
       "message": "chore(portfolio): sync build manifest with responsive and landing scroll fix"
-    },
-    {
-      "hash": "804f49c",
-      "fullHash": "804f49cb991727907cadf94bdd2534456e77245e",
-      "author": "Abhijeet Raut",
-      "date": "2026-10-14 20:10:10 +0530",
-      "relativeDate": "8 days ago",
-      "message": "fix(portfolio): ensure initial landing points to headshot and add responsive layouts"
     }
   ],
   "systemsCount": 11,

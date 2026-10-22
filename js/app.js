@@ -298,7 +298,7 @@ class NexusPrimeApp {
   renderHeroSection() {
     const subtitles = [
       "Lead Backend & AI/ML Engineer | Solutions Architect",
-      "12 Years Hands-on Experience • Persistent Systems & Cybage Software",
+      "12 Years Hands-on Experience • Cybage Software & Persistent Systems",
       "Architecting Autonomous Multi-Agent AI Swarms & Vector RAG (Google ADK)",
       "Distributed Systems & High-Concurrency Backends (Python, FastAPI, Django, Go)",
       "Zero-Knowledge E2EE Cloud Storage & Chrome Manifest V3 DevTools"
@@ -735,7 +735,7 @@ class NexusPrimeApp {
         soundSynth.playClick();
         const shareData = {
           title: 'Abhijeet Raut — Lead Backend & AI/ML Engineer | Solutions Architect',
-          text: 'Accomplished Lead Software Engineer and Solutions Architect with 12 years of hands-on experience (Persistent Systems & Cybage Software). Check out the interactive quantum portfolio & 14-project systems catalog:',
+          text: 'Accomplished Lead Software Engineer and Solutions Architect with 12 years of hands-on experience (Cybage Software & Persistent Systems). Check out the interactive quantum portfolio & 14-project systems catalog:',
           url: copyInput?.value || window.location.href
         };
 

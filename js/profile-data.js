@@ -14,7 +14,7 @@ export const PROFILE_DATA = {
   profilePhoto: "assets/profile-photo.png",
   ogImage: "assets/og-image.png",
   yearsOfExperience: 12,
-  summary: "Accomplished Lead Software Engineer and Solutions Architect with 12 years of hands-on experience architecting high-concurrency backend services, distributed systems, and modern AI/ML solutions (Persistent Systems & Cybage Software). Proven track record of guiding cross-functional engineering teams from concept to production deployment.",
+  summary: "Accomplished Lead Software Engineer and Solutions Architect with 12 years of hands-on experience architecting high-concurrency backend services, distributed systems, and modern AI/ML solutions (Cybage Software & Persistent Systems). Proven track record of guiding cross-functional engineering teams from concept to production deployment.",
   
   careerStats: [
     { label: "Industry Experience", value: "12 Years", sub: "Enterprise & Scale" },
@@ -25,31 +25,31 @@ export const PROFILE_DATA = {
 
   workExperience: [
     {
-      company: "Persistent Systems",
-      role: "Lead Software Engineer / AI & Backend Architect",
-      period: "2023 – Present (3 Years)",
+      company: "Cybage Software",
+      role: "Lead Software Engineer & Solutions Architect",
+      period: "2023 – Present (Current)",
       location: "Pune, India",
       badge: "Current Role",
+      highlights: [
+        "Leading end-to-end architecture and implementation of large-scale enterprise web applications, high-concurrency backends, and content management platforms using Python, Django, and Wagtail CMS, serving millions of monthly active users.",
+        "Engineering secure, scalable RESTful API backends integrated with modern frontend single-page applications (Angular, React) and third-party enterprise integrations.",
+        "Designing and optimizing relational database schemas (PostgreSQL, MySQL) with advanced indexing, caching layers, and database sharding techniques, cutting query execution bottlenecks by up to 60%.",
+        "Championing DevOps adoption and cloud containerization across multiple enterprise accounts: standardizing Docker Compose staging/production environments, automated deployment pipelines, and environment configuration management.",
+        "Guiding cross-functional engineering teams, mentoring technical leads, and driving architecture governance across distributed systems."
+      ]
+    },
+    {
+      company: "Persistent Systems",
+      role: "Lead Software Engineer / AI & Backend Architect",
+      period: "2014 – 2023 (Past)",
+      location: "Pune, India",
+      badge: "Past Role",
       highlights: [
         "Architected and deployed enterprise-grade Autonomous AI Agent workflows and RAG-powered conversational pipelines leveraging Google Agent Development Kit (ADK) and modern LLM APIs, reducing operational query resolution times by 45%.",
         "Designed scalable, fault-tolerant backend services in Python (FastAPI, Django) and Go, handling high-throughput asynchronous payloads with Redis caching and message queues.",
         "Spearheaded containerization and CI/CD modernization across development teams, standardizing Docker Compose multi-stage builds and automated testing workflows.",
         "Conducted system architecture reviews, data security governance for LLM integrations, and optimized vector index retrieval strategies to achieve sub-120ms retrieval latencies.",
         "Mentored a team of 10+ software engineers across backend design patterns, clean code principles, and production AI engineering best practices."
-      ]
-    },
-    {
-      company: "Cybage Software",
-      role: "Technical Lead & Senior Software Engineer",
-      period: "2014 – 2023 (9 Years)",
-      location: "Pune, India",
-      badge: "9 Years",
-      highlights: [
-        "Led end-to-end architecture and implementation of large-scale enterprise web applications and content management platforms using Python, Django, and Wagtail CMS, serving millions of monthly active users.",
-        "Engineered secure, scalable RESTful API backends integrated with modern frontend single-page applications (Angular, React) and third-party enterprise integrations.",
-        "Designed and optimized relational database schemas (PostgreSQL, MySQL) with advanced indexing, caching layers, and database sharding techniques, cutting query execution bottlenecks by up to 60%.",
-        "Championed DevOps adoption across multiple client accounts: established containerized staging/production environments with Docker, automated deployment pipelines, and environment configuration management.",
-        "Promoted through sequential engineering tiers (Software Engineer → Senior Software Engineer → Technical Lead) based on consistent delivery of high-complexity client solutions."
       ]
     }
   ],

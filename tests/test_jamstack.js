@@ -50,6 +50,8 @@ assert(indexHtmlContent.includes('property="og:type" content="website"'), 'index
 assert(indexHtmlContent.includes('rel="image_src" href="https://arauthub.github.io/portfolio/assets/og-image.png"'), 'index.html has rel=image_src fallback for mobile scrapers');
 assert(indexHtmlContent.includes('name="twitter:card" content="summary_large_image"'), 'index.html has summary_large_image Twitter card');
 assert(indexHtmlContent.includes('application/ld+json'), 'index.html has Schema.org JSON-LD rich card structured data');
+assert(indexHtmlContent.includes('"worksFor"') && indexHtmlContent.includes('"Cybage Software"'), 'Schema.org JSON-LD worksFor Cybage Software');
+assert(indexHtmlContent.includes('"alumniOf"') && indexHtmlContent.includes('"Persistent Systems"'), 'Schema.org JSON-LD alumniOf Persistent Systems');
 assert(indexHtmlContent.includes('id="share-card-modal"'), 'index.html contains Executive Share & Professional Card View modal');
 assert(indexHtmlContent.includes('class="hud-search-box"'), 'index.html contains adjusted Header Spotlight Search Box');
 assert(indexHtmlContent.includes('id="btn-open-share"'), 'index.html contains Header Share Card button');
@@ -75,7 +77,11 @@ import('../js/projects-data.js').then(({ MONOREPO_PROJECTS }) => {
 }).then(({ PROFILE_DATA }) => {
   assert(PROFILE_DATA.name === 'Abhijeet Raut', 'Profile author is Abhijeet Raut');
   assert(PROFILE_DATA.yearsOfExperience === 12, '12 years experience verified');
-  assert(PROFILE_DATA.workExperience.length >= 2, 'Persistent Systems & Cybage Software roles present');
+  assert(PROFILE_DATA.workExperience.length >= 2, 'Work experience entries present');
+  assert(PROFILE_DATA.workExperience[0].company === 'Cybage Software', 'Current company is Cybage Software');
+  assert(PROFILE_DATA.workExperience[0].badge === 'Current Role', 'Cybage Software marked as Current Role');
+  assert(PROFILE_DATA.workExperience[1].company === 'Persistent Systems', 'Past company is Persistent Systems');
+  assert(PROFILE_DATA.workExperience[1].badge === 'Past Role', 'Persistent Systems marked as Past Role');
   assert(PROFILE_DATA.skillsArsenal.length >= 4, 'Skills arsenal categorised across 4+ domains');
 
   return import('../js/git-intelligence.js');
