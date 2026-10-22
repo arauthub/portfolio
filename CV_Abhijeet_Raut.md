@@ -9,8 +9,8 @@ Pune, India • theabhijeetraut@gmail.com • [GitHub: github.com/arauthub](http
 > 📌 **Portfolio Monorepo Synchronization**: Verified up to date with repository on `2026-10-11 14:13 UTC` • Presubmit Suite Clean
 
 Accomplished **Lead Software Engineer and Solutions Architect** with **12 years of hands-on experience** architecting high-concurrency backend services, distributed systems, and modern AI/ML solutions. 
-- **3 years at Persistent Systems** driving enterprise AI adoption, autonomous agent architectures (Google ADK, LangChain), and cloud-native microservice backends.
-- **9 years at Cybage Software** designing scalable enterprise platforms, Django/Wagtail CMS ecosystems, and RESTful/event-driven API architectures.
+- **Cybage Software (Current)**: Lead Software Engineer & Solutions Architect driving enterprise architecture, scalable web platforms, Django/Wagtail CMS ecosystems, and RESTful/event-driven API architectures.
+- **Persistent Systems (Past)**: Driving enterprise AI adoption, autonomous agent architectures (Google ADK, LangChain), and cloud-native microservice backends in Python and Go.
 - Expert in **Python, FastAPI, Django, Go, Machine Learning / Agentic AI orchestration, Retrieval-Augmented Generation (RAG), Docker containerization**, and database performance engineering. Proven track record of guiding cross-functional engineering teams from concept to production deployment.
 
 ---
@@ -30,25 +30,25 @@ Accomplished **Lead Software Engineer and Solutions Architect** with **12 years 
 
 ## Professional Experience
 
+### **Cybage Software** | Pune, India
+**Lead Software Engineer & Solutions Architect**  
+*2023 – Present (Current)*
+
+* Leading end-to-end architecture and implementation of large-scale enterprise web applications, high-concurrency backends, and content management platforms using **Python, Django, and Wagtail CMS**, serving millions of monthly active users.
+* Engineering secure, scalable RESTful API backends integrated with modern frontend single-page applications (**Angular, React**) and third-party enterprise integrations.
+* Designing and optimizing relational database schemas (**PostgreSQL, MySQL**) with advanced indexing, caching layers, and database sharding techniques, cutting query execution bottlenecks by up to 60%.
+* Championing DevOps adoption and cloud containerization across multiple enterprise accounts: standardizing **Docker Compose** staging/production environments, automated deployment pipelines, and environment configuration management.
+* Guiding cross-functional engineering teams, mentoring technical leads, and driving architecture governance across distributed systems.
+
 ### **Persistent Systems** | Pune, India
 **Lead Software Engineer / AI & Backend Architect**  
-*2023 – Present (3 Years)*
+*2014 – 2023 (Past)*
 
 * Architected and deployed enterprise-grade **Autonomous AI Agent workflows** and **RAG-powered conversational pipelines** leveraging the Google Agent Development Kit (ADK) and modern LLM APIs, reducing operational query resolution times by 45%.
 * Designed scalable, fault-tolerant backend services in **Python (FastAPI, Django)** and **Go**, handling high-throughput asynchronous payloads with Redis caching and message queues.
 * Spearheaded the containerization and CI/CD modernization initiative across development teams, standardizing **Docker Compose** multi-stage builds and automated testing workflows.
 * Conducted system architecture reviews, data security governance for LLM integrations, and optimized vector index retrieval strategies to achieve sub-120ms retrieval latencies.
 * Mentored a team of 10+ software engineers across backend design patterns, clean code principles, and production AI engineering best practices.
-
-### **Cybage Software** | Pune, India
-**Technical Lead & Senior Software Engineer**  
-*2014 – 2023 (9 Years)*
-
-* Led end-to-end architecture and implementation of large-scale enterprise web applications and content management platforms using **Python, Django, and Wagtail CMS**, serving millions of monthly active users.
-* Engineered secure, scalable RESTful API backends integrated with modern frontend single-page applications (**Angular, React**) and third-party enterprise integrations.
-* Designed and optimized relational database schemas (**PostgreSQL, MySQL**) with advanced indexing, caching layers, and database sharding techniques, cutting query execution bottlenecks by up to 60%.
-* Championed DevOps adoption across multiple client accounts: established containerized staging/production environments with Docker, automated deployment pipelines, and environment configuration management.
-* Promoted through sequential engineering tiers (Software Engineer → Senior Software Engineer → Technical Lead) based on consistent delivery of high-complexity client solutions, technical rigor, and client stakeholder satisfaction.
 
 ---
 

@@ -153,7 +153,7 @@ def create_og_image():
 
     # Career Highlights from CV
     cur_y += 38
-    draw.text((cur_x, cur_y), "Persistent Systems (3 Yrs)  •  Cybage Software (9 Yrs)", font=f_exp, fill=(192, 132, 252, 255))
+    draw.text((cur_x, cur_y), "Cybage Software (Current)  •  Persistent Systems (Past)", font=f_exp, fill=(192, 132, 252, 255))
 
     # Brief Intro Paragraphs from CV
     cur_y += 34

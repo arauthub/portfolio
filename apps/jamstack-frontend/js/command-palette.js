@@ -39,7 +39,7 @@ export class CommandPalette {
       if (p.simulatorId) {
         this.items.push({
           type: 'Simulator',
-          title: `Launch ${p.simulatorName}`,
+          title: p.simulatorName.startsWith('Launch') ? p.simulatorName : `Launch ${p.simulatorName}`,
           subtitle: `Interactive Holodeck Sandbox for ${p.title}`,
           icon: '🚀',
           action: () => HolodeckSandboxes.open(p.simulatorId)

@@ -15,8 +15,8 @@
 
 I am a **Lead Backend & AI/ML Engineer** with **12 years of industry experience** architecting high-throughput distributed backends, autonomous AI agent workflows, and scalable enterprise platforms:
 
-* 🏢 **Persistent Systems (3 Years)**: Spearheading enterprise AI solutions, autonomous multi-agent pipelines (**Google ADK, LangChain**), LLM integrations, and cloud-native microservices.
-* 🏢 **Cybage Software (9 Years)**: Architecting large-scale enterprise CMS and web applications (**Python, Django, Wagtail, Angular**), optimizing high-volume relational databases, and leading technical teams.
+* 🏢 **Cybage Software (Current)**: Leading end-to-end architecture and implementation of large-scale enterprise web applications, high-concurrency backends, and content management platforms (**Python, Django, Wagtail, Angular**), optimizing high-volume relational databases, and leading technical teams.
+* 🏢 **Persistent Systems (Past)**: Driving enterprise AI adoption, autonomous multi-agent pipelines (**Google ADK, LangChain**), LLM integrations, and cloud-native microservices in Python and Go.
 * 🧠 **Core Passions**: Autonomous Agentic AI, Retrieval-Augmented Generation (RAG), Distributed Systems Design, API Performance Optimization, and Developer Productivity Tooling.
 
 ---
@@ -101,8 +101,8 @@ Here are highlights from my public [**All-Projects**](https://github.com/arauthu
 
 ## 💼 Career Snapshot
 
-* **Lead Software Engineer / AI Architect** — *Persistent Systems* (2023 – Present)
-* **Technical Lead & Senior Software Engineer** — *Cybage Software* (2014 – 2023)
+* **Lead Software Engineer & Solutions Architect** — *Cybage Software* (2023 – Present / Current)
+* **Lead Software Engineer / AI & Backend Architect** — *Persistent Systems* (2014 – 2023 / Past)
 * **B.E. in Computer Engineering** — *University of Pune, India*
 
 ---
