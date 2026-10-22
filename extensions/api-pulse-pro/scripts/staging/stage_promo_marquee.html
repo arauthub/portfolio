@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Pulse Pro — Marquee Promo Banner (1400x560)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 1400px;
+      height: 560px;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at 75% 30%, #1e1145 0%, #0a0d1b 50%, #05070e 100%);
+      color: #f8fafc;
+      display: flex;
+      padding: 50px 70px;
+      position: relative;
+    }
+    /* Glow Elements */
+    .glow-bg-1 {
+      position: absolute;
+      top: -100px;
+      right: 200px;
+      width: 450px;
+      height: 450px;
+      background: rgba(168, 85, 247, 0.22);
+      filter: blur(100px);
+      border-radius: 50%;
+    }
+    .glow-bg-2 {
+      position: absolute;
+      bottom: -80px;
+      left: 100px;
+      width: 400px;
+      height: 400px;
+      background: rgba(6, 182, 212, 0.18);
+      filter: blur(90px);
+      border-radius: 50%;
+    }
+    /* Content Columns */
+    .content-left {
+      width: 660px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+    .brand-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.45);
+    }
+    .brand-icon svg {
+      width: 38px;
+      height: 38px;
+      stroke: white;
+      stroke-width: 2.3;
+      fill: none;
+    }
+    .brand-text h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge-pro {
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      font-size: 0.85rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+    }
+    .hero-heading {
+      margin-top: 14px;
+    }
+    .hero-heading h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .hero-heading h2 span {
+      background: linear-gradient(135deg, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-heading p {
+      font-size: 1.05rem;
+      color: #94a3b8;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+    /* Feature Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .feat-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+    .feat-icon {
+      font-size: 1.15rem;
+    }
+    /* Footer trust row */
+    .trust-footer {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-size: 0.82rem;
+      color: #64748b;
+      margin-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 14px;
+    }
+    .trust-tag {
+      color: #34d399;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    /* Right Column: Visual Preview */
+    .content-right {
+      flex: 1;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-left: 40px;
+    }
+    .preview-card {
+      width: 580px;
+      background: #0d1222;
+      border: 1px solid #1e293d;
+      border-radius: 16px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-topbar {
+      background: #11182c;
+      padding: 12px 18px;
+      border-bottom: 1px solid #1e293d;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .dots-group {
+      display: flex;
+      gap: 6px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+    .card-title {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      font-family: monospace;
+    }
+    .card-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .req-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #151d33;
+      border: 1px solid #24324f;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+    }
+    .badge-post { background: #0284c7; color: white; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; }
+    .badge-gql { background: #e11d48; color: white; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; }
+    .badge-status { background: rgba(52, 211, 153, 0.15); color: #34d399; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; }
+    /* Floating pill badge on preview */
+    .floating-hud-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 10px;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      border: 1px solid #38bdf8;
+      padding: 8px 16px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #f8fafc;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-bg-1"></div>
+  <div class="glow-bg-2"></div>
+
+  <!-- Left Column -->
+  <div class="content-left">
+    <div class="brand-header">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <div class="brand-text">
+        <h1>API Pulse <span class="badge-pro">PRO</span></h1>
+      </div>
+    </div>
+
+    <div class="hero-heading">
+      <h2>Turn Your Browser Into an <span>IDE-Grade API Playground</span></h2>
+      <p>Laser-focused real-time network traffic inspection, in-browser request replaying, synthetic mock servers, and one-click TypeScript interface generation.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feat-card">
+        <span class="feat-icon">⚡</span>
+        <span>Real-Time POST &amp; API Stream</span>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🎭</span>
+        <span>In-Browser Mock Engine</span>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🔄</span>
+        <span>In-Page Request Replayer</span>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">📐</span>
+        <span>TypeScript &amp; cURL Generator</span>
+      </div>
+    </div>
+
+    <div class="trust-footer">
+      <span class="trust-tag">🔒 100% Local Client-Side</span>
+      <span>• Zero Telemetry</span>
+      <span>• Zero Analytics</span>
+      <span>• Manifest V3 Certified</span>
+    </div>
+  </div>
+
+  <!-- Right Column Preview -->
+  <div class="content-right">
+    <div class="preview-card">
+      <div class="card-topbar">
+        <div class="dots-group">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
+        </div>
+        <div class="card-title">api-pulse-studio // live-stream</div>
+        <span style="font-size:0.75rem;color:#38bdf8;font-weight:600;">ACTIVE TAB: cloudstore.io</span>
+      </div>
+      <div class="card-body">
+        <div class="req-item">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="badge-post">POST</span>
+            <span style="font-family:monospace;color:#f1f5f9;">/v1/checkout/orders</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="badge-status">201 OK</span>
+            <span style="color:#94a3b8;font-size:0.75rem;">185ms</span>
+          </div>
+        </div>
+
+        <div class="req-item">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="badge-post">POST</span>
+            <span style="font-family:monospace;color:#f1f5f9;">/v1/auth/login</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="badge-status">200 OK</span>
+            <span style="color:#94a3b8;font-size:0.75rem;">94ms</span>
+          </div>
+        </div>
+
+        <div class="req-item">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="badge-gql">GRAPHQL</span>
+            <span style="font-family:monospace;color:#f1f5f9;">mutation SubmitReview</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="badge-status">200 OK</span>
+            <span style="color:#94a3b8;font-size:0.75rem;">64ms</span>
+          </div>
+        </div>
+
+        <!-- Mini Code Preview -->
+        <pre style="background:#090d16;padding:12px;border-radius:8px;border:1px solid #1e293b;font-family:monospace;font-size:0.75rem;color:#38bdf8;line-height:1.4;"><span style="color:#64748b;">// Auto-generated TypeScript Interface</span>
+export interface OrderPayload {
+  orderId: string;
+  items: { sku: string; qty: number; price: number }[];
+  total: number;
+}</pre>
+      </div>
+    </div>
+
+    <!-- Floating HUD Capsule preview -->
+    <div class="floating-hud-badge">
+      <span style="color:#06b6d4;">⚡ API Pulse HUD:</span>
+      <span style="color:#a855f7;">14 APIs</span>
+      <span style="color:#38bdf8;">6 POST</span>
+      <span style="color:#10b981;">0 ERR</span>
+    </div>
+  </div>
+</body>
+</html>

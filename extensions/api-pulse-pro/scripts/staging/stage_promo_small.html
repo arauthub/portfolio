@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Pulse Pro — Small Promo Tile (440x280)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 440px;
+      height: 280px;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at 80% 20%, #2e1065 0%, #0c0f1d 60%, #060810 100%);
+      color: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px 26px;
+      position: relative;
+    }
+    /* Glow circles */
+    .glow-1 {
+      position: absolute;
+      top: -40px;
+      right: -30px;
+      width: 180px;
+      height: 180px;
+      background: rgba(168, 85, 247, 0.25);
+      filter: blur(40px);
+      border-radius: 50%;
+    }
+    .glow-2 {
+      position: absolute;
+      bottom: -40px;
+      left: -30px;
+      width: 160px;
+      height: 160px;
+      background: rgba(6, 182, 212, 0.2);
+      filter: blur(40px);
+      border-radius: 50%;
+    }
+    /* Top row */
+    .top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .icon-box {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
+    }
+    .icon-box svg {
+      width: 28px;
+      height: 28px;
+      stroke: white;
+      stroke-width: 2.2;
+      fill: none;
+    }
+    .title-group h1 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .badge-pro {
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+    .mv3-pill {
+      font-size: 0.7rem;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    /* Center Tagline */
+    .center-desc {
+      position: relative;
+      z-index: 2;
+      margin: 8px 0;
+    }
+    .center-desc h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      line-height: 1.3;
+    }
+    .center-desc p {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+    /* Method badges row */
+    .badge-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .m-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    .b-post { background: #0284c7; color: white; }
+    .b-mock { background: #7c3aed; color: white; }
+    .b-replay { background: #059669; color: white; }
+    .b-ts { background: #3178c6; color: white; }
+    /* Bottom Bar */
+    .bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 10px;
+      font-size: 0.72rem;
+      color: #64748b;
+      position: relative;
+      z-index: 2;
+    }
+    .privacy-tag {
+      color: #10b981;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+
+  <div class="top-row">
+    <div class="brand-wrap">
+      <div class="icon-box">
+        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <div class="title-group">
+        <h1>API Pulse <span class="badge-pro">PRO</span></h1>
+      </div>
+    </div>
+    <span class="mv3-pill">Manifest V3</span>
+  </div>
+
+  <div class="center-desc">
+    <h2>IDE-Grade API &amp; POST Inspector</h2>
+    <p>Monitor HTTP traffic in real time, mock endpoints client-side, replay calls, and generate TypeScript interfaces.</p>
+    <div class="badge-row">
+      <span class="m-badge b-post">POST INSPECTOR</span>
+      <span class="m-badge b-mock">MOCK ENGINE</span>
+      <span class="m-badge b-replay">REPLAYER</span>
+      <span class="m-badge b-ts">TYPESCRIPT</span>
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    <span class="privacy-tag">🔒 100% Local • Zero Telemetry</span>
+    <span>Chrome Web Store Certified</span>
+  </div>
+</body>
+</html>

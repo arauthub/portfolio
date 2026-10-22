@@ -1,8 +1,16 @@
 {
-  "buildTime": "2026-10-22T18:32:45.918Z",
+  "buildTime": "2026-10-22T18:34:56.773Z",
   "targetBranch": "main",
   "gitCommitCount": 15,
   "recentCommits": [
+    {
+      "hash": "3d5df8a",
+      "fullHash": "3d5df8a4791c20c24d7cdc6292501c5f29602d57",
+      "author": "Abhijeet Raut",
+      "date": "2026-10-23 00:02:45 +0530",
+      "relativeDate": "2 minutes ago",
+      "message": "fix(portfolio): optimize mobile layout, ensure universal rich card unfurling across media, and fix modal scrolling"
+    },
     {
       "hash": "d225914",
       "fullHash": "d225914c62610faa658f80141fe5f35b04d6b8bc",
@@ -58,14 +66,6 @@
       "date": "2026-10-11 21:06:37 +0530",
       "relativeDate": "11 days ago",
       "message": "feat(portfolio): integrate CV title, brief intro, and social og-image with profile photo"
-    },
-    {
-      "hash": "8e3e672",
-      "fullHash": "8e3e6722a03a2e35598ba65ec766a7ceda211980",
-      "author": "Abhijeet Raut",
-      "date": "2026-10-11 20:39:38 +0530",
-      "relativeDate": "11 days ago",
-      "message": "chore(portfolio): update repository coordinates to arauthub/portfolio"
     }
   ],
   "systemsCount": 11,

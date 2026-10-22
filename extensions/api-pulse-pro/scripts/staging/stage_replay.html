@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Pulse Pro — Interactive Replay & Multi-Language Code Generator</title>
+  <link rel="stylesheet" href="../../studio/studio.css">
+  <style>
+    .studio-app { height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+    .studio-body { flex: 1; display: flex; }
+    .inspector-panel { flex: 1; padding: 24px; overflow-y: auto; background: #070913; }
+    .code-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .panel-box { background: #0d121f; border: 1px solid #1f293d; border-radius: 10px; padding: 18px; }
+    .panel-title { font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
+  </style>
+</head>
+<body>
+  <div class="studio-app">
+    <header class="studio-header">
+      <div class="header-left">
+        <div class="studio-brand">
+          <div class="studio-logo-wrap"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div>
+            <div class="brand-title">API Pulse <span class="badge-pro">PRO</span></div>
+            <div class="brand-sub">Developer Network Studio & Mock Workbench</div>
+          </div>
+        </div>
+      </div>
+      <div class="header-center">
+        <div class="search-bar-wrap">
+          <input type="text" id="studio-search-input" value="https://api.cloudstore.io/v1/checkout/orders" readonly>
+        </div>
+      </div>
+      <div class="header-right">
+        <button class="btn-action-primary" style="background:#0284c7;color:white;border:none;padding:8px 16px;border-radius:6px;font-weight:600;">⚡ Replay in Page</button>
+      </div>
+    </header>
+
+    <div class="studio-body">
+      <!-- Left Stream Preview -->
+      <aside class="stream-panel" style="width: 340px;">
+        <div class="stream-table-header"><span>★</span><span>Method</span><span>Status</span><span>Endpoint</span></div>
+        <div class="stream-list">
+          <div class="stream-row active" style="background:#172033;border-left:3px solid #38bdf8;">
+            <span style="color:#fbbf24;">★</span>
+            <span class="pill-method method-post">POST</span>
+            <span class="pill-status status-2xx">201</span>
+            <span class="stream-path">/v1/checkout/orders</span>
+          </div>
+          <div class="stream-row">
+            <span>☆</span>
+            <span class="pill-method method-post">POST</span>
+            <span class="pill-status status-2xx">200</span>
+            <span class="stream-path">/v1/auth/login</span>
+          </div>
+          <div class="stream-row">
+            <span>☆</span>
+            <span class="pill-method method-post">POST</span>
+            <span class="pill-status status-2xx">200</span>
+            <span class="stream-path">/graphql [SubmitReview]</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Inspector Panel (Replay & Multi-Language Code) -->
+      <main class="inspector-panel">
+        <div class="inspector-header" style="margin-bottom:16px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="background:#0284c7;color:white;font-weight:700;padding:4px 10px;border-radius:6px;font-size:0.85rem;">POST</span>
+            <span style="background:rgba(52,211,153,0.15);color:#34d399;font-weight:700;padding:4px 10px;border-radius:6px;font-size:0.85rem;">201 Created</span>
+            <span style="font-family:monospace;color:#94a3b8;font-size:0.9rem;">https://api.cloudstore.io/v1/checkout/orders</span>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="inspector-tabs-nav" style="display:flex;gap:6px;border-bottom:1px solid #1f293d;padding-bottom:10px;margin-bottom:20px;">
+          <button class="insp-tab" style="padding:6px 14px;border-radius:6px;background:none;border:none;color:#94a3b8;cursor:pointer;">Response</button>
+          <button class="insp-tab" style="padding:6px 14px;border-radius:6px;background:none;border:none;color:#94a3b8;cursor:pointer;">Payload</button>
+          <button class="insp-tab active" style="padding:6px 14px;border-radius:6px;background:#1e293b;border:1px solid #38bdf8;color:#38bdf8;font-weight:600;cursor:pointer;">Replay Studio</button>
+          <button class="insp-tab" style="padding:6px 14px;border-radius:6px;background:none;border:none;color:#94a3b8;cursor:pointer;">TypeScript Types</button>
+          <button class="insp-tab active" style="padding:6px 14px;border-radius:6px;background:#1e293b;border:1px solid #a855f7;color:#c084fc;font-weight:600;cursor:pointer;">Code Snippets (cURL/Axios/Python)</button>
+        </nav>
+
+        <div class="code-grid">
+          <!-- Replay Studio Box -->
+          <div class="panel-box">
+            <div class="panel-title">
+              <span>⚡ Live Request Replayer (With Page Session &amp; Cookies)</span>
+              <button style="background:linear-gradient(135deg, #0284c7, #2563eb);color:white;border:none;padding:5px 12px;border-radius:6px;font-size:0.75rem;font-weight:700;cursor:pointer;">Execute Replay</button>
+            </div>
+            <div style="font-size:0.75rem;color:#64748b;margin-bottom:8px;">Target URL &amp; Method:</div>
+            <div style="display:flex;gap:8px;margin-bottom:12px;">
+              <select style="background:#090d16;color:#38bdf8;border:1px solid #334155;padding:6px 10px;border-radius:6px;font-weight:700;"><option>POST</option></select>
+              <input type="text" value="https://api.cloudstore.io/v1/checkout/orders" style="flex:1;background:#090d16;color:#f1f5f9;border:1px solid #334155;padding:6px 10px;border-radius:6px;font-family:monospace;font-size:0.8rem;">
+            </div>
+            <div style="font-size:0.75rem;color:#64748b;margin-bottom:6px;">Editable POST Request Body (JSON):</div>
+            <pre style="background:#090d16;padding:12px;border-radius:6px;border:1px solid #1f293d;font-family:monospace;font-size:0.8rem;color:#38bdf8;line-height:1.4;">{
+  "orderId": "ord_9182_REPLAY",
+  "items": [
+    { "sku": "pro_license", "qty": 1, "price": 99.00 }
+  ],
+  "customer": {
+    "tier": "enterprise_qa"
+  },
+  "total": 99.00
+}</pre>
+          </div>
+
+          <!-- Code Generator Box -->
+          <div class="panel-box">
+            <div class="panel-title">
+              <span>📋 Instant Multi-Language Code Export</span>
+              <div style="display:flex;gap:4px;">
+                <span style="background:#0284c7;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:600;">cURL</span>
+                <span style="background:#334155;color:#94a3b8;padding:2px 8px;border-radius:4px;font-size:0.75rem;">fetch</span>
+                <span style="background:#334155;color:#94a3b8;padding:2px 8px;border-radius:4px;font-size:0.75rem;">Axios</span>
+                <span style="background:#334155;color:#94a3b8;padding:2px 8px;border-radius:4px;font-size:0.75rem;">Python</span>
+                <span style="background:#334155;color:#94a3b8;padding:2px 8px;border-radius:4px;font-size:0.75rem;">Go</span>
+              </div>
+            </div>
+            <pre style="background:#090d16;padding:12px;border-radius:6px;border:1px solid #1f293d;font-family:monospace;font-size:0.78rem;color:#f87171;line-height:1.45;overflow-x:auto;">curl -X POST "https://api.cloudstore.io/v1/checkout/orders" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.demo..." \
+  -H "x-client-platform: web-dashboard" \
+  -d '{
+    "orderId": "ord_9182",
+    "items": [{"sku": "pro_license", "qty": 1, "price": 99.00}],
+    "total": 99.00
+  }'</pre>
+            <div style="display:flex;justify-content:flex-end;margin-top:10px;">
+              <button style="background:#334155;color:#f8fafc;border:none;padding:5px 12px;border-radius:6px;font-size:0.75rem;cursor:pointer;">📋 Copy cURL Command</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

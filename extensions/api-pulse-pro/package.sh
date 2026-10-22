@@ -19,10 +19,7 @@ zip -r "$DIST_DIR/$ZIP_NAME" \
   popup \
   studio \
   devtools \
-  test-page \
-  README.md \
-  PRIVACY_POLICY.md \
-  -x "*.DS_Store" -x "*/.DS_Store"
+  -x "*.DS_Store" -x "*/.DS_Store" -x "*__MACOSX*" -x "*.git*"
 
 echo "✅ Production package created at: $DIST_DIR/$ZIP_NAME"
 ls -lh "$DIST_DIR/$ZIP_NAME"

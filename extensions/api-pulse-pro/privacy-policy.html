@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — API Pulse Pro</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #090d16;
+      color: #e2e8f0;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .meta {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 24px;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 16px;
+    }
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+    p, ul {
+      margin-bottom: 16px;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    code {
+      background: #1e293b;
+      color: #f472b6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.88rem;
+    }
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .footer {
+      margin-top: 40px;
+      border-top: 1px solid #1e293b;
+      padding-top: 20px;
+      font-size: 0.85rem;
+      color: #64748b;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="badge">100% Local • Zero Telemetry</span>
+    <h1>Privacy Policy for API Pulse Pro</h1>
+    <div class="meta">
+      <strong>Last Updated</strong>: October 2026 &bull; 
+      <strong>Developer</strong>: Abhijeet Raut (<a href="https://github.com/arauthub" target="_blank" rel="noopener">github.com/arauthub</a>) &bull; 
+      <strong>Extension</strong>: API Pulse Pro (Manifest V3)
+    </div>
+
+    <h2>1. Overview & Commitment to Privacy</h2>
+    <p><strong>API Pulse Pro</strong> ("the Extension") is designed with a strict <strong>privacy-first, 100% local client-side only</strong> architecture. Software engineers deal with proprietary APIs, authorization tokens, staging servers, and sensitive data. We believe this data must remain strictly on your local machine.</p>
+    <ul>
+      <li>The Extension <strong>does NOT collect, record, harvest, or transmit any personally identifiable information (PII)</strong>.</li>
+      <li>The Extension <strong>does NOT communicate with any external tracking, telemetry, or analytics server</strong>.</li>
+      <li>The Extension <strong>does NOT send your API requests, responses, headers, or payloads to any cloud server</strong>.</li>
+      <li>All network interception, mocking, request replaying, diffing, and inspection happen exclusively within your local browser instance.</li>
+    </ul>
+
+    <h2>2. Information Handled Locally</h2>
+    <p>The Extension monitors and stores network transactions solely within your local browser memory and Chrome local storage:</p>
+    <ul>
+      <li><strong>Captured Request Metadata</strong>: HTTP method, URL, headers, and request body (for POST/PUT requests).</li>
+      <li><strong>Captured Response Metadata</strong>: Status code, headers, latency duration, and response body.</li>
+      <li><strong>Mocking Configurations</strong>: Custom mock patterns, status codes, and mock JSON bodies saved in <code>chrome.storage.local</code>.</li>
+      <li><strong>User Preferences</strong>: Pinned request IDs, active filters, and HUD floating positions stored in local storage.</li>
+    </ul>
+    <p><em>None of this data is ever uploaded, synchronized to third-party endpoints, or transmitted outside your local machine.</em></p>
+
+    <h2>3. Explanation of Browser Permissions</h2>
+    <ul>
+      <li><code>storage</code>: Persists your mock rules, pinned requests, and workbench preferences locally on your device.</li>
+      <li><code>activeTab</code>: Allows the extension to interact with and display the in-page Floating HUD on your current tab.</li>
+      <li><code>scripting</code>: Required to inject the MAIN-world interceptor for monkey-patching <code>fetch</code> and <code>XMLHttpRequest</code>.</li>
+      <li><code>&lt;all_urls&gt;</code>: Required to enable developers to inspect API calls across all development origins (including <code>localhost</code>, internal staging, and production domains).</li>
+    </ul>
+
+    <h2>4. Third-Party Services & Telemetry</h2>
+    <p>API Pulse Pro uses <strong>zero third-party services</strong>, zero tracking scripts, zero CDNs, and zero analytics packages.</p>
+
+    <h2>5. Contact & Support</h2>
+    <p>If you have questions about this policy or the extension:</p>
+    <p>GitHub Repository: <a href="https://github.com/arauthub/All-Projects/tree/main/extensions/api-pulse-pro" target="_blank" rel="noopener">github.com/arauthub/All-Projects</a></p>
+
+    <div class="footer">
+      &copy; 2026 Abhijeet Raut. All rights reserved.
+    </div>
+  </div>
+</body>
+</html>

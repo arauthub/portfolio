@@ -61,7 +61,23 @@
     setupSplitter();
     setupEventHandlers();
     startPolling();
+    handleUrlHash();
   });
+
+  function handleUrlHash() {
+    try {
+      const hash = window.location.hash;
+      if (hash.startsWith('#tab=')) {
+        const tabName = hash.replace('#tab=', '');
+        const targetTab = document.querySelector(`.insp-tab[data-tab="${tabName}"]`);
+        if (targetTab) targetTab.click();
+      } else if (hash === '#mock') {
+        document.getElementById('btn-mock-manager')?.click();
+      } else if (hash === '#diff') {
+        document.getElementById('btn-diff-modal')?.click();
+      }
+    } catch (_) {}
+  }
 
   function seedInitialDemoData() {
     if (allRequests.length === 0) {
@@ -161,6 +177,29 @@
         }
       ];
       selectedReqId = 'demo_req_1';
+      if (mockRules.length === 0) {
+        mockRules = [
+          {
+            id: 'mock_1',
+            enabled: true,
+            method: 'POST',
+            pattern: '*/v1/checkout/orders*',
+            status: 201,
+            delay: 0,
+            body: JSON.stringify({ mocked: true, orderId: 'ord_mock_9921', status: 'APPROVED' }, null, 2)
+          },
+          {
+            id: 'mock_2',
+            enabled: true,
+            method: 'ALL',
+            pattern: '*/api/v1/payment/*',
+            status: 500,
+            delay: 1200,
+            body: JSON.stringify({ error: 'GATEWAY_TIMEOUT', reason: 'Simulated chaos testing failure' }, null, 2)
+          }
+        ];
+        updateMockBadge();
+      }
       updateCounts();
       renderStreamList();
       renderInspectorDetails(allRequests[0]);
