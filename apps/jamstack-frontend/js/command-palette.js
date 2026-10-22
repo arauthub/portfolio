@@ -147,6 +147,12 @@ export class CommandPalette {
     this.modal?.querySelector('.modal-backdrop')?.addEventListener('click', () => {
       this.close();
     });
+    this.modal?.querySelector('#palette-backdrop')?.addEventListener('click', () => {
+      this.close();
+    });
+    document.getElementById('btn-close-palette')?.addEventListener('click', () => {
+      this.close();
+    });
   }
 
   isOpen() {

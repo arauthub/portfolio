@@ -10,26 +10,31 @@
   <meta name="author" content="Abhijeet Raut">
   <link rel="canonical" href="https://arauthub.github.io/portfolio/">
 
-  <!-- OpenGraph / Facebook / LinkedIn / WhatsApp / Slack -->
-  <meta property="og:type" content="profile">
-  <meta property="profile:first_name" content="Abhijeet">
-  <meta property="profile:last_name" content="Raut">
-  <meta property="profile:username" content="arauthub">
+  <!-- OpenGraph / Facebook / LinkedIn / WhatsApp / Slack / Telegram -->
+  <meta property="og:type" content="website">
   <meta property="og:site_name" content="Abhijeet Raut | Solutions Architect Portfolio">
   <meta property="og:url" content="https://arauthub.github.io/portfolio/">
   <meta property="og:title" content="Abhijeet Raut — Lead Backend & AI/ML Engineer | Solutions Architect">
-  <meta property="og:description" content="12 years of hands-on experience architecting high-concurrency backends, autonomous AI agent swarms (Google ADK), distributed cloud systems, and scalable enterprise platforms.">
+  <meta property="og:description" content="12 years of hands-on experience architecting high-concurrency backends, autonomous AI agent swarms (Google ADK), distributed cloud systems, and scalable enterprise platforms (Persistent Systems & Cybage Software).">
   <meta property="og:image" content="https://arauthub.github.io/portfolio/assets/og-image.png">
   <meta property="og:image:secure_url" content="https://arauthub.github.io/portfolio/assets/og-image.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Abhijeet Raut — Lead Backend & AI/ML Engineer | Solutions Architect">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Fallback & Legacy Scrapers (WhatsApp Mobile / Android SMS / Yahoo) -->
+  <link rel="image_src" href="https://arauthub.github.io/portfolio/assets/og-image.png">
+  <meta itemprop="name" content="Abhijeet Raut — Lead Backend & AI/ML Engineer | Solutions Architect">
+  <meta itemprop="description" content="12 years of hands-on experience architecting high-concurrency backends, autonomous AI agent swarms (Google ADK), distributed cloud systems, and scalable enterprise platforms.">
+  <meta itemprop="image" content="https://arauthub.github.io/portfolio/assets/og-image.png">
 
   <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@arauthub">
   <meta name="twitter:creator" content="@arauthub">
+  <meta name="twitter:domain" content="arauthub.github.io">
   <meta name="twitter:url" content="https://arauthub.github.io/portfolio/">
   <meta name="twitter:title" content="Abhijeet Raut — Lead Backend & AI/ML Engineer | Solutions Architect">
   <meta name="twitter:description" content="12 years of hands-on experience architecting high-concurrency backends, autonomous AI agent swarms (Google ADK), distributed cloud systems, and scalable enterprise platforms.">
@@ -552,13 +557,14 @@
   </div>
 
   <!-- 4. Global Spotlight Command Palette (Cmd+K) -->
+  <!-- 4. Global Spotlight Command Palette (Cmd+K) -->
   <div class="command-palette-modal" id="command-palette-modal">
-    <div class="modal-backdrop"></div>
+    <div class="modal-backdrop palette-backdrop" id="palette-backdrop"></div>
     <div class="palette-box">
       <div class="palette-input-wrap">
         <span>🔍</span>
         <input type="text" id="palette-input" class="palette-input" placeholder="Type a command, project, or skill (e.g. 'Swarm', 'ARNAS', 'Docker')..." autocomplete="off" spellcheck="false" />
-        <span class="kbd-shortcut">ESC</span>
+        <button class="palette-close-btn" id="btn-close-palette" title="Close Search (ESC)">✕</button>
       </div>
       <div class="palette-results" id="palette-results"></div>
     </div>
@@ -671,11 +677,19 @@
             </div>
           </a>
 
-          <a href="https://api.whatsapp.com/send?text=Abhijeet%20Raut%20%E2%80%94%20Lead%20Backend%20%26%20AI%2FML%20Engineer%20%7C%20Solutions%20Architect%20Portfolio%3A%20https%3A%2F%2Farauthub.github.io%2Fportfolio%2F" target="_blank" rel="noopener noreferrer" class="channel-card whatsapp" id="channel-whatsapp">
+          <a href="https://api.whatsapp.com/send?text=https%3A%2F%2Farauthub.github.io%2Fportfolio%2F%20%E2%80%94%20Abhijeet%20Raut%20%7C%20Lead%20Backend%20%26%20AI%2FML%20Architect" target="_blank" rel="noopener noreferrer" class="channel-card whatsapp" id="channel-whatsapp">
             <span class="channel-icon">💬</span>
             <div class="channel-text">
               <span class="channel-name">WhatsApp</span>
               <span class="channel-desc">Send to recruiter or colleague</span>
+            </div>
+          </a>
+
+          <a href="https://t.me/share/url?url=https%3A%2F%2Farauthub.github.io%2Fportfolio%2F&text=Abhijeet%20Raut%20%E2%80%94%20Lead%20Backend%20%26%20AI%2FML%20Engineer%20%7C%20Solutions%20Architect" target="_blank" rel="noopener noreferrer" class="channel-card telegram" id="channel-telegram">
+            <span class="channel-icon">✈️</span>
+            <div class="channel-text">
+              <span class="channel-name">Telegram</span>
+              <span class="channel-desc">Send to group or contact</span>
             </div>
           </a>
 

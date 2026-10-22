@@ -46,11 +46,16 @@ assert(fs.existsSync(path.join(APP_ROOT, 'assets/og-image.png')), 'assets/og-ima
 const indexHtmlContent = fs.readFileSync(path.join(APP_ROOT, 'index.html'), 'utf-8');
 assert(indexHtmlContent.includes('Abhijeet Raut — Lead Backend & AI/ML Engineer | Solutions Architect'), 'index.html title matches CV');
 assert(indexHtmlContent.includes('property="og:image" content="https://arauthub.github.io/portfolio/assets/og-image.png"'), 'index.html has og:image social card');
+assert(indexHtmlContent.includes('property="og:type" content="website"'), 'index.html has og:type website for universal social unfurling');
+assert(indexHtmlContent.includes('rel="image_src" href="https://arauthub.github.io/portfolio/assets/og-image.png"'), 'index.html has rel=image_src fallback for mobile scrapers');
 assert(indexHtmlContent.includes('name="twitter:card" content="summary_large_image"'), 'index.html has summary_large_image Twitter card');
 assert(indexHtmlContent.includes('application/ld+json'), 'index.html has Schema.org JSON-LD rich card structured data');
 assert(indexHtmlContent.includes('id="share-card-modal"'), 'index.html contains Executive Share & Professional Card View modal');
 assert(indexHtmlContent.includes('class="hud-search-box"'), 'index.html contains adjusted Header Spotlight Search Box');
 assert(indexHtmlContent.includes('id="btn-open-share"'), 'index.html contains Header Share Card button');
+assert(indexHtmlContent.includes('id="channel-whatsapp"'), 'index.html contains WhatsApp direct sharing channel');
+assert(indexHtmlContent.includes('id="channel-telegram"'), 'index.html contains Telegram direct sharing channel');
+assert(indexHtmlContent.includes('id="btn-close-palette"'), 'index.html contains mobile close button for command palette');
 
 // 2. Data Integrity Tests
 console.log('\n📊 2. Projects & Profile Data Integrity:');
