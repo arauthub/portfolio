@@ -1,14 +1,22 @@
 {
-  "buildTime": "2026-10-22T18:33:17.530Z",
+  "buildTime": "2026-10-22T18:35:26.252Z",
   "targetBranch": "main",
   "gitCommitCount": 15,
   "recentCommits": [
+    {
+      "hash": "23d5560",
+      "fullHash": "23d5560c5421fdce0e179213ce997b1401c97778",
+      "author": "Abhijeet Raut",
+      "date": "2026-10-23 00:04:56 +0530",
+      "relativeDate": "30 seconds ago",
+      "message": "feat(extensions): prepare api-pulse-pro v1.0.0 for Chrome Web Store release and add store assets"
+    },
     {
       "hash": "3d5df8a",
       "fullHash": "3d5df8a4791c20c24d7cdc6292501c5f29602d57",
       "author": "Abhijeet Raut",
       "date": "2026-10-23 00:02:45 +0530",
-      "relativeDate": "32 seconds ago",
+      "relativeDate": "3 minutes ago",
       "message": "fix(portfolio): optimize mobile layout, ensure universal rich card unfurling across media, and fix modal scrolling"
     },
     {
@@ -58,14 +66,6 @@
       "date": "2026-10-14 20:10:10 +0530",
       "relativeDate": "8 days ago",
       "message": "fix(portfolio): ensure initial landing points to headshot and add responsive layouts"
-    },
-    {
-      "hash": "2db9704",
-      "fullHash": "2db97049142a9c6333b2030998fc6f6c19605036",
-      "author": "Abhijeet Raut",
-      "date": "2026-10-11 21:06:37 +0530",
-      "relativeDate": "11 days ago",
-      "message": "feat(portfolio): integrate CV title, brief intro, and social og-image with profile photo"
     }
   ],
   "systemsCount": 11,
