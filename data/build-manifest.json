@@ -1,14 +1,22 @@
 {
-  "buildTime": "2026-10-22T18:50:32.445Z",
+  "buildTime": "2026-10-22T19:06:02.784Z",
   "targetBranch": "main",
   "gitCommitCount": 15,
   "recentCommits": [
+    {
+      "hash": "54a60cf",
+      "fullHash": "54a60cf24aac345482521d1a4ab1d8410821781c",
+      "author": "Abhijeet Raut",
+      "date": "2026-10-23 00:35:38 +0530",
+      "relativeDate": "24 seconds ago",
+      "message": "fix(portfolio): eliminate overlapping card content and add robust offline HD card download"
+    },
     {
       "hash": "6e4155f",
       "fullHash": "6e4155f800a2048e7a9b0346568553f302b2ace2",
       "author": "Abhijeet Raut",
       "date": "2026-10-23 00:20:08 +0530",
-      "relativeDate": "24 seconds ago",
+      "relativeDate": "16 minutes ago",
       "message": "fix(portfolio): set Cybage Software as current company, Persistent Systems as past, and correct text inconsistencies"
     },
     {
@@ -16,7 +24,7 @@
       "fullHash": "23d5560c5421fdce0e179213ce997b1401c97778",
       "author": "Abhijeet Raut",
       "date": "2026-10-23 00:04:56 +0530",
-      "relativeDate": "16 minutes ago",
+      "relativeDate": "31 minutes ago",
       "message": "feat(extensions): prepare api-pulse-pro v1.0.0 for Chrome Web Store release and add store assets"
     },
     {
@@ -24,7 +32,7 @@
       "fullHash": "3d5df8a4791c20c24d7cdc6292501c5f29602d57",
       "author": "Abhijeet Raut",
       "date": "2026-10-23 00:02:45 +0530",
-      "relativeDate": "18 minutes ago",
+      "relativeDate": "33 minutes ago",
       "message": "fix(portfolio): optimize mobile layout, ensure universal rich card unfurling across media, and fix modal scrolling"
     },
     {
@@ -58,14 +66,6 @@
       "date": "2026-10-14 21:01:11 +0530",
       "relativeDate": "8 days ago",
       "message": "feat(portfolio): add slick cyber hamburger menu for smaller devices and optimize rendering performance"
-    },
-    {
-      "hash": "5f5e70c",
-      "fullHash": "5f5e70c6918fd1392d0f6825672d7c4a92b1de42",
-      "author": "Abhijeet Raut",
-      "date": "2026-10-14 20:25:13 +0530",
-      "relativeDate": "8 days ago",
-      "message": "chore(portfolio): sync build manifest with responsive and landing scroll fix"
     }
   ],
   "systemsCount": 11,

@@ -754,6 +754,16 @@ class NexusPrimeApp {
       });
     }
 
+    // Download HD Executive Card (Offline Canvas Renderer + Fallback)
+    const downloadCardBtn = document.getElementById('btn-download-card');
+    if (downloadCardBtn) {
+      downloadCardBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        soundSynth.playSuccess();
+        this.downloadExecutiveCard();
+      });
+    }
+
     // CV Modal trigger
     document.getElementById('btn-open-cv')?.addEventListener('click', () => {
       soundSynth.playWarp();
@@ -797,7 +807,287 @@ class NexusPrimeApp {
     });
   }
 
-  // 9. Live Telemetry Clock & Ping
+  // 9. Offline HD Executive Card Generator (Client-Side HTML5 Canvas)
+  downloadExecutiveCard() {
+    const downloadBtn = document.getElementById('btn-download-card');
+    const desc = downloadBtn?.querySelector('.channel-desc');
+    const originalText = desc ? desc.textContent : 'Save 1200x630 HD PNG card';
+    if (desc) desc.textContent = 'Generating HD Card...';
+
+    const canvas = document.createElement('canvas');
+    canvas.width = 1200;
+    canvas.height = 630;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) {
+      const fallback = document.createElement('a');
+      fallback.href = 'assets/og-image.png';
+      fallback.download = 'Abhijeet_Raut_Executive_Card.png';
+      fallback.click();
+      if (desc) desc.textContent = originalText;
+      return;
+    }
+
+    // 1. Background gradient
+    const bgGrad = ctx.createLinearGradient(0, 0, 0, 630);
+    bgGrad.addColorStop(0, '#060a14');
+    bgGrad.addColorStop(1, '#0e182e');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, 1200, 630);
+
+    // 2. Ambient glow orbs
+    const cyanGlow = ctx.createRadialGradient(150, 150, 0, 150, 150, 350);
+    cyanGlow.addColorStop(0, 'rgba(0, 245, 255, 0.22)');
+    cyanGlow.addColorStop(1, 'rgba(0, 245, 255, 0)');
+    ctx.fillStyle = cyanGlow;
+    ctx.fillRect(0, 0, 600, 600);
+
+    const purpleGlow = ctx.createRadialGradient(1050, 120, 0, 1050, 120, 380);
+    purpleGlow.addColorStop(0, 'rgba(192, 132, 252, 0.18)');
+    purpleGlow.addColorStop(1, 'rgba(192, 132, 252, 0)');
+    ctx.fillStyle = purpleGlow;
+    ctx.fillRect(600, 0, 600, 600);
+
+    // 3. Subtle grid lines
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.025)';
+    ctx.lineWidth = 1;
+    for (let x = 0; x < 1200; x += 48) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, 630);
+      ctx.stroke();
+    }
+    for (let y = 0; y < 630; y += 48) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(1200, y);
+      ctx.stroke();
+    }
+
+    // 4. Executive Glassmorphic Card Container (Vertically centered)
+    const cardX = 50, cardY = 75, cardW = 1100, cardH = 480, radius = 22;
+    ctx.save();
+    ctx.fillStyle = 'rgba(11, 18, 33, 0.94)';
+    ctx.strokeStyle = 'rgba(0, 245, 255, 0.45)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.roundRect(cardX, cardY, cardW, cardH, radius);
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+
+    // 5. Header: Pill Badge & Company Badge
+    const hdrY = cardY + 24;
+    const pillX = cardX + 36;
+    ctx.save();
+    ctx.fillStyle = 'rgba(15, 23, 42, 0.95)';
+    ctx.strokeStyle = 'rgba(0, 245, 255, 0.55)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(pillX, hdrY, 440, 30, 15);
+    ctx.fill();
+    ctx.stroke();
+
+    // Pulse cyan dot
+    ctx.fillStyle = '#00f5ff';
+    ctx.beginPath();
+    ctx.arc(pillX + 16, hdrY + 15, 4, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Badge text
+    ctx.fillStyle = '#00f5ff';
+    ctx.font = 'bold 12.5px monospace, Courier, sans-serif';
+    ctx.fillText('12 YEARS INDUSTRY EXPERIENCE • LEAD SOLUTIONS ARCHITECT', pillX + 28, hdrY + 20);
+
+    // Company badge on right
+    ctx.fillStyle = '#c084fc';
+    ctx.font = 'bold 12px monospace, Courier, sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText('CYBAGE SOFTWARE & PERSISTENT SYSTEMS', cardX + cardW - 36, hdrY + 20);
+    ctx.restore();
+
+    // Header divider line
+    const hdrDivY = hdrY + 44;
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.6)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(cardX + 36, hdrDivY);
+    ctx.lineTo(cardX + cardW - 36, hdrDivY);
+    ctx.stroke();
+
+    // 6. Avatar & Content Drawing
+    const avatarSize = 230;
+    const avatarX = cardX + 40;
+    const avatarY = hdrDivY + 22;
+
+    const renderCardContent = () => {
+      // Text under avatar
+      const metaY = avatarY + avatarSize + 20;
+      const centerX = avatarX + avatarSize / 2;
+
+      ctx.save();
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#00f5ff';
+      ctx.font = 'bold 12.5px monospace, sans-serif';
+      ctx.fillText('SOLUTIONS ARCHITECT', centerX, metaY);
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '11.5px monospace, sans-serif';
+      ctx.fillText('PUNE, INDIA • VERIFIED', centerX, metaY + 18);
+      ctx.restore();
+
+      // Right column details
+      const curX = avatarX + avatarSize + 45;
+      let curY = hdrDivY + 20;
+      const rightMaxX = cardX + cardW - 36;
+
+      // Name
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 42px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillText('Abhijeet Raut', curX, curY + 36);
+
+      // Title
+      curY += 66;
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = 'bold 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillText('Lead Backend & AI/ML Engineer | Solutions Architect', curX, curY);
+
+      // Companies
+      curY += 28;
+      ctx.fillStyle = '#c084fc';
+      ctx.font = '600 15px monospace, sans-serif';
+      ctx.fillText('Cybage Software (Current)  •  Persistent Systems (Past)', curX, curY);
+
+      // Intro
+      curY += 28;
+      ctx.fillStyle = '#e2e8f0';
+      ctx.font = '14.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillText('Accomplished Lead Software Engineer architecting high-concurrency backend', curX, curY);
+      curY += 22;
+      ctx.fillText('services, distributed systems, and modern AI/ML solutions at enterprise scale.', curX, curY);
+      curY += 22;
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText('Autonomous AI Multi-Agent Swarms (Google ADK) • Vector RAG • E2EE Cloud', curX, curY);
+
+      // Chips
+      curY += 28;
+      const skills = ["Python (Expert)", "FastAPI", "Django", "Go", "Agentic AI", "Vector RAG", "Docker", "DevOps"];
+      let tagX = curX;
+      ctx.font = 'bold 11.5px monospace, sans-serif';
+      skills.forEach(skill => {
+        const sw = ctx.measureText(skill).width + 16;
+        ctx.fillStyle = 'rgba(17, 28, 48, 0.9)';
+        ctx.strokeStyle = 'rgba(51, 65, 85, 0.9)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.roundRect(tagX, curY, sw, 24, 5);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = (skill === 'Python (Expert)' || skill === 'Agentic AI') ? '#00f5ff' : '#94a3b8';
+        ctx.fillText(skill, tagX + 8, curY + 16);
+        tagX += sw + 7;
+      });
+
+      // Divider
+      curY += 38;
+      ctx.strokeStyle = 'rgba(51, 65, 85, 0.6)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(curX, curY);
+      ctx.lineTo(rightMaxX, curY);
+      ctx.stroke();
+
+      // Footer
+      curY += 20;
+      const footers = [
+        { label: '[REPO]', val: 'github.com/arauthub/portfolio', col: '#00f5ff' },
+        { label: '[SITE]', val: 'arauthub.github.io/portfolio', col: '#00f5ff' },
+        { label: '[AUDIT]', val: '5/5 Presubmit Verified', col: '#34d399' }
+      ];
+      let footX = curX;
+      footers.forEach(f => {
+        ctx.font = 'bold 12.5px monospace, sans-serif';
+        ctx.fillStyle = f.col;
+        ctx.fillText(f.label, footX, curY);
+        footX += ctx.measureText(f.label).width + 6;
+
+        ctx.font = '13px monospace, sans-serif';
+        ctx.fillStyle = '#cbd5e1';
+        ctx.fillText(f.val, footX, curY);
+        footX += ctx.measureText(f.val).width + 24;
+      });
+
+      // Trigger Instant Blob Download
+      canvas.toBlob((blob) => {
+        if (!blob) {
+          const fallback = document.createElement('a');
+          fallback.href = 'assets/og-image.png';
+          fallback.download = 'Abhijeet_Raut_Executive_Card.png';
+          fallback.click();
+          if (desc) desc.textContent = originalText;
+          return;
+        }
+        const blobUrl = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = 'Abhijeet_Raut_Executive_Card.png';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
+
+        if (desc) desc.textContent = 'Card Downloaded! ✓';
+        setTimeout(() => { if (desc) desc.textContent = originalText; }, 2500);
+      }, 'image/png');
+    };
+
+    // Load profile photo onto canvas
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      ctx.save();
+      ctx.strokeStyle = 'rgba(0, 245, 255, 0.3)';
+      ctx.lineWidth = 6;
+      ctx.beginPath();
+      ctx.arc(avatarX + avatarSize / 2, avatarY + avatarSize / 2, avatarSize / 2 + 5, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.strokeStyle = '#00f5ff';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(avatarX + avatarSize / 2, avatarY + avatarSize / 2, avatarSize / 2, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(avatarX + avatarSize / 2, avatarY + avatarSize / 2, avatarSize / 2 - 2, 0, Math.PI * 2);
+      ctx.clip();
+      ctx.drawImage(img, avatarX, avatarY, avatarSize, avatarSize);
+      ctx.restore();
+
+      const stX = avatarX + avatarSize - 28;
+      const stY = avatarY + avatarSize - 28;
+      ctx.fillStyle = '#0b1221';
+      ctx.beginPath();
+      ctx.arc(stX + 10, stY + 10, 14, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#10b981';
+      ctx.beginPath();
+      ctx.arc(stX + 10, stY + 10, 11, 0, Math.PI * 2);
+      ctx.fill();
+
+      renderCardContent();
+    };
+
+    img.onerror = () => {
+      renderCardContent();
+    };
+
+    const previewImg = document.querySelector('.card-preview-avatar-img');
+    img.src = previewImg?.src || 'assets/profile-photo.png';
+  }
+
+  // 10. Live Telemetry Clock & Ping
   startLiveTelemetryClock() {
     const clockEl = document.getElementById('hud-clock');
     const pingEl = document.getElementById('hud-ping');

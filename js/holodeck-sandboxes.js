@@ -22,6 +22,7 @@ export const HolodeckSandboxes = {
       case 'swarm-dag':
         this.renderSwarmDag(container);
         break;
+      case 'gravidrift-sandbox':
       case 'antigravity-sandbox':
         this.renderAntiGravity(container);
         break;
@@ -196,13 +197,13 @@ export const HolodeckSandboxes = {
     });
   },
 
-  // 2. Anti-Gravity 2D Physics Canvas
+  // 2. GraviDrift 2D Physics Canvas
   renderAntiGravity(container) {
     container.innerHTML = `
       <div class="sandbox-header">
         <div class="sandbox-title-wrap">
           <span class="sandbox-badge purple">Matter.js 2D Physics</span>
-          <h3>Anti-Gravity Web Sandbox</h3>
+          <h3>GraviDrift Web Sandbox</h3>
           <p>Zero-gravity physics simulation. Elements float, collide, and react to directional gravity inversion and mouse tractor beams.</p>
         </div>
         <div class="sandbox-controls">

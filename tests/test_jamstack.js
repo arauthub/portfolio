@@ -57,6 +57,8 @@ assert(indexHtmlContent.includes('class="hud-search-box"'), 'index.html contains
 assert(indexHtmlContent.includes('id="btn-open-share"'), 'index.html contains Header Share Card button');
 assert(indexHtmlContent.includes('id="channel-whatsapp"'), 'index.html contains WhatsApp direct sharing channel');
 assert(indexHtmlContent.includes('id="channel-telegram"'), 'index.html contains Telegram direct sharing channel');
+assert(indexHtmlContent.includes('id="btn-download-card"'), 'index.html contains Download Card action');
+assert(indexHtmlContent.includes('download="Abhijeet_Raut_Executive_Card.png"'), 'index.html contains HD PNG card download filename');
 assert(indexHtmlContent.includes('id="btn-close-palette"'), 'index.html contains mobile close button for command palette');
 
 // 2. Data Integrity Tests
@@ -70,8 +72,8 @@ import('../js/projects-data.js').then(({ MONOREPO_PROJECTS }) => {
   const myagents = MONOREPO_PROJECTS.find(p => p.id === 'myagents');
   assert(myagents && myagents.simulatorId === 'swarm-dag', 'MyAgents links to swarm-dag simulator');
 
-  const antigravity = MONOREPO_PROJECTS.find(p => p.id === 'anti-gravity-browser');
-  assert(antigravity && antigravity.techStack.includes('Matter.js Physics'), 'Anti-Gravity links to Matter.js');
+  const gravidrift = MONOREPO_PROJECTS.find(p => p.id === 'gravidrift-browser');
+  assert(gravidrift && gravidrift.techStack.includes('Matter.js Physics'), 'GraviDrift links to Matter.js');
 
   return import('../js/profile-data.js');
 }).then(({ PROFILE_DATA }) => {
