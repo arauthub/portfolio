@@ -605,7 +605,7 @@ class NexusPrimeApp {
           </div>
           <div class="period-badge">${PROFILE_DATA.education.period}</div>
         </div>
-        <p class="edu-desc">Comprehensive computer systems engineering, operating systems, networking algorithms, and distributed systems foundation.</p>
+        <p class="edu-desc">Advanced computer applications, software engineering, enterprise database architecture, algorithms, and distributed systems foundation.</p>
       </div>
     `;
   }

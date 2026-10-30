@@ -27,7 +27,7 @@ export const PROFILE_DATA = {
     {
       company: "Cybage Software",
       role: "Lead Software Engineer & Solutions Architect",
-      period: "2023 – Present (Current)",
+      period: "2017 – Present (Current)",
       location: "Pune, India",
       badge: "Current Role",
       highlights: [
@@ -41,7 +41,7 @@ export const PROFILE_DATA = {
     {
       company: "Persistent Systems",
       role: "Lead Software Engineer / AI & Backend Architect",
-      period: "2014 – 2023 (Past)",
+      period: "2014 – 2017 (Past)",
       location: "Pune, India",
       badge: "Past Role",
       highlights: [
@@ -55,9 +55,9 @@ export const PROFILE_DATA = {
   ],
 
   education: {
-    degree: "Bachelor of Engineering (B.E.) in Computer Engineering",
+    degree: "Master of Computer Applications (MCA)",
     institution: "University of Pune, India",
-    period: "2010 – 2014"
+    period: "Completed 2014"
   },
 
   skillsArsenal: [
