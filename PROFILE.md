@@ -101,9 +101,9 @@ Here are highlights from my public [**All-Projects**](https://github.com/arauthu
 
 ## 💼 Career Snapshot
 
-* **Lead Software Engineer & Solutions Architect** — *Cybage Software* (2023 – Present / Current)
-* **Lead Software Engineer / AI & Backend Architect** — *Persistent Systems* (2014 – 2023 / Past)
-* **B.E. in Computer Engineering** — *University of Pune, India*
+* **Lead Software Engineer & Solutions Architect** — *Cybage Software* (2017 – Present / Current)
+* **Lead Software Engineer / AI & Backend Architect** — *Persistent Systems* (2014 – 2017 / Past)
+* **Master of Computer Applications (MCA)** — *University of Pune, India (Completed 2014)*
 
 ---
 

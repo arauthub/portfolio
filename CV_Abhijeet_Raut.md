@@ -32,7 +32,7 @@ Accomplished **Lead Software Engineer and Solutions Architect** with **12 years 
 
 ### **Cybage Software** | Pune, India
 **Lead Software Engineer & Solutions Architect**  
-*2023 – Present (Current)*
+*2017 – Present (Current)*
 
 * Leading end-to-end architecture and implementation of large-scale enterprise web applications, high-concurrency backends, and content management platforms using **Python, Django, and Wagtail CMS**, serving millions of monthly active users.
 * Engineering secure, scalable RESTful API backends integrated with modern frontend single-page applications (**Angular, React**) and third-party enterprise integrations.
@@ -42,7 +42,7 @@ Accomplished **Lead Software Engineer and Solutions Architect** with **12 years 
 
 ### **Persistent Systems** | Pune, India
 **Lead Software Engineer / AI & Backend Architect**  
-*2014 – 2023 (Past)*
+*2014 – 2017 (Past)*
 
 * Architected and deployed enterprise-grade **Autonomous AI Agent workflows** and **RAG-powered conversational pipelines** leveraging the Google Agent Development Kit (ADK) and modern LLM APIs, reducing operational query resolution times by 45%.
 * Designed scalable, fault-tolerant backend services in **Python (FastAPI, Django)** and **Go**, handling high-throughput asynchronous payloads with Redis caching and message queues.
@@ -148,8 +148,8 @@ Accomplished **Lead Software Engineer and Solutions Architect** with **12 years 
 
 ## Education
 
-* **Bachelor of Engineering (B.E.) in Computer Engineering**  
-  *University of Pune, India*
+* **Master of Computer Applications (MCA)**  
+  *University of Pune, India (Completed 2014)*
 
 ---
 

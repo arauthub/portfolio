@@ -82,8 +82,12 @@ import('../js/projects-data.js').then(({ MONOREPO_PROJECTS }) => {
   assert(PROFILE_DATA.workExperience.length >= 2, 'Work experience entries present');
   assert(PROFILE_DATA.workExperience[0].company === 'Cybage Software', 'Current company is Cybage Software');
   assert(PROFILE_DATA.workExperience[0].badge === 'Current Role', 'Cybage Software marked as Current Role');
+  assert(PROFILE_DATA.workExperience[0].period.includes('2017 – Present'), 'Cybage tenure starts in 2017 till present');
   assert(PROFILE_DATA.workExperience[1].company === 'Persistent Systems', 'Past company is Persistent Systems');
   assert(PROFILE_DATA.workExperience[1].badge === 'Past Role', 'Persistent Systems marked as Past Role');
+  assert(PROFILE_DATA.workExperience[1].period.includes('2014 – 2017'), 'Persistent tenure is 2014 to 2017');
+  assert(PROFILE_DATA.education.degree.includes('MCA') && !PROFILE_DATA.education.degree.includes('B.E.'), 'Education is MCA (Master of Computer Applications, not B.E.)');
+  assert(PROFILE_DATA.education.period.includes('2014'), 'MCA completed in 2014');
   assert(PROFILE_DATA.skillsArsenal.length >= 4, 'Skills arsenal categorised across 4+ domains');
 
   return import('../js/git-intelligence.js');
