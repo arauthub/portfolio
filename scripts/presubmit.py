@@ -465,6 +465,13 @@ def run_monorepo_ci_verification(mode="standalone"):
     and verifies remote CI health before allowing push or commit.
     """
     print("\n🔍 [Presubmit 6/6] Verifying Monorepo CI verification suites...")
+    
+    # In GitHub Actions CI environment, parallel workflow jobs run each subsystem test independently.
+    if os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("CI") == "true":
+        print("  ℹ️ CI environment detected: Monorepo test suites (Swarm, ARNAS, Curator, Jamstack, LMS) are managed by dedicated workflow jobs.")
+        print("✅ [CI Gatekeeper] Delegated to GitHub Actions parallel matrix jobs.")
+        return True
+
     ci_failures = []
 
     # 1. Multi-Agent Swarm Tests
