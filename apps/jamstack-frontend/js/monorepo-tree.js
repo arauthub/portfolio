@@ -30,6 +30,23 @@ export function encryptAESGCM(data: Buffer, key: Buffer) {
 }`
       },
       {
+        name: "synapse-lms",
+        type: "dir",
+        desc: "Cybernetic Learning Experience Platform with Wagtail Headless Engine & Angular 22",
+        snippet: `// apps/synapse-lms/frontend/src/app/core/services/gamification.service.ts
+import { Injectable, signal } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class GamificationService {
+  public profile = signal<LearnerProfile>({
+    callsign: 'Cyber-Adept-01',
+    level: 3,
+    current_xp: 1450,
+    streak_days: 6
+  });
+}`
+      },
+      {
         name: "workspace-curator",
         type: "dir",
         desc: "Google Workspace Webhook Ingestion & AI Curation Engine",

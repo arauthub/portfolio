@@ -444,11 +444,12 @@ def sync_readme(projects):
     for proj in projects:
         if proj["rel_path"] not in readme_text and proj["id"] not in readme_text:
             print(f"⚠️ Notice: Project {proj['rel_path']} missing from README.md. Adding reference...")
-            table_row = f"| [**{get_project_title(proj['id'])}**]({proj['rel_path']}/) | {proj['category']} | Native Stack | Modular architecture component. |\n"
-            if "## 🚀 Projects Catalog" in readme_text:
-                parts = readme_text.split("## 🚀 Projects Catalog\n\n| Project | Category | Primary Tech Stack | Description |\n| :--- | :--- | :--- | :--- |\n")
+            table_row = f"| [**{get_project_title(proj['id'])}**]({proj['rel_path']}/) | {proj['category']} | Native Stack | [DESIGN.md]({proj['rel_path']}/DESIGN.md) | Modular architecture component. |\n"
+            table_header = "## 🚀 Projects Catalog\n\n| Project | Category | Primary Tech Stack | Technical Design | Description |\n| :--- | :--- | :--- | :--- | :--- |\n"
+            if table_header in readme_text:
+                parts = readme_text.split(table_header)
                 if len(parts) == 2:
-                    readme_text = parts[0] + "## 🚀 Projects Catalog\n\n| Project | Category | Primary Tech Stack | Description |\n| :--- | :--- | :--- | :--- |\n" + table_row + parts[1]
+                    readme_text = parts[0] + table_header + table_row + parts[1]
                     readme_updated = True
 
     if readme_updated:

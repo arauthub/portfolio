@@ -52,6 +52,20 @@ jobs:
   arnas-server-tests:
     name: ARNAS Cloud NAS Server Tests
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: arnas_admin
+          POSTGRES_PASSWORD: change_this_secret_password
+          POSTGRES_DB: arnas_db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -62,9 +76,14 @@ jobs:
           node-version: '20'
 
       - name: Run Server Tests
+        env:
+          DATABASE_URL: postgresql://arnas_admin:change_this_secret_password@localhost:5432/arnas_db?schema=public
+          JWT_SECRET: arnas_super_secret_jwt_key_default_32chars_min
+          JWT_REFRESH_SECRET: arnas_super_secret_refresh_jwt_key_32chars_min
         run: |
           cd apps/arnas/server
           npm install
+          npx prisma db push --skip-generate
           npm test
 
   workspace-curator-tests:
@@ -106,5 +125,23 @@ jobs:
         run: |
           cd apps/jamstack-frontend
           npm test
+          npm run build
+
+  synapse-lms-build:
+    name: Synapse LMS Build & Compilation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build Synapse LMS Frontend
+        run: |
+          cd apps/synapse-lms/frontend
+          npm install
           npm run build
 
