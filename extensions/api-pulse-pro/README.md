@@ -4,7 +4,8 @@
 > Monitor all API calls in real-time, inspect POST requests & JSON payloads, replay calls with active page cookies, mock server responses on the fly, and auto-generate TypeScript interfaces with a single click.
 
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-38bdf8.svg?style=for-the-badge)](https://developer.chrome.com/docs/extensions/mv3/)
-[![Chrome Web Store](https://img.shields.io/badge/Chrome-Web%20Store-4285F4.svg?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chrome.google.com/webstore)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome-Web%20Store%20Live-4285F4.svg?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/api-pulse-pro-network-inspector-studio)
+[![Version: 1.0.0](https://img.shields.io/badge/Release-v1.0.0-10b981.svg?style=for-the-badge)](https://github.com/arauthub/portfolio/releases/tag/api-pulse-pro-v1.0.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](../../LICENSE)
 
 📄 **Technical Documentation**: [Technical Design Document](DESIGN.md) • [Privacy Policy](PRIVACY_POLICY.md) • [Store Listing](STORE_LISTING.md)

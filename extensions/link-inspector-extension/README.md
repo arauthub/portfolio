@@ -3,7 +3,8 @@
 > A high-performance, modern Chrome Extension designed to inspect, audit, validate, and clean links on any webpage in real time. Features interactive hover controls, live HTTP status & redirect destination tracking, 1-click Wayback Machine 404 recovery, real-time SEO & security risk audits, UTM tracking parameter stripping, customizable hover pointers, global keyboard shortcut (`Cmd+Shift+L`), and dual CSV/JSON audit reporting.
 
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-38bdf8.svg?style=for-the-badge)](https://developer.chrome.com/docs/extensions/mv3/)
-[![Chrome Web Store](https://img.shields.io/badge/Chrome-Web%20Store-4285F4.svg?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chrome.google.com/webstore)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome-Web%20Store%20Live-4285F4.svg?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/link-inspector-pro-broken-link-checker)
+[![Version: 1.0.0](https://img.shields.io/badge/Release-v1.0.0-10b981.svg?style=for-the-badge)](https://github.com/arauthub/portfolio/releases/tag/link-inspector-pro-v1.0.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](../../LICENSE)
 
 📄 **Technical Documentation**: [Technical Design Document](DESIGN.md) • [Store Listing](STORE_LISTING.md) • [Publishing Guide](PUBLISHING_GUIDE.md) • [Privacy Policy](PRIVACY_POLICY.md)

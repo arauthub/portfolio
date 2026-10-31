@@ -1,7 +1,8 @@
 # 🔍 Diagram & Image Lens Pro
 
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-38bdf8.svg)](https://developer.chrome.com/docs/extensions/mv3/)
-[![Chrome Web Store](https://img.shields.io/badge/Chrome-Web%20Store-4285F4.svg?logo=googlechrome&logoColor=white)](https://chrome.google.com/webstore)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome-Web%20Store%20Live-4285F4.svg?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/diagram-image-lens-pro)
+[![Version: 1.0.0](https://img.shields.io/badge/Release-v1.0.0-10b981.svg)](https://github.com/arauthub/portfolio/releases/tag/diagram-image-lens-v1.0.0)
 [![Edge Add-ons](https://img.shields.io/badge/Microsoft-Edge%20Add--ons-0078D7.svg?logo=microsoftedge&logoColor=white)](https://microsoftedge.microsoft.com/addons)
 [![License: MIT](https://img.shields.io/badge/License-MIT-10b981.svg)](LICENSE)
 

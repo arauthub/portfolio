@@ -18,7 +18,7 @@ export const PROFILE_DATA = {
   
   careerStats: [
     { label: "Industry Experience", value: "12 Years", sub: "Enterprise & Scale" },
-    { label: "Active Monorepo Systems", value: "11+", sub: "Decoupled Architectures" },
+    { label: "Active Monorepo Systems", value: "15+", sub: "Decoupled Architectures" },
     { label: "Engineers Mentored", value: "30+", sub: "Leadership & Coaching" },
     { label: "Presubmit Cleanliness", value: "100%", sub: "Automated Security" }
   ],

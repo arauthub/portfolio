@@ -199,13 +199,14 @@ def check_sensitive_information(files_to_check=None, mode="standalone"):
     return True
 
 def discover_monorepo_projects():
-    """Discover all active projects across apps/, extensions/, agents/, devops/."""
+    """Discover all active projects across apps/, extensions/, agents/, devops/, Websites/."""
     projects = []
     scan_roots = [
         ("apps", "Fullstack App / Distributed Service"),
         ("extensions", "Browser Extension"),
         ("agents", "Autonomous AI Agent Workflow"),
         ("devops", "DevOps & Infrastructure Automation"),
+        ("Websites", "Enterprise Luxury Storefront & CMS"),
     ]
 
     for dir_name, category in scan_roots:
@@ -213,7 +214,7 @@ def discover_monorepo_projects():
         if not scan_dir.exists():
             continue
         for child in scan_dir.iterdir():
-            if child.is_dir() and not child.name.startswith("."):
+            if child.is_dir() and not child.name.startswith(".") and child.name != "specs":
                 projects.append({
                     "id": child.name,
                     "rel_path": f"{dir_name}/{child.name}",
@@ -253,7 +254,7 @@ def check_project_prerequisites(projects):
             violations.append(f"{rel}: DESIGN.md is incomplete (< 150 bytes)")
 
         # 3. Configuration check (.env.example for services, manifest.json for extensions)
-        if p_type in ("apps", "agents", "devops"):
+        if p_type in ("apps", "agents", "devops", "Websites"):
             env_example = p_path / ".env.example"
             if not env_example.exists():
                 violations.append(f"{rel}: Missing environment template (.env.example)")
@@ -507,7 +508,7 @@ def run_monorepo_ci_verification(mode="standalone"):
         ci_failures.append(("Jamstack Frontend Tests", res.stderr or res.stdout))
         print("    ❌ Jamstack frontend tests failed!")
     else:
-        print("    ✅ Jamstack frontend verification passed (48/48 tests).")
+        print("    ✅ Jamstack frontend verification passed (52/52 tests).")
 
     # 4. Synapse LMS Frontend Build
     print("  🧪 [4/5] Verifying Synapse LMS Angular 22 build (apps/synapse-lms/frontend)...")
@@ -614,12 +615,13 @@ def main():
     profile_file = "PROFILE.md"
     readme_file = "README.md"
     portfolio_manifest = "apps/jamstack-frontend/data/build-manifest.json"
-    doc_changes = run_git(["status", "--porcelain", cv_file, profile_file, readme_file, portfolio_manifest], check=False)
+    portfolio_intel = "apps/jamstack-frontend/js/git-intelligence.js"
+    doc_changes = run_git(["status", "--porcelain", cv_file, profile_file, readme_file, portfolio_manifest, portfolio_intel], check=False)
 
     if doc_changes:
         if mode == "pre-commit":
             print("📝 Pre-commit: Auto-staging updated CV, Profile, README, and Portfolio assets...")
-            run_git(["add", cv_file, profile_file, readme_file, portfolio_manifest])
+            run_git(["add", cv_file, profile_file, readme_file, portfolio_manifest, portfolio_intel])
         elif mode == "pre-push":
             print("\n⚠️  [PRE-PUSH ABORTED] Documentation synchronization required.")
             print("Presubmit detected or generated updates in portfolio documentation.")

@@ -18,7 +18,11 @@ console.log('⚡ Starting Nexus Prime Jamstack Static Compilation...');
 
 // 1. Verify and extract Git commits
 let gitCommits = [];
+let activeBranch = 'main';
+let headCommit = 'HEAD';
 try {
+  activeBranch = execSync('git rev-parse --abbrev-ref HEAD', { cwd: REPO_ROOT, encoding: 'utf-8' }).trim() || 'main';
+  headCommit = execSync('git rev-parse --short HEAD', { cwd: REPO_ROOT, encoding: 'utf-8' }).trim() || 'HEAD';
   const gitLogCmd = `git log -n 15 --pretty=format:'{"hash":"%h","fullHash":"%H","author":"%an","date":"%ai","relativeDate":"%ar","message":"%s"}'`;
   const rawLog = execSync(gitLogCmd, { cwd: REPO_ROOT, encoding: 'utf-8' });
   gitCommits = rawLog.trim().split('\n').filter(Boolean).map(line => {
@@ -33,19 +37,35 @@ try {
   console.warn(`⚠️ Warning fetching live git log: ${err.message}`);
 }
 
-// 2. Ensure data output directory exists
+// 2. Count active systems dynamically
+let systemsCount = 0;
+const categories = ['apps', 'extensions', 'agents', 'devops', 'Websites'];
+for (const cat of categories) {
+  const catDir = path.join(REPO_ROOT, cat);
+  if (fs.existsSync(catDir)) {
+    const entries = fs.readdirSync(catDir, { withFileTypes: true });
+    for (const ent of entries) {
+      if (ent.isDirectory() && !ent.name.startsWith('.') && ent.name !== 'specs') {
+        systemsCount++;
+      }
+    }
+  }
+}
+
+// 3. Ensure data output directory exists
 const dataDir = path.join(APP_ROOT, 'data');
 if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
 }
 
-// 3. Write compiled static metadata
+// 4. Write compiled static metadata
 const buildMetadata = {
   buildTime: new Date().toISOString(),
-  targetBranch: 'main',
+  targetBranch: activeBranch,
+  headCommit: headCommit,
   gitCommitCount: gitCommits.length,
   recentCommits: gitCommits.slice(0, 8),
-  systemsCount: 11,
+  systemsCount: systemsCount,
   developer: 'Abhijeet Raut',
   jamstackVersion: '1.0.0'
 };
@@ -56,5 +76,5 @@ fs.writeFileSync(
   'utf-8'
 );
 
-console.log('📦 Static build manifest compiled to data/build-manifest.json');
+console.log(`📦 Static build manifest compiled to data/build-manifest.json (${systemsCount} systems active, HEAD ${headCommit})`);
 console.log('🎉 Nexus Prime Jamstack Static Pre-rendering Complete (0ms Edge Ready)!');

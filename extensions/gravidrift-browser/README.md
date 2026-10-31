@@ -4,7 +4,8 @@
 
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-38bdf8.svg?style=for-the-badge)](https://developer.chrome.com/docs/extensions/mv3/)
 [![Matter.js](https://img.shields.io/badge/Matter.js-2D_Physics-4B5563?style=for-the-badge)](https://brm.io/matter-js/)
-[![Chrome Web Store](https://img.shields.io/badge/Chrome-Web%20Store-4285F4.svg?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chrome.google.com/webstore)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome-Web%20Store%20Live-4285F4.svg?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/gravidrift-web-physics-space-arcade)
+[![Version: 1.0.0](https://img.shields.io/badge/Release-v1.0.0-10b981.svg?style=for-the-badge)](https://github.com/arauthub/portfolio/releases/tag/gravidrift-browser-v1.0.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](../../LICENSE)
 
 ![GraviDrift Web](assets/icon128.png)

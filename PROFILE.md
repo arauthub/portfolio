@@ -104,6 +104,16 @@ Here are highlights from my public [**All-Projects**](https://github.com/arauthu
 * **Category**: Fullstack App / Distributed Service
 * High-performance enterprise project showcasing modern engineering standards.
 
+
+### 🚀 [Atelier Clothing Brand](https://github.com/arauthub/All-Projects/tree/main/Websites/atelier-clothing-brand)
+* **Category**: Enterprise Luxury Storefront & CMS
+* High-performance enterprise project showcasing modern engineering standards.
+
+
+### 🚀 [Petit Maison Kids](https://github.com/arauthub/All-Projects/tree/main/Websites/petit-maison-kids)
+* **Category**: Enterprise Luxury Storefront & CMS
+* High-performance enterprise project showcasing modern engineering standards.
+
 ## 💼 Career Snapshot
 
 * **Lead Software Engineer & Solutions Architect** — *Cybage Software* (2017 – Present / Current)

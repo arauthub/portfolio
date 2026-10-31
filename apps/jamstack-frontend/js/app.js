@@ -480,6 +480,11 @@ class NexusPrimeApp {
           </div>
 
           <div class="card-actions">
+            ${p.storeUrl ? `
+              <a href="${p.storeUrl}" target="_blank" rel="noopener noreferrer" class="btn-store-link" title="Open on Chrome Web Store">
+                <span>🛒</span> Chrome Store
+              </a>
+            ` : ''}
             ${p.simulatorId ? `
               <button class="btn-launch-sim" data-sim="${p.simulatorId}">
                 <span class="sim-icon">⚡</span> ${p.simulatorName}

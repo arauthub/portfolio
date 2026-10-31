@@ -6,7 +6,7 @@ Pune, India • theabhijeetraut@gmail.com • [GitHub: github.com/arauthub](http
 
 ## Executive Summary
 
-> 📌 **Portfolio Monorepo Synchronization**: Verified up to date with repository on `2026-10-31 10:56 UTC` • Presubmit Suite Clean
+> 📌 **Portfolio Monorepo Synchronization**: Verified up to date with repository on `2026-10-31 11:51 UTC` • Presubmit Suite Clean
 
 Accomplished **Lead Software Engineer and Solutions Architect** with **12 years of hands-on experience** architecting high-concurrency backend services, distributed systems, and modern AI/ML solutions. 
 - **Cybage Software (Current)**: Lead Software Engineer & Solutions Architect driving enterprise architecture, scalable web platforms, Django/Wagtail CMS ecosystems, and RESTful/event-driven API architectures.
@@ -150,6 +150,18 @@ Accomplished **Lead Software Engineer and Solutions Architect** with **12 years 
 ### **Synapse Lms**
 *Repository*: [`apps/synapse-lms/`](https://github.com/arauthub/All-Projects/tree/main/apps/synapse-lms)  
 *Tech Stack*: Fullstack App / Distributed Service
+* Enterprise modular component engineered for high reliability, clean architecture, and decoupled deployment.
+
+
+### **Atelier Clothing Brand**
+*Repository*: [`Websites/atelier-clothing-brand/`](https://github.com/arauthub/All-Projects/tree/main/Websites/atelier-clothing-brand)  
+*Tech Stack*: Enterprise Luxury Storefront & CMS
+* Enterprise modular component engineered for high reliability, clean architecture, and decoupled deployment.
+
+
+### **Petit Maison Kids**
+*Repository*: [`Websites/petit-maison-kids/`](https://github.com/arauthub/All-Projects/tree/main/Websites/petit-maison-kids)  
+*Tech Stack*: Enterprise Luxury Storefront & CMS
 * Enterprise modular component engineered for high reliability, clean architecture, and decoupled deployment.
 
 ## Education
