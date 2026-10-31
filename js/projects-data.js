@@ -61,6 +61,32 @@ export const MONOREPO_PROJECTS = [
     designDoc: "apps/arnas/DESIGN.md"
   },
   {
+    id: "synapse-lms",
+    title: "Synapse LMS: Headless Wagtail & Angular Cybernetic Learning Platform",
+    category: "fullstack",
+    categoryLabel: "Enterprise Fullstack & LMS",
+    badge: "Angular 22 & Wagtail",
+    badgeColor: "cyan",
+    relPath: "apps/synapse-lms",
+    githubUrl: "https://github.com/arauthub/portfolio/tree/main/apps/synapse-lms",
+    techStack: ["Angular 22", "TypeScript", "Tailwind CSS", "Angular Material 3", "D3.js", "Python 3", "Wagtail CMS", "Django", "PostgreSQL 18"],
+    description: "Enterprise cybernetic learning management platform featuring headless Wagtail CMS 5.2 on PostgreSQL 18, Angular 22 Signals frontend, multi-tenant white-label branding, interactive D3 competency constellation graphs, Python sandbox execution benchmarks, and Web Audio synthesizer.",
+    metrics: [
+      { label: "Architecture", value: "Headless Wagtail + Angular 22" },
+      { label: "RDBMS", value: "PostgreSQL 18" },
+      { label: "Multi-Tenancy", value: "Isolated Schemas" },
+      { label: "Data Viz", value: "D3 Velocity Matrix" }
+    ],
+    features: [
+      "Decoupled headless Wagtail CMS 5.2 content engine on PostgreSQL 18 with REST endpoints",
+      "Modern Angular 22 Standalone and Signals reactive frontend architecture",
+      "Interactive D3 pedagogical velocity matrix tracking learner progress across cognitive tracks",
+      "Multi-tenant white-label administration wizard supporting dynamic brand and palette isolation",
+      "Web Audio synthesizer sound effects, daily quest bounties, and verified holographic credentials"
+    ],
+    designDoc: "apps/synapse-lms/DESIGN.md"
+  },
+  {
     id: "gravidrift-browser",
     title: "GraviDrift Web & Space Arcade Browser",
     category: "extensions",
