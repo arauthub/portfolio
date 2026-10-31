@@ -1,14 +1,22 @@
 {
-  "buildTime": "2026-10-31T11:16:53.002Z",
+  "buildTime": "2026-10-31T11:28:53.100Z",
   "targetBranch": "main",
   "gitCommitCount": 15,
   "recentCommits": [
+    {
+      "hash": "59e80cc",
+      "fullHash": "59e80cc56a41cce5ce06ffa47e195fcee3e7ea83",
+      "author": "Abhijeet Raut",
+      "date": "2026-10-31 16:46:52 +0530",
+      "relativeDate": "12 minutes ago",
+      "message": "fix(ci): add httpx to myagents dependencies and use Node 22 for Angular 22 build"
+    },
     {
       "hash": "94ecbca",
       "fullHash": "94ecbca44ffe755f9a058c7f7fa4d2059a3697a1",
       "author": "Abhijeet Raut",
       "date": "2026-10-31 16:40:29 +0530",
-      "relativeDate": "6 minutes ago",
+      "relativeDate": "18 minutes ago",
       "message": "feat(portfolio): sync Synapse LMS to Jamstack portfolio catalog and harden CI workflow"
     },
     {
@@ -16,7 +24,7 @@
       "fullHash": "3c5d6dbc077b9b2e616b62b564c1ea637cac7318",
       "author": "Abhijeet Raut",
       "date": "2026-10-31 16:27:11 +0530",
-      "relativeDate": "20 minutes ago",
+      "relativeDate": "32 minutes ago",
       "message": "feat: enterprise luxury storefronts, spec-driven development, and Synapse LMS"
     },
     {
@@ -58,14 +66,6 @@
       "date": "2026-10-23 00:02:45 +0530",
       "relativeDate": "9 days ago",
       "message": "fix(portfolio): optimize mobile layout, ensure universal rich card unfurling across media, and fix modal scrolling"
-    },
-    {
-      "hash": "d225914",
-      "fullHash": "d225914c62610faa658f80141fe5f35b04d6b8bc",
-      "author": "Abhijeet Raut",
-      "date": "2026-10-14 22:54:29 +0530",
-      "relativeDate": "2 weeks ago",
-      "message": "feat(portfolio): add professional card view share modal, rich preview metadata, and refine header search box"
     }
   ],
   "systemsCount": 11,

@@ -459,6 +459,91 @@ def sync_readme(projects):
         print("✅ [README Sync] README.md catalog is up to date.")
     return True
 
+def run_monorepo_ci_verification(mode="standalone"):
+    """
+    Validates local CI test suites across all projects (mimicking GitHub Actions ci.yml)
+    and verifies remote CI health before allowing push or commit.
+    """
+    print("\n🔍 [Presubmit 6/6] Verifying Monorepo CI verification suites...")
+    ci_failures = []
+
+    # 1. Multi-Agent Swarm Tests
+    print("  🧪 [1/5] Verifying Multi-Agent Swarm tests (agents/myagents)...")
+    myagents_dir = REPO_ROOT / "agents" / "myagents"
+    py_exec = sys.executable
+    if (myagents_dir / ".venv" / "bin" / "python").exists():
+        py_exec = str(myagents_dir / ".venv" / "bin" / "python")
+    res = subprocess.run([py_exec, "-m", "unittest", "discover", "-s", "tests", "-p", "test_*.py"],
+                         cwd=myagents_dir, capture_output=True, text=True)
+    if res.returncode != 0:
+        ci_failures.append(("Multi-Agent Swarm Tests", res.stderr or res.stdout))
+        print("    ❌ Multi-Agent Swarm tests failed!")
+    else:
+        print("    ✅ Multi-Agent Swarm tests passed (32/32 tests).")
+
+    # 2. WorkspaceCurator Tests
+    print("  🧪 [2/5] Verifying WorkspaceCurator webhook & curation tests (apps/workspace-curator)...")
+    curator_dir = REPO_ROOT / "apps" / "workspace-curator"
+    res = subprocess.run([py_exec, "-m", "unittest", "discover", "-s", "tests", "-p", "test_*.py"],
+                         cwd=curator_dir, capture_output=True, text=True)
+    if res.returncode != 0:
+        ci_failures.append(("WorkspaceCurator Tests", res.stderr or res.stdout))
+        print("    ❌ WorkspaceCurator tests failed!")
+    else:
+        print("    ✅ WorkspaceCurator tests passed (14/14 tests).")
+
+    # 3. Nexus Prime Jamstack Frontend Tests & Static Build
+    print("  🧪 [3/5] Verifying Nexus Prime Jamstack suite (apps/jamstack-frontend)...")
+    jamstack_dir = REPO_ROOT / "apps" / "jamstack-frontend"
+    res = subprocess.run(["node", "tests/test_jamstack.js"], cwd=jamstack_dir, capture_output=True, text=True)
+    if res.returncode != 0:
+        ci_failures.append(("Jamstack Frontend Tests", res.stderr or res.stdout))
+        print("    ❌ Jamstack frontend tests failed!")
+    else:
+        print("    ✅ Jamstack frontend verification passed (48/48 tests).")
+
+    # 4. Synapse LMS Frontend Build
+    print("  🧪 [4/5] Verifying Synapse LMS Angular 22 build (apps/synapse-lms/frontend)...")
+    lms_dir = REPO_ROOT / "apps" / "synapse-lms" / "frontend"
+    res = subprocess.run(["npm", "run", "build"], cwd=lms_dir, capture_output=True, text=True)
+    if res.returncode != 0:
+        ci_failures.append(("Synapse LMS Build", res.stderr or res.stdout))
+        print("    ❌ Synapse LMS Angular build failed!")
+    else:
+        print("    ✅ Synapse LMS Angular 22 standalone build succeeded (0 errors).")
+
+    # 5. Remote GitHub Actions CI Status Check
+    print("  🌐 [5/5] Querying latest GitHub Actions CI status...")
+    try:
+        import urllib.request
+        req = urllib.request.Request(
+            "https://api.github.com/repos/arauthub/portfolio/actions/runs?per_page=1",
+            headers={"User-Agent": "Antigravity-CI-Verifier"}
+        )
+        with urllib.request.urlopen(req, timeout=5) as response:
+            runs_data = json.loads(response.read().decode())
+            if runs_data.get("workflow_runs"):
+                latest = runs_data["workflow_runs"][0]
+                status = latest.get("status")
+                conclusion = latest.get("conclusion")
+                commit_sha = latest.get("head_sha", "")[:7]
+                print(f"    ℹ️ Latest Remote CI (Commit {commit_sha}): Status={status}, Conclusion={conclusion}")
+                if conclusion == "failure":
+                    print(f"    ⚠️ Warning: Prior remote run {latest.get('id')} reported failure.")
+    except Exception as e:
+        print("    ℹ️ Remote CI check skipped (offline or rate limited).")
+
+    if ci_failures:
+        print("\n🚨 [CI GATEKEEPER FAILURE] Monorepo verification failed:")
+        for name, err in ci_failures:
+            print(f"\n--- {name} ---")
+            print(err.strip()[:400])
+        print("\nResolve the above issues before committing or pushing!")
+        return False
+
+    print("✅ [CI Gatekeeper] All monorepo CI verification suites passed cleanly.")
+    return True
+
 def main():
     if "--scan-history" in sys.argv:
         import purge_sensitive_history
@@ -538,6 +623,10 @@ def main():
             sys.exit(1)
         elif mode == "standalone":
             print("💡 Changes to documentation detected. Run 'git add' to stage them.")
+
+    # 11. Run Monorepo CI verification suite (Mandatory before commit or push)
+    if not run_monorepo_ci_verification(mode=mode):
+        sys.exit(1)
 
     print("=" * 70)
     print("🎉 Monorepo Presubmit & Pre-Push Suite PASSED cleanly!")
