@@ -72,6 +72,11 @@ async def handle_drive_watch(req: Request, bg: BackgroundTasks):
         name: "wagtailwind",
         type: "dir",
         desc: "Enterprise Wagtail CMS with Tailwind CSS design systems"
+      },
+      {
+        name: "mytail",
+        type: "dir",
+        desc: "Feature-rich Wagtail CMS instance with custom blog architectures"
       }
     ]
   },
@@ -172,6 +177,44 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run Presubmit Suite
         run: python3 scripts/presubmit.py`
+      },
+      {
+        name: "docker",
+        type: "dir",
+        desc: "Multi-container Docker Compose staging and production blueprints"
+      }
+    ]
+  },
+  {
+    name: "Websites",
+    type: "dir",
+    desc: "Enterprise luxury storefronts & Spec-Driven Development ecosystems",
+    children: [
+      {
+        name: "atelier-clothing-brand",
+        type: "dir",
+        desc: "Atelier Riwayat: Luxury Couture & Wagtail 7.1 Headless Storefront",
+        snippet: `// Websites/atelier-clothing-brand/backend/catalog/models.py
+class ProductPage(Page):
+    sku = models.CharField(max_length=64, unique=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    stock_count = models.IntegerField(default=0)
+    is_vip_exclusive = models.BooleanField(default=False)
+    barcode = models.CharField(max_length=128, blank=True)`
+      },
+      {
+        name: "petit-maison-kids",
+        type: "dir",
+        desc: "Petit Maison Kids: Heirloom Childrenswear & Wagtail 7.1 Platform",
+        snippet: `// Websites/petit-maison-kids/frontend/src/app/core/services/monogram.service.ts
+export class MonogramService {
+  renderMonogramPreview(canvas: HTMLCanvasElement, text: string, font: string, threadColor: string) {
+    const ctx = canvas.getContext('2d');
+    ctx.font = \`32px \${font}\`;
+    ctx.fillStyle = threadColor;
+    ctx.fillText(text, 20, 40);
+  }
+}`
       }
     ]
   }

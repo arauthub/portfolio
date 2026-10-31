@@ -74,6 +74,16 @@ import('../js/projects-data.js').then(({ MONOREPO_PROJECTS }) => {
 
   const gravidrift = MONOREPO_PROJECTS.find(p => p.id === 'gravidrift-browser');
   assert(gravidrift && gravidrift.techStack.includes('Matter.js Physics'), 'GraviDrift links to Matter.js');
+  assert(gravidrift && gravidrift.badge === 'Chrome Store Live' && gravidrift.storeUrl, 'GraviDrift marked as Chrome Store Live with storeUrl');
+
+  const apipulse = MONOREPO_PROJECTS.find(p => p.id === 'api-pulse-pro');
+  assert(apipulse && apipulse.badge === 'Chrome Store Live' && apipulse.storeUrl, 'API Pulse Pro marked as Chrome Store Live with storeUrl');
+
+  const atelier = MONOREPO_PROJECTS.find(p => p.id === 'atelier-clothing-brand');
+  assert(atelier && atelier.techStack.includes('Wagtail CMS 7.1'), 'Atelier Riwayat Wagtail 7.1 storefront present');
+
+  const petit = MONOREPO_PROJECTS.find(p => p.id === 'petit-maison-kids');
+  assert(petit && petit.techStack.includes('Angular 22'), 'Petit Maison Kids Angular 22 platform present');
 
   return import('../js/profile-data.js');
 }).then(({ PROFILE_DATA }) => {

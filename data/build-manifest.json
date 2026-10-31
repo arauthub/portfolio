@@ -1,14 +1,31 @@
 {
-  "buildTime": "2026-10-31T11:31:34.833Z",
+  "buildTime": "2026-10-31T11:54:09.600Z",
   "targetBranch": "main",
+  "headCommit": "f2df3aa",
   "gitCommitCount": 15,
   "recentCommits": [
+    {
+      "hash": "f2df3aa",
+      "fullHash": "f2df3aaadec6fbdbef135aece80baea0cd2e0b0b",
+      "author": "Abhijeet Raut",
+      "date": "2026-10-31 17:23:04 +0530",
+      "relativeDate": "65 seconds ago",
+      "message": "chore(portfolio): refresh telemetry snapshot and edge cache"
+    },
+    {
+      "hash": "0af323b",
+      "fullHash": "0af323be9d925fede498117e37fa36deba44a393",
+      "author": "Abhijeet Raut",
+      "date": "2026-10-31 17:22:13 +0530",
+      "relativeDate": "2 minutes ago",
+      "message": "feat(portfolio): sync Jamstack frontend with monorepo state, Websites catalog, and mark Chrome Store extension release"
+    },
     {
       "hash": "da4c85a",
       "fullHash": "da4c85a03bd74b0e63083b35b40e2c75305f8347",
       "author": "Abhijeet Raut",
       "date": "2026-10-31 17:01:00 +0530",
-      "relativeDate": "34 seconds ago",
+      "relativeDate": "23 minutes ago",
       "message": "fix(ci): delegate monorepo CI verification to parallel matrix jobs in GitHub Actions runner"
     },
     {
@@ -16,7 +33,7 @@
       "fullHash": "0692b71952b98fc227c3e07105c7bd5361478bd5",
       "author": "Abhijeet Raut",
       "date": "2026-10-31 16:58:52 +0530",
-      "relativeDate": "3 minutes ago",
+      "relativeDate": "25 minutes ago",
       "message": "chore(cleanup): remove root symlinks, enforce automated Jamstack portfolio sync, and add CI gatekeeper to pre-commits"
     },
     {
@@ -24,7 +41,7 @@
       "fullHash": "59e80cc56a41cce5ce06ffa47e195fcee3e7ea83",
       "author": "Abhijeet Raut",
       "date": "2026-10-31 16:46:52 +0530",
-      "relativeDate": "15 minutes ago",
+      "relativeDate": "37 minutes ago",
       "message": "fix(ci): add httpx to myagents dependencies and use Node 22 for Angular 22 build"
     },
     {
@@ -32,7 +49,7 @@
       "fullHash": "94ecbca44ffe755f9a058c7f7fa4d2059a3697a1",
       "author": "Abhijeet Raut",
       "date": "2026-10-31 16:40:29 +0530",
-      "relativeDate": "21 minutes ago",
+      "relativeDate": "44 minutes ago",
       "message": "feat(portfolio): sync Synapse LMS to Jamstack portfolio catalog and harden CI workflow"
     },
     {
@@ -40,7 +57,7 @@
       "fullHash": "3c5d6dbc077b9b2e616b62b564c1ea637cac7318",
       "author": "Abhijeet Raut",
       "date": "2026-10-31 16:27:11 +0530",
-      "relativeDate": "34 minutes ago",
+      "relativeDate": "57 minutes ago",
       "message": "feat: enterprise luxury storefronts, spec-driven development, and Synapse LMS"
     },
     {
@@ -50,25 +67,9 @@
       "date": "2026-10-30 20:58:36 +0530",
       "relativeDate": "20 hours ago",
       "message": "fix(profile): update Cybage tenure (2017-Present), Persistent tenure (2014-2017), and education to MCA (2014)"
-    },
-    {
-      "hash": "54a60cf",
-      "fullHash": "54a60cf24aac345482521d1a4ab1d8410821781c",
-      "author": "Abhijeet Raut",
-      "date": "2026-10-23 00:35:38 +0530",
-      "relativeDate": "9 days ago",
-      "message": "fix(portfolio): eliminate overlapping card content and add robust offline HD card download"
-    },
-    {
-      "hash": "6e4155f",
-      "fullHash": "6e4155f800a2048e7a9b0346568553f302b2ace2",
-      "author": "Abhijeet Raut",
-      "date": "2026-10-23 00:20:08 +0530",
-      "relativeDate": "9 days ago",
-      "message": "fix(portfolio): set Cybage Software as current company, Persistent Systems as past, and correct text inconsistencies"
     }
   ],
-  "systemsCount": 11,
+  "systemsCount": 17,
   "developer": "Abhijeet Raut",
   "jamstackVersion": "1.0.0"
 }

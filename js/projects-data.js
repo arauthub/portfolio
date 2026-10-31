@@ -91,19 +91,21 @@ export const MONOREPO_PROJECTS = [
     title: "GraviDrift Web & Space Arcade Browser",
     category: "extensions",
     categoryLabel: "Browser Extensions & DevTools",
-    badge: "60 FPS Physics",
+    badge: "Chrome Store Live",
     badgeColor: "purple",
     relPath: "extensions/gravidrift-browser",
     githubUrl: "https://github.com/arauthub/portfolio/tree/main/extensions/gravidrift-browser",
+    storeUrl: "https://chromewebstore.google.com/detail/gravidrift-web-physics-space-arcade",
     techStack: ["Chrome Manifest V3", "Matter.js Physics", "JavaScript (ES6+)", "HTML5 Canvas", "CSS Transforms"],
-    description: "Physics-driven browser extension that non-destructively extracts webpage DOM structures into an isolated 60 FPS 2D rigid-body zero-gravity physics sandbox with directional gravity inversion, tractor beams, and arcade mini-games.",
+    description: "Physics-driven browser extension published on Chrome Web Store that non-destructively extracts webpage DOM structures into an isolated 60 FPS 2D rigid-body zero-gravity physics sandbox with directional gravity inversion, tractor beams, and arcade mini-games.",
     metrics: [
+      { label: "Chrome Store", value: "Live & Published" },
       { label: "Physics Rate", value: "60 FPS Steady" },
       { label: "Engine", value: "Matter.js 2D" },
-      { label: "Arcade Modes", value: "Starfighter & Cosmic Orb" },
       { label: "Manifest", value: "Chrome V3" }
     ],
     features: [
+      "Published on Google Chrome Web Store (Manifest V3 certified production release)",
       "Invertible directional gravity with arrow key manipulation and mouse fling momentum",
       "Tractor beam mouse attraction mode drawing nearby DOM elements into orbit",
       "Starfighter Web Blaster arcade mode with WASD thrust controls and laser targeting",
@@ -119,19 +121,21 @@ export const MONOREPO_PROJECTS = [
     title: "API Pulse Pro: Network Traffic Inspector & Replay Studio",
     category: "extensions",
     categoryLabel: "Browser Extensions & DevTools",
-    badge: "Developer Tooling",
-    badgeColor: "amber",
+    badge: "Chrome Store Live",
+    badgeColor: "emerald",
     relPath: "extensions/api-pulse-pro",
     githubUrl: "https://github.com/arauthub/portfolio/tree/main/extensions/api-pulse-pro",
+    storeUrl: "https://chromewebstore.google.com/detail/api-pulse-pro-network-inspector-studio",
     techStack: ["JavaScript (ES6+)", "Manifest V3", "Chrome DevTools Protocol", "HTML5", "Scoped CSS3"],
-    description: "Developer-grade browser network inspector and API mock engine providing zero-configuration capture of fetch/XHR traffic, in-page floating glassmorphic HUD, synthetic mock engine, and automated TypeScript snippet generation.",
+    description: "Developer-grade browser network inspector and API mock engine published on Chrome Web Store providing zero-configuration capture of fetch/XHR traffic, in-page floating glassmorphic HUD, synthetic mock engine, and automated TypeScript snippet generation.",
     metrics: [
+      { label: "Chrome Store", value: "Live & Published" },
       { label: "Capture Mode", value: "Zero-Config" },
       { label: "In-Page HUD", value: "Glassmorphic 60fps" },
-      { label: "Replay Engine", value: "Active Session" },
-      { label: "Code Gen", value: "TypeScript/cURL" }
+      { label: "Replay Engine", value: "Active Session" }
     ],
     features: [
+      "Published on Google Chrome Web Store (Manifest V3 developer tooling suite)",
       "Zero-configuration real-time interception of fetch and XMLHttpRequest transactions",
       "In-page floating glassmorphic HUD with live latency counters and expandable drawer",
       "Live API replay inheriting active browser session cookies and authentication headers",
@@ -179,6 +183,7 @@ export const MONOREPO_PROJECTS = [
     badgeColor: "purple",
     relPath: "extensions/diagram-image-lens",
     githubUrl: "https://github.com/arauthub/portfolio/tree/main/extensions/diagram-image-lens",
+    storeUrl: "https://chromewebstore.google.com/detail/diagram-image-lens-pro",
     techStack: ["Chrome Manifest V3", "JavaScript (ES6+)", "HTML5 Canvas", "CSS3"],
     description: "Precision diagram inspection suite featuring an interactive hover loupe (2x–16x zoom), fullscreen deep-zoom pan & scan lightbox, schematic dark mode inversion, and offline Retina area screen snipping.",
     metrics: [
@@ -206,6 +211,7 @@ export const MONOREPO_PROJECTS = [
     badgeColor: "emerald",
     relPath: "extensions/link-inspector-extension",
     githubUrl: "https://github.com/arauthub/portfolio/tree/main/extensions/link-inspector-extension",
+    storeUrl: "https://chromewebstore.google.com/detail/link-inspector-pro-broken-link-checker",
     techStack: ["Chrome Manifest V3", "JavaScript (ES6+)", "Asynchronous Service Workers", "CSS3"],
     description: "High-performance browser extension providing real-time hover inspection, async HTTP status validation (200, 301, 404, 500), 1-click Wayback Machine recovery, UTM tracking parameter stripping, and dual CSV/JSON audit reports.",
     metrics: [
@@ -319,5 +325,57 @@ export const MONOREPO_PROJECTS = [
     simulatorId: "presubmit-runner",
     simulatorName: "Run Virtual Presubmit Suite",
     designDoc: "devops/ci/DESIGN.md"
+  },
+  {
+    id: "atelier-clothing-brand",
+    title: "Atelier Riwayat: Luxury Couture & Wagtail 7.1 Storefront",
+    category: "fullstack",
+    categoryLabel: "Enterprise Fullstack & E-Commerce",
+    badge: "Wagtail 7.1 & Angular",
+    badgeColor: "amber",
+    relPath: "Websites/atelier-clothing-brand",
+    githubUrl: "https://github.com/arauthub/portfolio/tree/main/Websites/atelier-clothing-brand",
+    techStack: ["Wagtail CMS 7.1", "Django 4.2 LTS", "Angular 19/22", "PostgreSQL 18", "Stripe", "Razorpay UPI", "PWA", "Tailwind CSS", "D3.js"],
+    description: "High-fashion enterprise digital storefront marrying headless Wagtail 7.1 CMS editorial publishing with an ultra-responsive Angular client. Features VIP Privé gated security, real-time POS barcode inventory sync, tiered memberships, multi-gateway payments, and WCAG 2.1 AA accessibility.",
+    metrics: [
+      { label: "CMS Engine", value: "Wagtail 7.1 Headless" },
+      { label: "Storefront", value: "Angular + Material" },
+      { label: "Security Gate", value: "VIP Privé 3-Tier" },
+      { label: "Inventory", value: "Live POS Barcode" }
+    ],
+    features: [
+      "Headless Wagtail 7.1 REST content API delivering runway lookbooks, coupons, and promo tickers",
+      "Angular responsive storefront with VIP Privé gated access and tiered loyalty memberships",
+      "Multi-gateway payment support (Stripe Elements, Razorpay UPI, PayPal) with webhook sync",
+      "Real-time in-store POS barcode reader and instant stock level synchronization",
+      "Spec-Driven Development (SDD) verified with 100% WCAG 2.1 AA color contrast compliance"
+    ],
+    designDoc: "Websites/atelier-clothing-brand/DESIGN.md"
+  },
+  {
+    id: "petit-maison-kids",
+    title: "Petit Maison Kids: Heirloom Childrenswear & Wagtail 7.1 Platform",
+    category: "fullstack",
+    categoryLabel: "Enterprise Fullstack & E-Commerce",
+    badge: "Wagtail 7.1 & Angular 22",
+    badgeColor: "emerald",
+    relPath: "Websites/petit-maison-kids",
+    githubUrl: "https://github.com/arauthub/portfolio/tree/main/Websites/petit-maison-kids",
+    techStack: ["Wagtail 7.1", "Django 4.2 LTS", "Angular 22", "PostgreSQL 18", "Tailwind CSS", "D3.js", "PWA"],
+    description: "Enterprise flagship for luxury heirloom children's clothing. Integrates headless Wagtail 7.1 CMS with Angular 22 Material frontend, Foldable Room-To-Grow™ double cuffs, live bespoke monogram embroidery studio, hotspot lifestyle lookbooks, and 4 real-time luxury atmosphere theme presets.",
+    metrics: [
+      { label: "CMS Engine", value: "Wagtail 7.1 CMS" },
+      { label: "Frontend", value: "Angular 22 Signals" },
+      { label: "Personalization", value: "Live Monogram Canvas" },
+      { label: "Compliance", value: "GOTS & OEKO-TEX" }
+    ],
+    features: [
+      "Decoupled Wagtail 7.1 headless architecture with PostgreSQL relational backend",
+      "Live Bespoke Monogram Studio with real-time canvas preview of nursery fonts & threads",
+      "Innovative Foldable Room-To-Grow™ cuff metrics and interactive Hotspot lifestyle lookbook",
+      "Dynamic free-shipping basket building progress meter with DHL Express logistics",
+      "4 luxury theme atmosphere presets switchable in real-time with 0 console errors"
+    ],
+    designDoc: "Websites/petit-maison-kids/DESIGN.md"
   }
 ];

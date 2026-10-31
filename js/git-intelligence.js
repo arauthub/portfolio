@@ -1,5 +1,6 @@
 /**
  * Nexus Prime - Git Intelligence & Repository Stream
+ * Automatically synchronized with monorepo state by scripts/sync-portfolio.py
  * Integrates live GitHub REST API with pre-rendered Jamstack static fallback
  */
 
@@ -16,16 +17,16 @@ export const STATIC_GIT_SNAPSHOT = {
     open_issues: 0,
     license: "MIT",
     language: "Python / TypeScript / Go",
-    pushed_at: "2026-10-11T13:20:05Z"
+    pushed_at: "2026-10-31T11:53:04.697091+00:00"
   },
   activeBranch: "main",
-  headCommit: "be2f099",
+  headCommit: "0af323b",
   presubmitAudit: {
     status: "PASSED",
     score: "5 / 5 Checks Green",
     checks: [
       { name: "Sensitive Information & Secret Leak Scanner", status: "CLEAN", details: "0 secrets detected across working tree & staged diff" },
-      { name: "Project Prerequisites & Documentation Audit", status: "VERIFIED", details: "All 13 monorepo projects have valid README, DESIGN.md & configs" },
+      { name: "Project Prerequisites & Documentation Audit", status: "VERIFIED", details: "All 17 monorepo projects have valid README, DESIGN.md & configs" },
       { name: "Code Syntax & Monorepo Integrity", status: "VALID", details: "JSON schemas, Python compilation & Shell syntax 100% valid" },
       { name: "CV & Profile Bi-Directional Synchronization", status: "SYNCED", details: "Synchronized with CV_Abhijeet_Raut.md & PROFILE.md" },
       { name: "Root README Project Catalog Verification", status: "ALIGNED", details: "Master catalog in sync with all architectural domains" }
@@ -33,119 +34,199 @@ export const STATIC_GIT_SNAPSHOT = {
   },
   commits: [
     {
-      hash: "a9756b6",
-      fullHash: "a9756b668a4f3667726f81945f661b1585591f46",
-      author: "Abhijeet Raut",
-      authorTag: "@arauthub",
-      date: "2026-10-11 18:50:05 +0530",
-      relativeDate: "Active Just Now",
-      message: "chore(hooks): enforce all pre-commit validations before pushing to remote",
-      type: "chore",
-      badge: "Pre-Push Gatekeeper",
-      branch: "main",
-      stats: { additions: 42, deletions: 8, filesChanged: 4 }
+        "hash": "0af323b",
+        "fullHash": "0af323be9d925fede498117e37fa36deba44a393",
+        "author": "Abhijeet Raut",
+        "authorTag": "@arauthub",
+        "date": "2026-10-31 17:22:13 +0530",
+        "relativeDate": "51 seconds ago",
+        "message": "feat(portfolio): sync Jamstack frontend with monorepo state, Websites catalog, and mark Chrome Store extension release",
+        "type": "feat",
+        "badge": "Feat",
+        "branch": "main",
+        "stats": {
+            "additions": 14,
+            "deletions": 2,
+            "filesChanged": 1
+        }
     },
     {
-      hash: "d529795",
-      fullHash: "d529795d0740a78061e495a42362fa2b739ff1b5",
-      author: "Abhijeet Raut",
-      authorTag: "@arauthub",
-      date: "2026-10-11 18:44:36 +0530",
-      relativeDate: "Today",
-      message: "docs: auto-sync CV and profile on push [skip ci]",
-      type: "docs",
-      badge: "Auto-Sync",
-      branch: "main",
-      stats: { additions: 18, deletions: 4, filesChanged: 2 }
+        "hash": "da4c85a",
+        "fullHash": "da4c85a03bd74b0e63083b35b40e2c75305f8347",
+        "author": "Abhijeet Raut",
+        "authorTag": "@arauthub",
+        "date": "2026-10-31 17:01:00 +0530",
+        "relativeDate": "22 minutes ago",
+        "message": "fix(ci): delegate monorepo CI verification to parallel matrix jobs in GitHub Actions runner",
+        "type": "chore",
+        "badge": "Chore",
+        "branch": "main",
+        "stats": {
+            "additions": 14,
+            "deletions": 2,
+            "filesChanged": 1
+        }
     },
     {
-      hash: "559e971",
-      fullHash: "559e971a4e37c0de7559a5eb820445b9888e496c",
-      author: "Abhijeet Raut",
-      authorTag: "@arauthub",
-      date: "2026-10-11 18:43:27 +0530",
-      relativeDate: "Today",
-      message: "docs: auto-sync CV and profile on push [skip ci]",
-      type: "docs",
-      badge: "Profile Sync",
-      branch: "main",
-      stats: { additions: 12, deletions: 2, filesChanged: 2 }
+        "hash": "0692b71",
+        "fullHash": "0692b71952b98fc227c3e07105c7bd5361478bd5",
+        "author": "Abhijeet Raut",
+        "authorTag": "@arauthub",
+        "date": "2026-10-31 16:58:52 +0530",
+        "relativeDate": "24 minutes ago",
+        "message": "chore(cleanup): remove root symlinks, enforce automated Jamstack portfolio sync, and add CI gatekeeper to pre-commits",
+        "type": "chore",
+        "badge": "Pre-Push Gatekeeper",
+        "branch": "main",
+        "stats": {
+            "additions": 14,
+            "deletions": 2,
+            "filesChanged": 1
+        }
     },
     {
-      hash: "891fd58",
-      fullHash: "891fd5893c973da19be9f2fe192a0dc516f4d44d",
-      author: "Abhijeet Raut",
-      authorTag: "@arauthub",
-      date: "2026-10-11 18:40:08 +0530",
-      relativeDate: "Today",
-      message: "docs: auto-sync CV and profile on push [skip ci]",
-      type: "docs",
-      badge: "Docs Sync",
-      branch: "main",
-      stats: { additions: 8, deletions: 1, filesChanged: 1 }
+        "hash": "59e80cc",
+        "fullHash": "59e80cc56a41cce5ce06ffa47e195fcee3e7ea83",
+        "author": "Abhijeet Raut",
+        "authorTag": "@arauthub",
+        "date": "2026-10-31 16:46:52 +0530",
+        "relativeDate": "36 minutes ago",
+        "message": "fix(ci): add httpx to myagents dependencies and use Node 22 for Angular 22 build",
+        "type": "chore",
+        "badge": "Chore",
+        "branch": "main",
+        "stats": {
+            "additions": 14,
+            "deletions": 2,
+            "filesChanged": 1
+        }
     },
     {
-      hash: "fedbcb6",
-      fullHash: "fedbcb6eb5725b58018fa54c3d75a7cc18455692",
-      author: "Abhijeet Raut",
-      authorTag: "@arauthub",
-      date: "2026-10-11 18:38:05 +0530",
-      relativeDate: "Today",
-      message: "feat(security): add pre-commit sensitive information blocker, full history scanner, and historical purge utility",
-      type: "feat",
-      badge: "Security Core",
-      branch: "main",
-      stats: { additions: 540, deletions: 22, filesChanged: 6 }
+        "hash": "94ecbca",
+        "fullHash": "94ecbca44ffe755f9a058c7f7fa4d2059a3697a1",
+        "author": "Abhijeet Raut",
+        "authorTag": "@arauthub",
+        "date": "2026-10-31 16:40:29 +0530",
+        "relativeDate": "43 minutes ago",
+        "message": "feat(portfolio): sync Synapse LMS to Jamstack portfolio catalog and harden CI workflow",
+        "type": "feat",
+        "badge": "Feat",
+        "branch": "main",
+        "stats": {
+            "additions": 14,
+            "deletions": 2,
+            "filesChanged": 1
+        }
     },
     {
-      hash: "85e166d",
-      fullHash: "85e166d9fc7376fc80c10d2c4a391bfab276693d",
-      author: "Abhijeet Raut",
-      authorTag: "@arauthub",
-      date: "2026-10-11 14:43:13 +0530",
-      relativeDate: "Today",
-      message: "docs: add technical design documents, complete execution runbooks, and prerequisites across all projects",
-      type: "docs",
-      badge: "Architecture Docs",
-      branch: "main",
-      stats: { additions: 920, deletions: 45, filesChanged: 14 }
+        "hash": "3c5d6db",
+        "fullHash": "3c5d6dbc077b9b2e616b62b564c1ea637cac7318",
+        "author": "Abhijeet Raut",
+        "authorTag": "@arauthub",
+        "date": "2026-10-31 16:27:11 +0530",
+        "relativeDate": "56 minutes ago",
+        "message": "feat: enterprise luxury storefronts, spec-driven development, and Synapse LMS",
+        "type": "feat",
+        "badge": "Feat",
+        "branch": "main",
+        "stats": {
+            "additions": 14,
+            "deletions": 2,
+            "filesChanged": 1
+        }
     },
     {
-      hash: "e8ec119",
-      fullHash: "e8ec11978761d03a35ad3d0da559860070f301b3",
-      author: "Abhijeet Raut",
-      authorTag: "@arauthub",
-      date: "2026-10-11 13:45:06 +0530",
-      relativeDate: "Today",
-      message: "feat(arnas): implement enterprise RBAC, user content isolation, role-based site guide, and 1-click cloud deployment for GCP and AWS",
-      type: "feat",
-      badge: "ARNAS Cloud NAS",
-      branch: "main",
-      stats: { additions: 780, deletions: 60, filesChanged: 11 }
+        "hash": "4af1f60",
+        "fullHash": "4af1f6032250f53932b4f913bf4d16a44d30229d",
+        "author": "Abhijeet Raut",
+        "authorTag": "@arauthub",
+        "date": "2026-10-30 20:58:36 +0530",
+        "relativeDate": "20 hours ago",
+        "message": "fix(profile): update Cybage tenure (2017-Present), Persistent tenure (2014-2017), and education to MCA (2014)",
+        "type": "chore",
+        "badge": "Chore",
+        "branch": "main",
+        "stats": {
+            "additions": 14,
+            "deletions": 2,
+            "filesChanged": 1
+        }
     },
     {
-      hash: "7c438ee",
-      fullHash: "7c438ee32355ec47adb347d5ec5f57d70d8c8490",
-      author: "Abhijeet Raut",
-      authorTag: "@arauthub",
-      date: "2026-10-10 21:20:12 +0530",
-      relativeDate: "Yesterday",
-      message: "feat(arnas): add external HDD/SSD NAS support for wireless mobile-to-drive storage",
-      type: "feat",
-      badge: "External NAS",
-      branch: "main",
-      stats: { additions: 340, deletions: 12, filesChanged: 5 }
+        "hash": "54a60cf",
+        "fullHash": "54a60cf24aac345482521d1a4ab1d8410821781c",
+        "author": "Abhijeet Raut",
+        "authorTag": "@arauthub",
+        "date": "2026-10-23 00:35:38 +0530",
+        "relativeDate": "9 days ago",
+        "message": "fix(portfolio): eliminate overlapping card content and add robust offline HD card download",
+        "type": "chore",
+        "badge": "Chore",
+        "branch": "main",
+        "stats": {
+            "additions": 14,
+            "deletions": 2,
+            "filesChanged": 1
+        }
+    },
+    {
+        "hash": "6e4155f",
+        "fullHash": "6e4155f800a2048e7a9b0346568553f302b2ace2",
+        "author": "Abhijeet Raut",
+        "authorTag": "@arauthub",
+        "date": "2026-10-23 00:20:08 +0530",
+        "relativeDate": "9 days ago",
+        "message": "fix(portfolio): set Cybage Software as current company, Persistent Systems as past, and correct text inconsistencies",
+        "type": "chore",
+        "badge": "Chore",
+        "branch": "main",
+        "stats": {
+            "additions": 14,
+            "deletions": 2,
+            "filesChanged": 1
+        }
+    },
+    {
+        "hash": "23d5560",
+        "fullHash": "23d5560c5421fdce0e179213ce997b1401c97778",
+        "author": "Abhijeet Raut",
+        "authorTag": "@arauthub",
+        "date": "2026-10-23 00:04:56 +0530",
+        "relativeDate": "9 days ago",
+        "message": "feat(extensions): prepare api-pulse-pro v1.0.0 for Chrome Web Store release and add store assets",
+        "type": "feat",
+        "badge": "Feat",
+        "branch": "main",
+        "stats": {
+            "additions": 14,
+            "deletions": 2,
+            "filesChanged": 1
+        }
     }
-  ]
+]
 };
 
 /**
- * Fetch dynamic data from GitHub API if connected, with automatic fallback
+ * Fetch dynamic data from GitHub API / local build manifest if connected, with automatic fallback
  */
 export async function getGitIntelligenceData() {
   const cached = { ...STATIC_GIT_SNAPSHOT, source: "Jamstack Static Edge Cache" };
 
   try {
+    // 1. Check local build manifest for newer commits
+    try {
+      const manifestRes = await fetch("data/build-manifest.json");
+      if (manifestRes.ok) {
+        const manifestData = await manifestRes.json();
+        if (manifestData.headCommit) cached.headCommit = manifestData.headCommit;
+        if (manifestData.targetBranch) cached.activeBranch = manifestData.targetBranch;
+        if (Array.isArray(manifestData.recentCommits) && manifestData.recentCommits.length > 0) {
+          cached.commits = manifestData.recentCommits;
+        }
+      }
+    } catch (_) {}
+
+    // 2. Query GitHub REST API
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 2500);
 
