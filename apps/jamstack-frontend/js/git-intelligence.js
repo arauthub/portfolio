@@ -17,10 +17,10 @@ export const STATIC_GIT_SNAPSHOT = {
     open_issues: 0,
     license: "MIT",
     language: "Python / TypeScript / Go",
-    pushed_at: "2026-10-31T11:52:13.383863+00:00"
+    pushed_at: "2026-10-31T11:53:04.697091+00:00"
   },
   activeBranch: "main",
-  headCommit: "da4c85a",
+  headCommit: "0af323b",
   presubmitAudit: {
     status: "PASSED",
     score: "5 / 5 Checks Green",
@@ -34,12 +34,29 @@ export const STATIC_GIT_SNAPSHOT = {
   },
   commits: [
     {
+        "hash": "0af323b",
+        "fullHash": "0af323be9d925fede498117e37fa36deba44a393",
+        "author": "Abhijeet Raut",
+        "authorTag": "@arauthub",
+        "date": "2026-10-31 17:22:13 +0530",
+        "relativeDate": "51 seconds ago",
+        "message": "feat(portfolio): sync Jamstack frontend with monorepo state, Websites catalog, and mark Chrome Store extension release",
+        "type": "feat",
+        "badge": "Feat",
+        "branch": "main",
+        "stats": {
+            "additions": 14,
+            "deletions": 2,
+            "filesChanged": 1
+        }
+    },
+    {
         "hash": "da4c85a",
         "fullHash": "da4c85a03bd74b0e63083b35b40e2c75305f8347",
         "author": "Abhijeet Raut",
         "authorTag": "@arauthub",
         "date": "2026-10-31 17:01:00 +0530",
-        "relativeDate": "21 minutes ago",
+        "relativeDate": "22 minutes ago",
         "message": "fix(ci): delegate monorepo CI verification to parallel matrix jobs in GitHub Actions runner",
         "type": "chore",
         "badge": "Chore",
@@ -56,7 +73,7 @@ export const STATIC_GIT_SNAPSHOT = {
         "author": "Abhijeet Raut",
         "authorTag": "@arauthub",
         "date": "2026-10-31 16:58:52 +0530",
-        "relativeDate": "23 minutes ago",
+        "relativeDate": "24 minutes ago",
         "message": "chore(cleanup): remove root symlinks, enforce automated Jamstack portfolio sync, and add CI gatekeeper to pre-commits",
         "type": "chore",
         "badge": "Pre-Push Gatekeeper",
@@ -73,7 +90,7 @@ export const STATIC_GIT_SNAPSHOT = {
         "author": "Abhijeet Raut",
         "authorTag": "@arauthub",
         "date": "2026-10-31 16:46:52 +0530",
-        "relativeDate": "35 minutes ago",
+        "relativeDate": "36 minutes ago",
         "message": "fix(ci): add httpx to myagents dependencies and use Node 22 for Angular 22 build",
         "type": "chore",
         "badge": "Chore",
@@ -90,7 +107,7 @@ export const STATIC_GIT_SNAPSHOT = {
         "author": "Abhijeet Raut",
         "authorTag": "@arauthub",
         "date": "2026-10-31 16:40:29 +0530",
-        "relativeDate": "42 minutes ago",
+        "relativeDate": "43 minutes ago",
         "message": "feat(portfolio): sync Synapse LMS to Jamstack portfolio catalog and harden CI workflow",
         "type": "feat",
         "badge": "Feat",
@@ -107,7 +124,7 @@ export const STATIC_GIT_SNAPSHOT = {
         "author": "Abhijeet Raut",
         "authorTag": "@arauthub",
         "date": "2026-10-31 16:27:11 +0530",
-        "relativeDate": "55 minutes ago",
+        "relativeDate": "56 minutes ago",
         "message": "feat: enterprise luxury storefronts, spec-driven development, and Synapse LMS",
         "type": "feat",
         "badge": "Feat",
@@ -179,23 +196,6 @@ export const STATIC_GIT_SNAPSHOT = {
         "message": "feat(extensions): prepare api-pulse-pro v1.0.0 for Chrome Web Store release and add store assets",
         "type": "feat",
         "badge": "Feat",
-        "branch": "main",
-        "stats": {
-            "additions": 14,
-            "deletions": 2,
-            "filesChanged": 1
-        }
-    },
-    {
-        "hash": "3d5df8a",
-        "fullHash": "3d5df8a4791c20c24d7cdc6292501c5f29602d57",
-        "author": "Abhijeet Raut",
-        "authorTag": "@arauthub",
-        "date": "2026-10-23 00:02:45 +0530",
-        "relativeDate": "9 days ago",
-        "message": "fix(portfolio): optimize mobile layout, ensure universal rich card unfurling across media, and fix modal scrolling",
-        "type": "chore",
-        "badge": "Chore",
         "branch": "main",
         "stats": {
             "additions": 14,
