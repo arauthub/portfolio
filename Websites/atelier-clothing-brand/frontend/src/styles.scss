@@ -1,0 +1,564 @@
+/* ==========================================================================
+   ATELIER VOGUE — Enterprise Luxury Design System & Theme Engine
+   Vanilla CSS Variables with Angular Material Integration
+   ========================================================================== */
+
+@use '@angular/material' as mat;
+
+/* Global Material Core */
+@include mat.core();
+
+/* 1. Theme Variables Definition */
+:root,
+body.theme-luxe-monochrome {
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Color Palette: Haute Couture Monochrome & Champagne */
+  --bg-primary: #0a0b0e;
+  --bg-secondary: #121419;
+  --bg-surface: #181b22;
+  --bg-elevated: #20242e;
+  --bg-glass: rgba(18, 20, 25, 0.85);
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-focus: #ead8c0;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-accent: #ead8c0;
+
+  --accent-gold: #ead8c0;
+  --accent-camel: #d4af37;
+  --accent-emerald: #065f46;
+  --accent-ruby: #f43f5e;
+
+  --brand-gradient: linear-gradient(135deg, #ead8c0 0%, #c19a6b 100%);
+  --gold-glow: 0 0 25px rgba(234, 216, 192, 0.15);
+  --card-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+}
+
+body.theme-neo-streetwear {
+  --bg-primary: #050608;
+  --bg-secondary: #0d0f14;
+  --bg-surface: #131720;
+  --bg-elevated: #1a202c;
+  --bg-glass: rgba(13, 15, 20, 0.88);
+
+  --border-subtle: rgba(212, 255, 0, 0.12);
+  --border-medium: rgba(212, 255, 0, 0.28);
+  --border-focus: #d4ff00;
+
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #a0aec0;
+  --text-accent: #d4ff00;
+
+  --accent-gold: #d4ff00;
+  --accent-camel: #00f0ff;
+  --brand-gradient: linear-gradient(135deg, #d4ff00 0%, #00f0ff 100%);
+  --gold-glow: 0 0 25px rgba(212, 255, 0, 0.25);
+}
+
+body.theme-artisan-boho {
+  --bg-primary: #120e0c;
+  --bg-secondary: #1c1613;
+  --bg-surface: #261f1b;
+  --bg-elevated: #332924;
+  --bg-glass: rgba(28, 22, 19, 0.88);
+
+  --border-subtle: rgba(217, 119, 87, 0.14);
+  --border-medium: rgba(217, 119, 87, 0.3);
+  --border-focus: #d97757;
+
+  --text-primary: #faf6f0;
+  --text-secondary: #e8ded6;
+  --text-muted: #c2b2a3;
+  --text-accent: #d97757;
+
+  --accent-gold: #d97757;
+  --accent-camel: #a37f5d;
+  --brand-gradient: linear-gradient(135deg, #d97757 0%, #e2a878 100%);
+  --gold-glow: 0 0 25px rgba(217, 119, 87, 0.22);
+}
+
+body.theme-nordic-minimal {
+  --bg-primary: #0a0f12;
+  --bg-secondary: #12191f;
+  --bg-surface: #18222a;
+  --bg-elevated: #202d38;
+  --bg-glass: rgba(18, 25, 31, 0.88);
+
+  --border-subtle: rgba(163, 230, 53, 0.12);
+  --border-medium: rgba(148, 163, 184, 0.22);
+  --border-focus: #94a3b8;
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-accent: #cbd5e1;
+
+  --accent-gold: #cbd5e1;
+  --accent-camel: #94a3b8;
+  --brand-gradient: linear-gradient(135deg, #cbd5e1 0%, #64748b 100%);
+  --gold-glow: 0 0 25px rgba(203, 213, 225, 0.15);
+}
+
+/* High-Contrast Non-Transparent Menu & Overlay Architecture */
+.mat-mdc-menu-panel,
+.mdc-menu-surface,
+.luxury-menu {
+  background-color: #181b22 !important;
+  background: #181b22 !important;
+  color: #f8fafc !important;
+  opacity: 1 !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: var(--radius-md, 8px) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(234, 216, 192, 0.15) !important;
+  z-index: 1200 !important;
+}
+
+.mat-mdc-menu-item {
+  color: #cbd5e1 !important;
+  opacity: 1 !important;
+
+  &:hover, &:focus {
+    background-color: rgba(234, 216, 192, 0.12) !important;
+    color: #f8fafc !important;
+  }
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* High-Contrast Accessible Focus Outlines (WCAG AA) */
+*:focus-visible {
+  outline: 2px solid var(--accent-gold, #EAD8C0) !important;
+  outline-offset: 3px !important;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Material Symbols Icon Sizing */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: 300;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  vertical-align: middle;
+}
+
+/* Typography Helpers */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+/* Custom Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-accent);
+}
+
+/* Modern Angular Material Overrides for Luxury Dark Theme */
+.mat-mdc-button-base {
+  font-family: var(--font-display) !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  border-radius: var(--radius-sm) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.mat-mdc-unelevated-button,
+.mat-mdc-raised-button {
+  background-color: var(--accent-gold) !important;
+  color: #000000 !important;
+}
+
+.mat-mdc-unelevated-button:hover,
+.mat-mdc-raised-button:hover {
+  filter: brightness(1.1);
+  box-shadow: var(--gold-glow);
+  transform: translateY(-1px);
+}
+
+.mat-mdc-outlined-button {
+  border-color: var(--border-medium) !important;
+  color: var(--text-primary) !important;
+}
+
+.mat-mdc-outlined-button:hover {
+  border-color: var(--accent-gold) !important;
+  color: var(--accent-gold) !important;
+  background-color: rgba(234, 216, 192, 0.05) !important;
+}
+
+/* Material Dialog & BottomSheet */
+.cdk-overlay-backdrop {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-medium) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+/* Form fields & inputs */
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mat-mdc-text-field-wrapper {
+  background-color: var(--bg-secondary) !important;
+}
+
+.mdc-text-field--outlined .mdc-notched-outline__leading,
+.mdc-text-field--outlined .mdc-notched-outline__notch,
+.mdc-text-field--outlined .mdc-notched-outline__trailing {
+  border-color: var(--border-medium) !important;
+}
+
+.mdc-text-field--outlined.mdc-text-field--focused .mdc-notched-outline__leading,
+.mdc-text-field--outlined.mdc-text-field--focused .mdc-notched-outline__notch,
+.mdc-text-field--outlined.mdc-text-field--focused .mdc-notched-outline__trailing {
+  border-color: var(--accent-gold) !important;
+}
+
+.mat-mdc-input-element {
+  color: var(--text-primary) !important;
+  caret-color: var(--accent-gold) !important;
+}
+
+.mat-mdc-form-field-hint,
+.mat-mdc-form-field-label {
+  color: var(--text-secondary) !important;
+}
+
+/* Chips */
+.mat-mdc-chip {
+  background-color: var(--bg-elevated) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-subtle) !important;
+}
+
+.mat-mdc-chip.mat-mdc-chip-selected {
+  background-color: var(--accent-gold) !important;
+  color: #000000 !important;
+  font-weight: 700;
+}
+
+/* Snackbars */
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-focus) !important;
+  box-shadow: var(--gold-glow) !important;
+}
+
+/* Utility Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; filter: drop-shadow(0 0 10px var(--accent-gold)); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.glow-pill {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+/* ==========================================================================
+   12-COLUMN ENTERPRISE GRID ARCHITECTURE & LUXURY LAYOUT ENGINE
+   ========================================================================== */
+.container-12 {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(16px, 3vw, 36px);
+  padding-right: clamp(16px, 3vw, 36px);
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 28px);
+  align-items: start;
+}
+
+.col-1  { grid-column: span 1 / span 1; }
+.col-2  { grid-column: span 2 / span 2; }
+.col-3  { grid-column: span 3 / span 3; }
+.col-4  { grid-column: span 4 / span 4; }
+.col-5  { grid-column: span 5 / span 5; }
+.col-6  { grid-column: span 6 / span 6; }
+.col-7  { grid-column: span 7 / span 7; }
+.col-8  { grid-column: span 8 / span 8; }
+.col-9  { grid-column: span 9 / span 9; }
+.col-10 { grid-column: span 10 / span 10; }
+.col-11 { grid-column: span 11 / span 11; }
+.col-12 { grid-column: span 12 / span 12; }
+
+@media (max-width: 1024px) {
+  .col-lg-12 { grid-column: span 12 / span 12; }
+  .col-lg-6  { grid-column: span 6 / span 6; }
+  .col-lg-4  { grid-column: span 4 / span 4; }
+  .col-lg-8  { grid-column: span 8 / span 8; }
+}
+
+@media (max-width: 768px) {
+  .grid-12 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
+  .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    grid-column: span 6 / span 6;
+  }
+  .col-md-3 { grid-column: span 3 / span 6; }
+}
+
+/* Royal Luxury Micro-Animations & Smooth Spring Interactions */
+html {
+  scroll-behavior: smooth;
+}
+
+.smooth-transition {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card-hover {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+  will-change: transform, box-shadow;
+
+  &:hover {
+    transform: translateY(-8px) scale(1.008);
+    box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px var(--text-accent);
+  }
+}
+
+.gold-shimmer-btn {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -70%;
+    width: 25%;
+    height: 200%;
+    background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+    transform: rotate(25deg);
+    transition: none;
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    left: 150%;
+    transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+.indian-festive-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #E8D8B8;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   FOLDABLE & DUAL-SCREEN RESPONSIVE ARCHITECTURE
+   Supports Samsung Galaxy Z Fold (folded 280px outer, unfolded 7.6" dual screen),
+   Galaxy Z Flip (flex/clamshell mode), Microsoft Surface Duo, and all mobile/tablet sizes.
+   ========================================================================== */
+
+/* 1. Foldable Dual Screen - Horizontal Viewport Segments (Book Mode / Unfolded) */
+@media (horizontal-viewport-segments: 2), (screen-spanning: single-fold-vertical) {
+  :root {
+    --fold-seam-width: 24px;
+  }
+
+  .catalog-layout,
+  .terminal-body,
+  .modal-two-column {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: calc(var(--fold-seam-width) + 16px) !important;
+  }
+
+  /* Catalog split across hinge */
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  /* POS Terminal split across book hinge */
+  .pos-terminal {
+    width: 96vw !important;
+    max-width: 1400px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .pos-terminal .terminal-body {
+    display: grid !important;
+    grid-template-columns: 1.1fr 0.9fr !important;
+    gap: 32px !important;
+  }
+
+  /* Product details modal: gallery on left segment, buy box on right segment */
+  .product-modal-dialog {
+    max-width: 95vw !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* 2. Foldable Dual Screen - Vertical Viewport Segments (Flex Mode / Clamshell) */
+@media (vertical-viewport-segments: 2), (screen-spanning: single-fold-horizontal) {
+  .pos-terminal {
+    max-height: 94vh !important;
+  }
+  
+  .scanner-viewport-box {
+    max-height: 40vh !important;
+  }
+
+  .barcode-dialog {
+    max-height: 92vh !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* 3. Ultra-Narrow Foldable Outer Screen (e.g. Galaxy Z Fold Cover Screen 280px - 340px) */
+@media screen and (max-width: 340px) {
+  body {
+    font-size: 13px !important;
+  }
+
+  .header-actions {
+    gap: 4px !important;
+  }
+
+  .action-btn,
+  .hub-site-link,
+  .currency-btn {
+    padding: 4px 6px !important;
+    font-size: 0.72rem !important;
+  }
+
+  .action-btn span.label {
+    display: none !important;
+  }
+
+  .catalog-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .modal-dialog,
+  .pos-terminal,
+  .barcode-dialog,
+  .membership-dialog,
+  .auth-dialog,
+  .brand-portal-dialog {
+    width: 100vw !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    padding: 12px !important;
+  }
+
+  .payment-methods-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .membership-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 4. Safe Area Insets for Modern Edge-to-Edge Displays & Island Cutouts */
+@supports (padding: env(safe-area-inset-top)) {
+  .site-header,
+  .central-hub-header {
+    padding-top: calc(8px + env(safe-area-inset-top));
+    padding-left: calc(16px + env(safe-area-inset-left));
+    padding-right: calc(16px + env(safe-area-inset-right));
+  }
+
+  .floating-ai-pill,
+  .pos-floating-action {
+    bottom: calc(24px + env(safe-area-inset-bottom));
+    right: calc(24px + env(safe-area-inset-right));
+  }
+}

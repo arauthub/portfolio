@@ -1,0 +1,55 @@
+{
+  "AWSEBDockerrunVersion": "2",
+  "containerDefinitions": [
+    {
+      "name": "petit-maison-backend",
+      "image": "ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/petit-maison-backend:latest",
+      "essential": true,
+      "memory": 1024,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 8080
+        }
+      ],
+      "environment": [
+        {
+          "name": "DJANGO_SETTINGS_MODULE",
+          "value": "petit_backend.settings.production"
+        },
+        {
+          "name": "STORAGE_BACKEND",
+          "value": "aws_s3"
+        },
+        {
+          "name": "AWS_STORAGE_BUCKET_NAME",
+          "value": "petit-maison-kids-production-s3"
+        },
+        {
+          "name": "AWS_S3_REGION_NAME",
+          "value": "us-east-1"
+        },
+        {
+          "name": "AWS_CLOUDFRONT_DOMAIN",
+          "value": "cdn.petitmaisonkids.com"
+        },
+        {
+          "name": "DB_HOST",
+          "value": "petit-kids-db.cxxxx.us-east-1.rds.amazonaws.com"
+        },
+        {
+          "name": "DB_PORT",
+          "value": "5432"
+        },
+        {
+          "name": "DB_NAME",
+          "value": "petit_kids_db"
+        },
+        {
+          "name": "DB_USER",
+          "value": "petit_admin"
+        }
+      ]
+    }
+  ]
+}

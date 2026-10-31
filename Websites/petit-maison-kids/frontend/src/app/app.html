@@ -1,0 +1,111 @@
+<div class="storefront-app">
+  <!-- 0. Central Commerce Hub Header (Website Factory Switcher) -->
+  <app-central-hub-header></app-central-hub-header>
+
+  <!-- D3.js Interactive Backdrop Canvas -->
+  <app-d3-visualizer></app-d3-visualizer>
+
+  <!-- Header with Ticker, Nav, Theme Switcher, and Bag Pill -->
+  <app-header
+    (toggleOwnerPanel)="toggleOwnerPanel()"
+    (categorySelected)="onCategorySelected($event)"
+    (openGuide)="openUserGuide()"
+    (openBarcode)="openBarcodeScanner()"
+    (openBrands)="openBrandPortal()"
+  ></app-header>
+
+  <!-- Hero Banner with Room-to-Grow and Organic Highlights -->
+  <app-hero
+    (explore)="onCategorySelected($event)"
+  ></app-hero>
+
+  <!-- Main Product Catalog Grid & Milestone Stage Filters -->
+  <app-catalog
+    (selectProduct)="onSelectProduct($event)"
+  ></app-catalog>
+
+  <!-- Editorial Playbook & Lookbook with Interactive Hotspots -->
+  <app-lookbook
+    (openProductBySlug)="onOpenProductBySlug($event)"
+  ></app-lookbook>
+
+  <!-- Footer with Certifications Ribbon and VIP Club -->
+  <app-footer
+    (openOwner)="toggleOwnerPanel()"
+    (categorySelect)="onCategorySelected($event)"
+  ></app-footer>
+
+  <!-- Modals & Slide-Overs -->
+  <!-- 1. Product Detail & Bespoke Monogram Studio Modal -->
+  <app-product-modal
+    *ngIf="selectedProduct()"
+    [product]="selectedProduct()"
+    (close)="onCloseProductModal()"
+  ></app-product-modal>
+
+  <!-- 2. Shopping Bag Slide-Over Drawer with Free Shipping Meter -->
+  <app-cart-drawer
+    (openCheckout)="onOpenCheckout()"
+  ></app-cart-drawer>
+
+  <!-- 3. Multi-Step Checkout Modal with Courier & Payment Gateways -->
+  <app-checkout-modal
+    *ngIf="isCheckoutOpen()"
+    (close)="onCloseCheckout()"
+    (orderCompleted)="onOrderCompleted($event)"
+  ></app-checkout-modal>
+
+  <!-- 4. Archival Order Keepsake Receipt & Tracking Timeline -->
+  <app-order-receipt-modal
+    [order]="confirmedOrder()"
+    (close)="onCloseOrderReceipt()"
+  ></app-order-receipt-modal>
+
+  <!-- 5. Owner Administration & Wagtail CMS Suite -->
+  <app-owner-panel
+    *ngIf="isOwnerPanelOpen()"
+    (close)="toggleOwnerPanel()"
+  ></app-owner-panel>
+
+  <!-- 6. Enterprise Modals: User Guide, Auth, Membership, Barcode, POS, Brands, AI -->
+  <app-user-guide-modal></app-user-guide-modal>
+  <app-auth-modal></app-auth-modal>
+  <app-membership-modal></app-membership-modal>
+  <app-barcode-scanner-modal></app-barcode-scanner-modal>
+  <app-in-store-pos-modal></app-in-store-pos-modal>
+  <app-brand-portal-modal></app-brand-portal-modal>
+  <app-ai-chat-drawer></app-ai-chat-drawer>
+
+  <!-- 7. Tempting VIP Privé / Nursery Heirloom Invitation Gate -->
+  <app-login-gate></app-login-gate>
+
+  <!-- 8. Viral Social Media Share & Rich OpenGraph Meta Modal -->
+  <app-social-share-modal></app-social-share-modal>
+
+  <!-- Responsive Mobile Bottom Navigation Bar (App-like Shopping Experience) -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+    <button class="nav-tab" (click)="scrollTo('hero')" id="mob-nav-home">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button class="nav-tab" (click)="scrollTo('catalog')" id="mob-nav-shop">
+      <mat-icon>grid_view</mat-icon>
+      <span>Catalog</span>
+    </button>
+    <button class="nav-tab bag-tab" (click)="cart.openDrawer()" id="mob-nav-bag">
+      <div class="icon-wrap">
+        <mat-icon>shopping_bag</mat-icon>
+        <span class="bag-badge" *ngIf="cart.itemCount() > 0">{{ cart.itemCount() }}</span>
+      </div>
+      <span>Bag ({{ cart.formattedSubtotal() }})</span>
+    </button>
+    <button class="nav-tab" (click)="openBarcodeScanner()" id="mob-nav-scan">
+      <mat-icon>qr_code_scanner</mat-icon>
+      <span>Scanner</span>
+    </button>
+    <button class="nav-tab" (click)="toggleOwnerPanel()" id="mob-nav-owner">
+      <mat-icon>tune</mat-icon>
+      <span>Owner CMS</span>
+    </button>
+  </nav>
+</div>

@@ -1,0 +1,167 @@
+<div class="atelier-app-root">
+  <!-- 0. Centralised Shopping Hub & Website Factory Top Ribbon -->
+  <app-central-hub-header
+    (openGuide)="userGuideOpen.set(true)"
+    (openBrandPortal)="brandPortalOpen.set(true)">
+  </app-central-hub-header>
+
+  <!-- PWA Install Prompt Bar -->
+  @if (pwaBannerVisible()) {
+    <div class="pwa-install-bar">
+      <div class="pwa-content">
+        <span class="material-symbols-outlined icon">install_mobile</span>
+        <span>Install <strong>ATELIER VOGUE</strong> App for offline runway lookbooks and instant bespoke alerts.</span>
+      </div>
+      <div class="pwa-actions">
+        <button class="install-btn" (click)="installPwa()">INSTALL APP</button>
+        <button class="dismiss-btn" (click)="pwaBannerVisible.set(false)">✕</button>
+      </div>
+    </div>
+  }
+
+  <!-- 1. Header & Navigation -->
+  <app-header 
+    (openAdminPanel)="onOpenAdminPanel()"
+    (openWishlist)="scrollToCatalog('all')"
+    (scrollToCatalog)="scrollToCatalog($event)"
+    (openGuide)="userGuideOpen.set(true)"
+    (openBarcodeScanner)="barcodeScannerOpen.set(true)"
+    (openBrandPortal)="brandPortalOpen.set(true)">
+  </app-header>
+
+  <main>
+    <!-- 2. Fullscreen Editorial Hero Showcase -->
+    <app-hero 
+      (exploreClicked)="scrollToCatalog('all')"
+      (lookbookClicked)="scrollToCatalog('lookbook')">
+    </app-hero>
+
+    <!-- 3. D3.js Mathematical Living Fashion Visualizer with Wagtail Preset Controls -->
+    <app-d3-visualizer></app-d3-visualizer>
+
+    <!-- 4. Centralised Multi-Brand Product Catalog & Filtering -->
+    <app-catalog 
+      (selectProduct)="onSelectProduct($event)">
+    </app-catalog>
+
+    <!-- 5. Fall/Winter 2026 Lookbook Section -->
+    <app-lookbook 
+      (exploreCollection)="scrollToCatalog($event)">
+    </app-lookbook>
+  </main>
+
+  <!-- 6. Luxury Footer & Maisons -->
+  <app-footer></app-footer>
+
+  <!-- Modals & Slide-Over Drawers -->
+  <!-- Product Detail Modal -->
+  @if (selectedProduct()) {
+    <app-product-modal 
+      [product]="selectedProduct()!" 
+      (close)="onCloseProductModal()">
+    </app-product-modal>
+  }
+
+  <!-- Cart Slide-Over Drawer -->
+  <app-cart-drawer 
+    (openCheckout)="onOpenCheckout()">
+  </app-cart-drawer>
+
+  <!-- Universal Checkout Flow Modal -->
+  @if (checkoutModalOpen()) {
+    <app-checkout-modal 
+      (close)="onCloseCheckout()"
+      (orderCompleted)="onOrderCompleted($event)">
+    </app-checkout-modal>
+  }
+
+  <!-- Order Confirmed Luxury Digital Receipt Modal -->
+  @if (confirmedOrder()) {
+    <app-order-receipt-modal 
+      [order]="confirmedOrder()!" 
+      (close)="onCloseReceipt()">
+    </app-order-receipt-modal>
+  }
+
+  <!-- First-Time User Guidelines Compass Modal -->
+  @if (userGuideOpen()) {
+    <app-user-guide-modal
+      (close)="userGuideOpen.set(false)">
+    </app-user-guide-modal>
+  }
+
+  <!-- Authentication & User Dossier Modal -->
+  <app-auth-modal></app-auth-modal>
+
+  <!-- Plus, Premium & VIP Membership Modal -->
+  <app-membership-modal></app-membership-modal>
+
+  <!-- Live Barcode & QR Scanner Modal -->
+  @if (barcodeScannerOpen()) {
+    <app-barcode-scanner-modal
+      (close)="barcodeScannerOpen.set(false)">
+    </app-barcode-scanner-modal>
+  }
+
+  <!-- Omnichannel In-Store Retail POS Terminal Modal -->
+  <app-in-store-pos-modal></app-in-store-pos-modal>
+
+  <!-- Hosted Brands & Paid Promotion Portal Modal -->
+  @if (brandPortalOpen()) {
+    <app-brand-portal-modal
+      (close)="brandPortalOpen.set(false)">
+    </app-brand-portal-modal>
+  }
+
+  <!-- Wagtail AI Personal Stylist Concierge Floating Chat Assistant -->
+  <app-ai-chat-drawer></app-ai-chat-drawer>
+
+  <!-- Tempting VIP Privé / Maison Invitation Login Gate -->
+  <app-login-gate></app-login-gate>
+
+  <!-- Omnichannel Social Share & Rich Meta Dialog -->
+  <app-social-share-modal></app-social-share-modal>
+
+  <!-- Wagtail Owner CMS Control Panel -->
+  @if (ownerPanelOpen()) {
+    <app-owner-panel 
+      (close)="onCloseAdminPanel()">
+    </app-owner-panel>
+  }
+
+  <!-- Floating Quick Owner Action Button (Always accessible) -->
+  <button class="floating-owner-trigger" (click)="onOpenAdminPanel()" matTooltip="Open Wagtail CMS Brand Controls">
+    <span class="pulse-ring"></span>
+    <span class="material-symbols-outlined">tune</span>
+    <span class="lbl">OWNER CMS</span>
+  </button>
+
+  <!-- Responsive Mobile Bottom Navigation Bar (App-like Shopping Experience) -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+    <button class="nav-tab" (click)="scrollToCatalog('hero')" id="mob-nav-home">
+      <span class="material-symbols-outlined">home</span>
+      <span>Home</span>
+    </button>
+    <button class="nav-tab" (click)="scrollToCatalog('all')" id="mob-nav-shop">
+      <span class="material-symbols-outlined">styler</span>
+      <span>Runway</span>
+    </button>
+    <button class="nav-tab bag-tab" (click)="cartService.openDrawer()" id="mob-nav-bag">
+      <div class="icon-wrap">
+        <span class="material-symbols-outlined">shopping_bag</span>
+        @if (cartService.itemCount() > 0) {
+          <span class="bag-badge">{{ cartService.itemCount() }}</span>
+        }
+      </div>
+      <span>Bag ({{ cartService.formattedSubtotal() }})</span>
+    </button>
+    <button class="nav-tab" (click)="barcodeScannerOpen.set(true)" id="mob-nav-scan">
+      <span class="material-symbols-outlined">barcode_scanner</span>
+      <span>Scan</span>
+    </button>
+    <button class="nav-tab" (click)="onOpenAdminPanel()" id="mob-nav-owner">
+      <span class="material-symbols-outlined">tune</span>
+      <span>CMS</span>
+    </button>
+  </nav>
+</div>

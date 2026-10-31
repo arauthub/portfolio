@@ -1,0 +1,183 @@
+@if (cartService.isDrawerOpen()) {
+  <!-- Overlay Backdrop -->
+  <div class="drawer-backdrop" (click)="cartService.closeDrawer()">
+    <!-- Slide-Over Drawer Surface -->
+    <aside class="drawer-surface" (click)="$event.stopPropagation()" role="dialog" aria-modal="true" aria-label="Your Atelier Potli Bag">
+      <!-- Drawer Header -->
+      <div class="drawer-header">
+        <div class="header-title">
+          <span class="material-symbols-outlined">shopping_bag</span>
+          <h3 class="font-display">YOUR ATELIER POTLI BAG</h3>
+          <span class="badge-count">({{ cartService.itemCount() }})</span>
+        </div>
+        <button class="close-icon-btn" (click)="cartService.closeDrawer()" aria-label="Close Bag">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <!-- Free Worldwide Shipping Progress Bar -->
+      <div class="free-shipping-card">
+        <div class="shipping-msg">
+          @if (cartService.freeShippingRemaining() > 0) {
+            <span class="material-symbols-outlined icon">local_shipping</span>
+            <span>Add <strong>{{ cartService.formattedFreeShippingRemaining() }}</strong> more for Complimentary Shahi Courier</span>
+          } @else {
+            <span class="material-symbols-outlined icon unlocked">verified</span>
+            <strong class="unlocked-text">✓ Complimentary Shahi Express Air Courier Unlocked</strong>
+          }
+        </div>
+        <div class="custom-progress-track">
+          <div class="custom-progress-fill" [style.width.%]="cartService.freeShippingProgress()"></div>
+        </div>
+      </div>
+
+      <!-- Item List Container -->
+      <div class="items-container">
+        @if (cartService.items().length === 0) {
+          <div class="empty-bag">
+            <span class="material-symbols-outlined bag-icon">shopping_bag</span>
+            <h4>Your Potli Is Empty</h4>
+            <p>Explore our sovereign handloom collection and select royal weaves tailored for your celebration.</p>
+            <button mat-stroked-button (click)="cartService.closeDrawer()">
+              Explore Royal Weaves
+            </button>
+          </div>
+        } @else {
+          <div class="items-list">
+            @for (item of cartService.items(); track item.id) {
+              <div class="cart-item-row">
+                <!-- Thumbnail -->
+                <div class="item-img-box">
+                  <img [src]="item.image" [alt]="item.title" />
+                </div>
+
+                <!-- Info -->
+                <div class="item-info">
+                  <div class="item-top">
+                    <h4 class="item-title">{{ item.title }}</h4>
+                    <button class="remove-btn" (click)="cartService.removeItem(item.id)" matTooltip="Remove Item">
+                      <span class="material-symbols-outlined">delete</span>
+                    </button>
+                  </div>
+
+                  <!-- Variant pills -->
+                  <div class="variants-pills">
+                    <span class="pill">Size: {{ item.size }}</span>
+                    <span class="pill">
+                      @if (item.colorHex) {
+                        <span class="color-dot" [style.background-color]="item.colorHex"></span>
+                      }
+                      {{ item.color }}
+                    </span>
+                  </div>
+
+                  <!-- Stepper & Price -->
+                  <div class="stepper-price-row">
+                    <div class="qty-stepper">
+                      <button (click)="cartService.updateQuantity(item.id, -1)">−</button>
+                      <span>{{ item.quantity }}</span>
+                      <button (click)="cartService.updateQuantity(item.id, 1)">+</button>
+                    </div>
+
+                    <div class="price-val font-display">
+                      {{ currencyService.format(item.price * item.quantity) }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        }
+      </div>
+
+      <!-- Drawer Footer (Financial Breakdown & Checkout CTA) -->
+      @if (cartService.items().length > 0) {
+        <div class="drawer-footer">
+          <!-- Promotional Code Section -->
+          <div class="promo-code-box">
+            @if (!cartService.appliedCoupon()) {
+              <div class="input-wrap">
+                <input 
+                  type="text" 
+                  placeholder="Festive Code (Try UTSAV25 or RIWAYAT15)" 
+                  [ngModel]="couponInput()" 
+                  (ngModelChange)="couponInput.set($event)"
+                  (keyup.enter)="applyCoupon()"
+                />
+                <button (click)="applyCoupon()" [disabled]="couponLoading()">
+                  {{ couponLoading() ? '...' : 'APPLY' }}
+                </button>
+              </div>
+            } @else {
+              <div class="active-coupon-pill">
+                <span class="material-symbols-outlined">confirmation_number</span>
+                <span>Code <strong>{{ cartService.appliedCoupon()?.code }}</strong> Applied ({{ cartService.appliedCoupon()?.percent }}% ROYAL PRIVILEGE)</span>
+                <button class="remove-coupon-btn" (click)="removeCoupon()">✕</button>
+              </div>
+            }
+
+            @if (couponFeedback()) {
+              <span class="coupon-feedback" [class.err]="couponFeedback().startsWith('✕')">
+                {{ couponFeedback() }}
+              </span>
+            }
+          </div>
+
+          <!-- Totals Ledger -->
+          <div class="totals-ledger">
+            <div class="ledger-row">
+              <span>Bespoke Handloom Subtotal</span>
+              <span class="val font-display">{{ cartService.formattedSubtotal() }}</span>
+            </div>
+
+            @if (cartService.discountAmount() > 0) {
+              <div class="ledger-row discount">
+                <span>Festive Privilege Saving</span>
+                <span class="val font-display">-{{ cartService.formattedDiscount() }}</span>
+              </div>
+            }
+
+            <div class="ledger-row">
+              <span>GST & Taxes (5% Handloom)</span>
+              <span class="val font-display">{{ cartService.formattedTax() }}</span>
+            </div>
+
+            <div class="ledger-row">
+              <span>Shahi Bluedart Courier</span>
+              <span class="val font-display">
+                {{ cartService.formattedShipping() }}
+              </span>
+            </div>
+
+            <div class="ledger-divider"></div>
+
+            <div class="ledger-row grand-total">
+              <span class="total-label">ESTIMATED TOTAL ({{ currencyService.activeCurrency() }})</span>
+              <span class="total-val font-display">{{ cartService.formattedTotal() }}</span>
+            </div>
+          </div>
+
+          <!-- Supported Payment Modes Badges -->
+          <div class="supported-payments-pills">
+            <span class="pay-tag"><span class="material-symbols-outlined">qr_code_2</span> UPI / GPay</span>
+            <span class="pay-tag"><span class="material-symbols-outlined">credit_card</span> RuPay / Visa</span>
+            <span class="pay-tag"><span class="material-symbols-outlined">account_balance</span> NetBanking</span>
+            <span class="pay-tag"><span class="material-symbols-outlined">payments</span> COD Available</span>
+          </div>
+
+          <!-- Checkout CTA Button -->
+          <button mat-flat-button class="checkout-btn gold-shimmer-btn" (click)="proceedToCheckout()">
+            <span class="material-symbols-outlined">lock</span>
+            PROCEED TO ROYAL CHECKOUT • {{ cartService.formattedTotal() }}
+          </button>
+
+          <!-- Security Badges -->
+          <div class="trust-icons">
+            <span class="material-symbols-outlined icon">verified_user</span>
+            <span>256-Bit TLS Bank Encryption • Bluedart Air Courier • Silk Mark Guaranteed</span>
+          </div>
+        </div>
+      }
+    </aside>
+  </div>
+}

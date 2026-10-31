@@ -1,0 +1,60 @@
+{
+  "atelier_riwayat": {
+    "colors": {
+      "bg_primary": "#0A0B0E",
+      "bg_secondary": "#121419",
+      "bg_surface": "#181B22",
+      "text_primary": "#F8FAFC",
+      "text_secondary": "#CBD5E1",
+      "text_muted": "#94A3B8",
+      "accent_gold": "#EAD8C0",
+      "accent_gold_hover": "#C19A6B",
+      "border_subtle": "rgba(234, 216, 192, 0.12)",
+      "border_medium": "rgba(234, 216, 192, 0.28)",
+      "emerald_badge_bg": "#065F46",
+      "emerald_badge_text": "#ECFDF5"
+    },
+    "typography": {
+      "font_display": "'Syne', sans-serif",
+      "font_serif": "'Playfair Display', serif",
+      "font_body": "'Plus Jakarta Sans', sans-serif"
+    },
+    "z_indexes": {
+      "dropdown_megamenu": 1200,
+      "cart_drawer": 1500,
+      "modal_overlay": 1800,
+      "login_gate": 2000
+    }
+  },
+  "nanhi_maison": {
+    "colors": {
+      "bg_primary": "#FAF6EE",
+      "bg_secondary": "#F3EDE2",
+      "bg_surface": "#FFFFFF",
+      "text_primary": "#0F172A",
+      "text_secondary": "#334155",
+      "text_muted": "#475569",
+      "accent_sage": "#2D5A46",
+      "accent_sage_dark": "#1E3D30",
+      "accent_gold": "#B45309",
+      "border_subtle": "#E2E8F0",
+      "border_medium": "#CBD5E1",
+      "footer_bg": "#1E293B",
+      "footer_text": "#CBD5E1"
+    },
+    "typography": {
+      "font_display": "'Outfit', 'Playfair Display', serif",
+      "font_body": "'Plus Jakarta Sans', sans-serif"
+    },
+    "z_indexes": {
+      "dropdown_megamenu": 1200,
+      "cart_drawer": 1500,
+      "modal_overlay": 1800,
+      "login_gate": 2000
+    }
+  },
+  "wcag_thresholds": {
+    "normal_text_min_contrast": 4.5,
+    "large_text_min_contrast": 3.0
+  }
+}

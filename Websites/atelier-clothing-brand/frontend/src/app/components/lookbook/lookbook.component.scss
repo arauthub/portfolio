@@ -1,0 +1,149 @@
+.lookbook-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.lookbook-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 50px;
+
+  .sub-pill {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--text-accent);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+  }
+
+  .curator-quote {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+}
+
+.looks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.look-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: #000;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-shadow);
+
+    .look-media img {
+      transform: scale(1.06);
+    }
+
+    .look-overlay {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.95) 100%);
+    }
+
+    .hotspot-tag {
+      background: var(--text-accent);
+      color: #000;
+      border-color: var(--text-accent);
+    }
+  }
+
+  .look-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .look-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%);
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      transition: background 0.3s ease;
+
+      .look-season {
+        font-size: 0.65rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        color: var(--text-accent);
+        margin-bottom: 6px;
+      }
+
+      .look-title {
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: #ffffff;
+        line-height: 1.2;
+        margin-bottom: 8px;
+      }
+
+      .look-desc {
+        font-size: 0.8rem;
+        color: #cbd5e1;
+        margin-bottom: 20px;
+        line-height: 1.4;
+      }
+
+      .hotspot-tag {
+        align-self: flex-start;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(18, 20, 25, 0.85);
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--border-medium);
+        padding: 8px 16px;
+        border-radius: var(--radius-full);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        color: #ffffff;
+        transition: all 0.25s ease;
+
+        .pulse-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #10b981;
+          box-shadow: 0 0 8px #10b981;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .looks-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

@@ -1,0 +1,203 @@
+.atelier-app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+main {
+  flex: 1;
+}
+
+.pwa-install-bar {
+  background: linear-gradient(90deg, #181b22 0%, #121419 100%);
+  border-bottom: 1px solid var(--border-medium);
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  z-index: 150;
+
+  .pwa-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .icon {
+      color: var(--text-accent);
+      font-size: 18px;
+    }
+
+    strong {
+      color: var(--text-primary);
+    }
+  }
+
+  .pwa-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .install-btn {
+      background: var(--text-accent);
+      color: #000;
+      border: none;
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+
+      &:hover {
+        filter: brightness(1.15);
+      }
+    }
+
+    .dismiss-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 12px;
+
+      &:hover {
+        color: var(--text-primary);
+      }
+    }
+  }
+}
+
+.floating-owner-trigger {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 400;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-focus);
+  color: var(--text-accent);
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--card-shadow), var(--gold-glow);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  span.material-symbols-outlined {
+    font-size: 18px;
+  }
+
+  .pulse-ring {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 10px #10b981;
+  }
+
+  &:hover {
+    background: var(--text-accent);
+    color: #000;
+    transform: scale(1.06) translateY(-2px);
+
+    span.material-symbols-outlined {
+      color: #000;
+    }
+  }
+}
+
+.mobile-bottom-nav {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.5);
+    z-index: 10005;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 0.5rem;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+
+    .nav-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      gap: 3px;
+      padding: 6px 10px;
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.15s ease;
+      min-width: 58px;
+
+      span.material-symbols-outlined {
+        font-size: 22px;
+      }
+
+      &:active {
+        transform: scale(0.92);
+        color: var(--text-accent, #E0A96D);
+      }
+
+      &.bag-tab {
+        color: var(--text-accent, #E0A96D);
+
+        .icon-wrap {
+          position: relative;
+
+          .bag-badge {
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: #E11D48;
+            color: #FFFFFF;
+            font-size: 0.625rem;
+            font-weight: 700;
+            padding: 1px 5px;
+            border-radius: 999px;
+            line-height: 1.2;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .atelier-app-root {
+    padding-bottom: 74px;
+  }
+
+  .floating-owner-trigger {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .pwa-install-bar {
+    padding: 8px 14px;
+  }
+}

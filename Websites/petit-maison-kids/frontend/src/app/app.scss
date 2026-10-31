@@ -1,0 +1,84 @@
+.storefront-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--pm-surface, #FDFBF7);
+  color: var(--pm-text, #2D3A4B);
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  @media (max-width: 768px) {
+    padding-bottom: 74px;
+  }
+}
+
+.mobile-bottom-nav {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.08);
+    z-index: 10005;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 0.5rem;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+
+    .nav-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      color: #64748B;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      gap: 3px;
+      padding: 6px 10px;
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.15s ease;
+      min-width: 58px;
+
+      mat-icon {
+        font-size: 22px;
+        width: 22px;
+        height: 22px;
+      }
+
+      &:active {
+        transform: scale(0.92);
+        color: var(--pm-primary, #3D5A80);
+      }
+
+      &.bag-tab {
+        color: var(--pm-primary, #3D5A80);
+
+        .icon-wrap {
+          position: relative;
+
+          .bag-badge {
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: #E11D48;
+            color: #FFFFFF;
+            font-size: 0.625rem;
+            font-weight: 700;
+            padding: 1px 5px;
+            border-radius: 999px;
+            line-height: 1.2;
+          }
+        }
+      }
+    }
+  }
+}

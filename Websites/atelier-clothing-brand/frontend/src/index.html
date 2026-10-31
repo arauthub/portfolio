@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ATELIER RIWAYAT | Royal Indian Haute Couture, Banarasi Handlooms & Festive Heirlooms</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="description" content="Atelier Riwayat — Royal Indian Haute Couture, Kashi Banarasi Silk Sarees, Zardozi Bridal Lehengas & Nawabi Handlooms. Crafted by Master Karigars.">
+  <meta name="theme-color" content="#0F1016">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="favicon.svg">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ATELIER RIWAYAT">
+  <meta property="og:title" content="ATELIER RIWAYAT | Royal Indian Haute Couture & Handloom Heirlooms">
+  <meta property="og:description" content="Kashi Banarasi silks, Awadhi Zardozi lehengas, Nawabi velvet sherwanis, and bespoke bridal master craftsmanship. Shahi Bluedart Air courier across India.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ATELIER RIWAYAT | Royal Indian Haute Couture">
+  <meta name="twitter:description" content="Kashi Banarasi silks, Awadhi Zardozi lehengas, and royal bespoke tailoring with Silk Mark certification.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85">
+
+  <!-- JSON-LD Enterprise Organization & Store Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": "ATELIER RIWAYAT",
+    "description": "Royal Indian Haute Couture, Banarasi Handlooms & Regal Festive Heirlooms",
+    "currenciesAccepted": "INR, USD, EUR, GBP, AED, SGD, JPY",
+    "priceRange": "₹₹₹₹",
+    "paymentAccepted": "Credit Card, UPI, Net Banking, Razorpay, COD, Apple Pay",
+    "openingHours": "Mo-Su 00:00-24:00"
+  }
+  </script>
+
+  <!-- Typography: Syne, Playfair Display, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Material Symbols Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body class="theme-luxe-monochrome mat-typography">
+  <app-root></app-root>
+
+  <!-- PWA Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('Atelier PWA Service Worker registered:', reg.scope))
+          .catch(err => console.log('Service Worker registration failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="sageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D5A38"/>
+      <stop offset="100%" stop-color="#4A7C59"/>
+    </linearGradient>
+    <linearGradient id="warmGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="50%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#FAF6EE"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="url(#sageGrad)" stroke-width="2"/>
+  <!-- Little Star Cluster -->
+  <path d="M32 12 L34 18 L40 18 L35 22 L37 28 L32 24 L27 28 L29 22 L24 18 L30 18 Z" fill="url(#warmGold)"/>
+  <circle cx="18" cy="18" r="1.5" fill="#D97706"/>
+  <circle cx="46" cy="18" r="1.5" fill="#D97706"/>
+  <!-- NM Script / Playful Monogram -->
+  <text x="32" y="46" font-family="'Quicksand', 'Outfit', sans-serif" font-size="20" font-weight="700" fill="url(#sageGrad)" text-anchor="middle" letter-spacing="1">NM</text>
+  <!-- Gentle Mulmul Wave -->
+  <path d="M20 52 Q32 48 44 52" fill="none" stroke="url(#warmGold)" stroke-width="2" stroke-linecap="round"/>
+</svg>

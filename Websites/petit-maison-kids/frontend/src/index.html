@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>NANHI MAISON | Royal Indian Heirloom Childrenswear (Pure Mulmul & Handlooms 0-12Y)</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="description" content="Nanhi Maison — Pure Organic Mulmul, Festive Handlooms & Scratch-Free Craft for Little Nawabs & Paris (0-12Y). Custom Zari Monogramming & Bluedart Dispatch.">
+  <meta name="theme-color" content="#FAF6EE">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="favicon.svg">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NANHI MAISON">
+  <meta property="og:title" content="NANHI MAISON | Royal Indian Heirloom Childrenswear">
+  <meta property="og:description" content="Pure organic mulmul jhablas, Banarasi brocade lehengas, raw silk kurta sets, and scratch-free festive clothing for babies and kids. Custom Sona Zari monograms.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=1200&q=85">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NANHI MAISON | Royal Indian Heirloom Childrenswear">
+  <meta name="twitter:description" content="Pure organic mulmul, festive handlooms & scratch-free craft for little nawabs and paris (0-12Y).">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=1200&q=85">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ChildrensClothingStore",
+    "name": "NANHI MAISON",
+    "description": "Royal Indian Heirloom Childrenswear & Pure Organic Mulmul (Ages 0-12Y)",
+    "currenciesAccepted": "INR, USD, EUR, GBP, AED, SGD, JPY",
+    "priceRange": "₹₹",
+    "paymentAccepted": "Credit Card, UPI, Net Banking, Razorpay, COD, Apple Pay"
+  }
+  </script>
+
+  <!-- Typography: Outfit (Modern UI), Quicksand (Playful & Soft), Playfair Display (Heirloom Charm) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Material Symbols Outlined -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body class="theme-nordic-pastel mat-typography">
+  <app-root></app-root>
+
+  <!-- PWA Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('Petit Maison PWA registered:', reg.scope))
+          .catch(err => console.log('Service Worker registration failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>

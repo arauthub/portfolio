@@ -1,0 +1,425 @@
+<!-- Top Announcement Ticker with Live Countdown & Copy Promo -->
+<div class="announcement-bar">
+  <div class="ticker-content">
+    <span class="badge-pill">FESTIVE & RUNWAY HAUTE COUTURE</span>
+    <span class="ticker-text">
+      Complimentary Shahi Express Courier on orders over {{ currencyService.formatThreshold() }}. Use code
+      <strong class="code-highlight" (click)="copyPromo('VOGUE25')" matTooltip="Click to Copy Promo Code">
+        VOGUE25
+        <span class="material-symbols-outlined copy-icon">content_copy</span>
+      </strong>
+      for 25% royal privilege.
+    </span>
+
+    @if (codeCopied()) {
+      <span class="copied-badge">✓ Promo VOGUE25 Copied!</span>
+    }
+
+    <!-- Live Countdown Ticker -->
+    <div class="countdown-group">
+      <span class="time-label">RUNWAY DROP:</span>
+      <span class="digit-box">{{ countdown().days }}d</span>
+      <span class="sep">:</span>
+      <span class="digit-box">{{ countdown().hours | number:'2.0-0' }}h</span>
+      <span class="sep">:</span>
+      <span class="digit-box">{{ countdown().minutes | number:'2.0-0' }}m</span>
+      <span class="sep">:</span>
+      <span class="digit-box seconds">{{ countdown().seconds | number:'2.0-0' }}s</span>
+    </div>
+  </div>
+</div>
+
+<!-- Main Luxury Navigation Bar (Clean 3-Zone Architecture) -->
+<header class="main-header">
+  <div class="header-inner container-12">
+    <!-- Left Navigation: Structured Mega Menu & Dropdowns -->
+    <div class="left-section">
+      <button class="mobile-toggle-btn" (click)="toggleMobileMenu()" aria-label="Toggle Navigation">
+        <span class="material-symbols-outlined">{{ mobileMenuOpen() ? 'close' : 'menu' }}</span>
+      </button>
+
+      <nav class="desktop-nav">
+        <!-- 1. HAUTE COUTURE (Multi-Column Mega Menu) -->
+        <div class="nav-dropdown-wrapper" (mouseenter)="openMega('couture')" (mouseleave)="scheduleCloseMega()">
+          <button class="nav-trigger-btn" [class.active]="activeMega() === 'couture'" (click)="toggleMega('couture')" aria-expanded="activeMega() === 'couture'">
+            <span>HAUTE COUTURE</span>
+            <span class="material-symbols-outlined nav-arrow">expand_more</span>
+          </button>
+          @if (activeMega() === 'couture') {
+            <div class="megamenu-panel couture-megamenu animate-dropdown-fade" (mouseenter)="openMega('couture')" (mouseleave)="scheduleCloseMega()">
+              <div class="megamenu-inner">
+                <!-- Col 1: Women's Royal Atelier -->
+                <div class="megamenu-col">
+                  <span class="col-title">WOMEN'S ROYAL ATELIER</span>
+                  <a class="megamenu-item" (click)="navigate('evening-wear')">
+                    <span class="item-title">Silk Evening Gowns</span>
+                    <span class="item-desc">Pure mulberry silk with hand zardozi</span>
+                  </a>
+                  <a class="megamenu-item" (click)="navigate('outerwear')">
+                    <span class="item-title">Velvet & Cashmere Capes</span>
+                    <span class="item-desc">Regal winter layering & coats</span>
+                  </a>
+                  <a class="megamenu-item" (click)="navigate('essentials')">
+                    <span class="item-title">Handwoven Tunics & Anarkalis</span>
+                    <span class="item-desc">Featherweight chanderi weaves</span>
+                  </a>
+                  <a class="megamenu-item" (click)="navigate('knitwear')">
+                    <span class="item-title">Himalayan Merino Knits</span>
+                    <span class="item-desc">Artisan cardigans & stoles</span>
+                  </a>
+                </div>
+
+                <!-- Col 2: Men's Royal Heritage -->
+                <div class="megamenu-col">
+                  <span class="col-title">MEN'S ROYAL HERITAGE</span>
+                  <a class="megamenu-item" (click)="navigate('outerwear')">
+                    <span class="item-title">Regal Sherwanis & Achkans</span>
+                    <span class="item-desc">Bespoke ceremonial tailoring</span>
+                  </a>
+                  <a class="megamenu-item" (click)="navigate('essentials')">
+                    <span class="item-title">Raw Silk Kurta Ensembles</span>
+                    <span class="item-desc">Hand-spun organic silk sets</span>
+                  </a>
+                  <a class="megamenu-item" (click)="navigate('essentials')">
+                    <span class="item-title">Tailored Italian Wool Trousers</span>
+                    <span class="item-desc">Double-pleated bespoke trousers</span>
+                  </a>
+                  <a class="megamenu-item" (click)="navigate('outerwear')">
+                    <span class="item-title">Cashmere Overcoats & Bundis</span>
+                    <span class="item-desc">Gold-crested handcrafted waistcoats</span>
+                  </a>
+                </div>
+
+                <!-- Col 3: Karigar Guild & Heirlooms -->
+                <div class="megamenu-col">
+                  <span class="col-title">KARIGAR GUILD & CRAFT</span>
+                  <a class="megamenu-item" (click)="navigate('all')">
+                    <span class="item-title">Varanasi Brocade Weavers</span>
+                    <span class="item-desc">Master artisans of Kashi</span>
+                  </a>
+                  <a class="megamenu-item" (click)="navigate('evening-wear')">
+                    <span class="item-title">24K Dabka & Zardozi Guild</span>
+                    <span class="item-desc">Regal metal wire embroidery</span>
+                  </a>
+                  <a class="megamenu-item" (click)="navigate('all')">
+                    <span class="item-title">Heirloom Bridal Registry</span>
+                    <span class="item-desc">Custom monogramming & trunk boxes</span>
+                  </a>
+                  <a class="megamenu-item view-all-link" (click)="navigate('all')">
+                    <span>View All 35+ Couture Artifacts →</span>
+                  </a>
+                </div>
+
+                <!-- Col 4: Spotlight Editorial Card -->
+                <div class="megamenu-spotlight">
+                  <div class="spotlight-card">
+                    <div class="spotlight-tag">AUTUMN / WINTER 2026</div>
+                    <h4 class="spotlight-title">The Royal Durbar Edit</h4>
+                    <p class="spotlight-desc">Regenerative Banarasi silk infused with Milanese fluid draping.</p>
+                    <button class="spotlight-btn" (click)="navigate('lookbook')">
+                      <span>View Lookbook</span>
+                      <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- 2. HEIRLOOM CAPSULES (Dropdown) -->
+        <div class="nav-dropdown-wrapper" (mouseenter)="openMega('capsules')" (mouseleave)="scheduleCloseMega()">
+          <button class="nav-trigger-btn" [class.active]="activeMega() === 'capsules'" (click)="toggleMega('capsules')" aria-expanded="activeMega() === 'capsules'">
+            <span>HEIRLOOM CAPSULES</span>
+            <span class="material-symbols-outlined nav-arrow">expand_more</span>
+          </button>
+          @if (activeMega() === 'capsules') {
+            <div class="dropdown-panel capsules-panel animate-dropdown-fade" (mouseenter)="openMega('capsules')" (mouseleave)="scheduleCloseMega()">
+              <a class="dropdown-item" (click)="navigate('outerwear')">
+                <span class="material-symbols-outlined drop-icon">dry_cleaning</span>
+                <div class="drop-text">
+                  <span class="drop-title">Outerwear & Trench Coats</span>
+                  <span class="drop-sub">Hand-loomed cashmere & wool</span>
+                </div>
+              </a>
+              <a class="dropdown-item" (click)="navigate('evening-wear')">
+                <span class="material-symbols-outlined drop-icon">apparel</span>
+                <div class="drop-text">
+                  <span class="drop-title">Silk Evening Gowns</span>
+                  <span class="drop-sub">Regal gala & red-carpet couture</span>
+                </div>
+              </a>
+              <a class="dropdown-item" (click)="navigate('knitwear')">
+                <span class="material-symbols-outlined drop-icon">styler</span>
+                <div class="drop-text">
+                  <span class="drop-title">Artisan Alpaca Knitwear</span>
+                  <span class="drop-sub">Sustainable mountain fleeces</span>
+                </div>
+              </a>
+              <a class="dropdown-item" (click)="navigate('essentials')">
+                <span class="material-symbols-outlined drop-icon">checkroom</span>
+                <div class="drop-text">
+                  <span class="drop-title">Couture Essentials & Separates</span>
+                  <span class="drop-sub">Italian wool trousers & silk tops</span>
+                </div>
+              </a>
+              <a class="dropdown-item" (click)="navigate('kids')">
+                <span class="material-symbols-outlined drop-icon">child_care</span>
+                <div class="drop-text">
+                  <span class="drop-title">Petit Maison Kids & Heirloom</span>
+                  <span class="drop-sub">Organic mulmul for newborns to 12Y</span>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-footer" (click)="navigate('all')">
+                <span>Explore Entire Catalog</span>
+                <span class="material-symbols-outlined">east</span>
+              </a>
+            </div>
+          }
+        </div>
+
+        <!-- 3. MAISONS & PARTNERS (Dropdown) -->
+        <div class="nav-dropdown-wrapper" (mouseenter)="openMega('maisons')" (mouseleave)="scheduleCloseMega()">
+          <button class="nav-trigger-btn" [class.active]="activeMega() === 'maisons'" (click)="toggleMega('maisons')" aria-expanded="activeMega() === 'maisons'">
+            <span>MAISONS & PARTNERS</span>
+            <span class="material-symbols-outlined nav-arrow">expand_more</span>
+          </button>
+          @if (activeMega() === 'maisons') {
+            <div class="dropdown-panel maisons-panel animate-dropdown-fade" (mouseenter)="openMega('maisons')" (mouseleave)="scheduleCloseMega()">
+              <div class="dropdown-section-label">AFFILIATED ROYAL HOUSES</div>
+              <a class="dropdown-item" (click)="navigate('all')">
+                <span class="material-symbols-outlined drop-icon">diamond</span>
+                <div class="drop-text">
+                  <span class="drop-title">Rawat Jaipur Heritage</span>
+                  <span class="drop-sub">Royal Kundan & Polki craft</span>
+                </div>
+              </a>
+              <a class="dropdown-item" (click)="navigate('evening-wear')">
+                <span class="material-symbols-outlined drop-icon">local_florist</span>
+                <div class="drop-text">
+                  <span class="drop-title">Kashi Karigar Guild</span>
+                  <span class="drop-sub">Century-old pure gold thread looms</span>
+                </div>
+              </a>
+              <a class="dropdown-item" (click)="navigate('outerwear')">
+                <span class="material-symbols-outlined drop-icon">crown</span>
+                <div class="drop-text">
+                  <span class="drop-title">Noor Awadh Zardozi</span>
+                  <span class="drop-sub">Lucknowi heritage embroidery</span>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item partner-promo-item" (click)="closeMega(); openBrandPortal.emit()">
+                <span class="material-symbols-outlined drop-icon gold">storefront</span>
+                <div class="drop-text">
+                  <span class="drop-title highlight">Partner & Brand Portal</span>
+                  <span class="drop-sub">Host your brand & access tier privileges</span>
+                </div>
+                <span class="badge-new">PORTAL</span>
+              </a>
+            </div>
+          }
+        </div>
+
+        <!-- 4. FESTIVE LOOKBOOK (Direct Link) -->
+        <a class="nav-link lookbook-link" (click)="navigate('lookbook')">
+          <span class="material-symbols-outlined spark">auto_awesome</span>
+          <span>A/W 2026 Lookbook</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Center Brand Emblem -->
+    <div class="brand-section" (click)="navigate('all')">
+      <h1 class="brand-logo">ATELIER VOGUE</h1>
+      <span class="brand-sub">MILANESE HAUTE COUTURE • REGENERATIVE LUXURY</span>
+    </div>
+
+    <!-- Right Utility Actions: De-cluttered into 5 Clean Luxury Touchpoints -->
+    <div class="right-actions">
+      <!-- Concierge & Services Dropdown Menu (Groups Barcode, Guide, Brand Portal & Owner CMS) -->
+      <button class="concierge-btn" [matMenuTriggerFor]="conciergeMenu" matTooltip="Client Concierge & Enterprise Services" aria-label="Client Concierge">
+        <span class="material-symbols-outlined concierge-icon">room_service</span>
+        <span class="concierge-label">CONCIERGE</span>
+        <span class="material-symbols-outlined chevron">expand_more</span>
+      </button>
+      <mat-menu #conciergeMenu="matMenu" class="luxury-menu">
+        <div class="menu-header">ATELIER SERVICES & SUITE</div>
+        <button mat-menu-item (click)="openGuide.emit()">
+          <span class="material-symbols-outlined menu-item-icon">help</span>
+          <span>First-Time User Guidelines</span>
+        </button>
+        <button mat-menu-item (click)="openBarcodeScanner.emit()">
+          <span class="material-symbols-outlined menu-item-icon">barcode_scanner</span>
+          <span>Garment Barcode Scanner & Stock</span>
+        </button>
+        <button mat-menu-item (click)="openBrandPortal.emit()">
+          <span class="material-symbols-outlined menu-item-icon">storefront</span>
+          <span>Hosted Brand Portal & Showcase</span>
+        </button>
+        <button mat-menu-item (click)="triggerShare()" id="concierge-share-btn">
+          <span class="material-symbols-outlined menu-item-icon">share</span>
+          <span>Social Share & Rich Meta Cards</span>
+        </button>
+        <button mat-menu-item (click)="reopenGate()" id="concierge-gate-btn">
+          <span class="material-symbols-outlined menu-item-icon">lock_open</span>
+          <span>VIP Privé Invitation Gate Preview</span>
+        </button>
+        <div class="menu-divider"></div>
+        <button mat-menu-item (click)="openAdminPanel.emit()">
+          <span class="status-dot"></span>
+          <span class="admin-menu-label">Wagtail Brand Admin Console</span>
+          <span class="material-symbols-outlined menu-item-icon" style="margin-left: auto;">tune</span>
+        </button>
+      </mat-menu>
+
+      <!-- Currency Switcher -->
+      <button class="icon-btn currency-btn" [matMenuTriggerFor]="currencyMenu" id="currency-header-pill" matTooltip="Select Currency">
+        <span class="curr-symbol-indicator">{{ currencyService.activeSymbol() }}</span>
+        <span>{{ currencyService.activeCurrency() }}</span>
+        <span class="material-symbols-outlined chevron">expand_more</span>
+      </button>
+      <mat-menu #currencyMenu="matMenu" class="luxury-menu">
+        <div class="menu-header">SELECT STORE CURRENCY</div>
+        @for (curr of currencyService.supportedCurrencies(); track curr.code) {
+          <button mat-menu-item (click)="setCurrency(curr.code)" [id]="'curr-select-' + curr.code">
+            <span class="curr-symbol-badge" style="font-weight: 800; min-width: 22px; display: inline-block;">{{ curr.symbol }}</span>
+            <span>{{ curr.name }}</span>
+            @if (currencyService.activeCurrency() === curr.code) {
+              <span class="material-symbols-outlined" style="margin-left: auto; color: #10B981; font-size: 16px;">check</span>
+            }
+          </button>
+        }
+      </mat-menu>
+
+      <!-- Theme Switcher Menu -->
+      <button class="icon-btn" [matMenuTriggerFor]="themeMenu" matTooltip="Switch Palette Preset">
+        <span class="material-symbols-outlined">palette</span>
+      </button>
+      <mat-menu #themeMenu="matMenu" class="luxury-menu">
+        <div class="menu-header">SELECT BRAND PALETTE</div>
+        @for (theme of themeService.availableThemes; track theme.id) {
+          <button mat-menu-item (click)="setTheme(theme.id)" [class.active-theme-item]="themeService.currentTheme() === theme.id">
+            <div class="theme-row">
+              <div class="color-dots">
+                @for (c of theme.paletteColors; track c) {
+                  <span class="dot" [style.background-color]="c"></span>
+                }
+              </div>
+              <div class="theme-info">
+                <span class="theme-title">{{ theme.name }}</span>
+                <span class="theme-sub">{{ theme.tagline }}</span>
+              </div>
+            </div>
+          </button>
+        }
+      </mat-menu>
+
+      <!-- Wishlist Button -->
+      <button class="icon-btn" (click)="openWishlist.emit()" matTooltip="Saved Runway Wishlist">
+        <span class="material-symbols-outlined">favorite</span>
+        @if (wishlistService.count() > 0) {
+          <span class="badge-count">{{ wishlistService.count() }}</span>
+        }
+      </button>
+
+      <!-- Cart Drawer Trigger Button -->
+      <button class="cart-trigger-btn gold-shimmer-btn" (click)="cartService.openDrawer()">
+        <span class="material-symbols-outlined">shopping_bag</span>
+        <span class="cart-label">BAG</span>
+        <span class="badge-count">{{ cartService.itemCount() }}</span>
+        @if (cartService.subtotal() > 0) {
+          <span class="cart-mini-total">{{ cartService.formattedSubtotal() }}</span>
+        }
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu (Organized Accordion) -->
+  @if (mobileMenuOpen()) {
+    <div class="mobile-drawer animate-fade-in">
+      <nav class="mobile-nav-list">
+        <!-- Section 1: Haute Couture -->
+        <div class="mobile-acc-group">
+          <button class="mobile-acc-header" (click)="toggleMobileSection('couture')">
+            <span>👑 HAUTE COUTURE</span>
+            <span class="material-symbols-outlined acc-chevron" [class.rotated]="mobileSections()['couture']">expand_more</span>
+          </button>
+          @if (mobileSections()['couture']) {
+            <div class="mobile-acc-body">
+              <a (click)="navigate('evening-wear')">Silk Evening Gowns</a>
+              <a (click)="navigate('outerwear')">Velvet & Cashmere Capes</a>
+              <a (click)="navigate('essentials')">Handwoven Tunics & Anarkalis</a>
+              <a (click)="navigate('knitwear')">Himalayan Merino Knits</a>
+              <a (click)="navigate('all')">All 35+ Couture Artifacts</a>
+            </div>
+          }
+        </div>
+
+        <!-- Section 2: Heirloom Capsules -->
+        <div class="mobile-acc-group">
+          <button class="mobile-acc-header" (click)="toggleMobileSection('capsules')">
+            <span>✨ HEIRLOOM CAPSULES</span>
+            <span class="material-symbols-outlined acc-chevron" [class.rotated]="mobileSections()['capsules']">expand_more</span>
+          </button>
+          @if (mobileSections()['capsules']) {
+            <div class="mobile-acc-body">
+              <a (click)="navigate('outerwear')">Outerwear & Cashmere Trench</a>
+              <a (click)="navigate('evening-wear')">Silk Chiffon Evening Gowns</a>
+              <a (click)="navigate('knitwear')">Artisan Alpaca Knitwear</a>
+              <a (click)="navigate('essentials')">Tailored Wool Trousers</a>
+              <a (click)="navigate('kids')">Petit Maison Kids & Heirloom</a>
+            </div>
+          }
+        </div>
+
+        <!-- Section 3: Maisons & Partners -->
+        <div class="mobile-acc-group">
+          <button class="mobile-acc-header" (click)="toggleMobileSection('maisons')">
+            <span>🏛️ MAISONS & PARTNERS</span>
+            <span class="material-symbols-outlined acc-chevron" [class.rotated]="mobileSections()['maisons']">expand_more</span>
+          </button>
+          @if (mobileSections()['maisons']) {
+            <div class="mobile-acc-body">
+              <a (click)="navigate('all')">Rawat Jaipur Heritage</a>
+              <a (click)="navigate('evening-wear')">Kashi Silk Karigar Guild</a>
+              <a (click)="navigate('outerwear')">Noor Awadh Zardozi</a>
+              <a (click)="mobileMenuOpen.set(false); openBrandPortal.emit()">🌟 Hosted Brand Portal</a>
+            </div>
+          }
+        </div>
+
+        <!-- Section 4: Direct Lookbook -->
+        <a class="mobile-direct-link" (click)="navigate('lookbook')">
+          <span class="material-symbols-outlined">auto_awesome</span>
+          <span>A/W 2026 Festive Lookbook</span>
+        </a>
+
+        <!-- Section 5: Client Concierge & Admin -->
+        <div class="mobile-acc-group">
+          <button class="mobile-acc-header" (click)="toggleMobileSection('concierge')">
+            <span>🛎️ CONCIERGE & SUITE</span>
+            <span class="material-symbols-outlined acc-chevron" [class.rotated]="mobileSections()['concierge']">expand_more</span>
+          </button>
+          @if (mobileSections()['concierge']) {
+            <div class="mobile-acc-body">
+              <button class="mobile-action-link" (click)="openGuide.emit(); mobileMenuOpen.set(false)">
+                <span class="material-symbols-outlined">help</span>
+                First-Time User Guidelines
+              </button>
+              <button class="mobile-action-link" (click)="openBarcodeScanner.emit(); mobileMenuOpen.set(false)">
+                <span class="material-symbols-outlined">barcode_scanner</span>
+                Scan Garment Barcodes
+              </button>
+              <button class="mobile-action-link" (click)="openAdminPanel.emit(); mobileMenuOpen.set(false)">
+                <span class="material-symbols-outlined">tune</span>
+                Wagtail Admin Console
+              </button>
+            </div>
+          }
+        </div>
+      </nav>
+    </div>
+  }
+</header>

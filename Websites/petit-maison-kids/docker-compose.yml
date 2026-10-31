@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: petit_maison_backend
+    ports:
+      - "8001:8080"
+    environment:
+      - DJANGO_SETTINGS_MODULE=petit_backend.settings.dev
+      - DJANGO_SECRET_KEY=dev-secret-key-petit-maison-kids-docker
+      - PAYMENT_SANDBOX_MODE=True
+    volumes:
+      - ./backend:/app
+      - backend_kids_media:/app/media
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: petit_maison_frontend
+    ports:
+      - "4201:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  backend_kids_media:

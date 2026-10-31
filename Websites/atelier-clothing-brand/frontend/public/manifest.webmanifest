@@ -1,0 +1,18 @@
+{
+  "name": "ATELIER VOGUE | Luxury Fashion & Haute Couture",
+  "short_name": "Atelier Vogue",
+  "description": "Enterprise Wagtail & Angular Material clothing brand platform.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0e12",
+  "theme_color": "#111111",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["shopping", "lifestyle", "fashion"]
+}

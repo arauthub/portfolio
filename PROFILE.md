@@ -99,6 +99,11 @@ Here are highlights from my public [**All-Projects**](https://github.com/arauthu
 * **Tech Stack**: HTML5, Vanilla CSS (Glassmorphism), ES Modules, Web Audio API, Canvas 2D, GitHub REST API
 * Ultra-fast living engineering command center featuring real-time Git commit telemetry, 60 FPS quantum particle nexus canvas, 3D card tilt physics, 5 interactive browser-native Holodeck architecture sandboxes, and an in-browser Cyber Quantum CLI terminal.
 
+
+### 🚀 [Synapse Lms](https://github.com/arauthub/All-Projects/tree/main/apps/synapse-lms)
+* **Category**: Fullstack App / Distributed Service
+* High-performance enterprise project showcasing modern engineering standards.
+
 ## 💼 Career Snapshot
 
 * **Lead Software Engineer & Solutions Architect** — *Cybage Software* (2017 – Present / Current)

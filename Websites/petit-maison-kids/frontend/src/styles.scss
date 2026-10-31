@@ -1,0 +1,634 @@
+/* ==========================================================================
+   PETIT MAISON KIDS — Sustainable & Heirloom Childrenswear Design System
+   Vanilla CSS Variables with Angular Material Integration
+   ========================================================================== */
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+/* 1. Theme Variables Definitions */
+:root,
+body.theme-nordic-pastel {
+  --font-display: 'Quicksand', 'Outfit', -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Color Palette: Nordic Pastel Nursery */
+  --bg-primary: #FAF6EE;
+  --bg-secondary: #F4ECE0;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #F9F3EA;
+  --bg-glass: rgba(250, 246, 238, 0.92);
+
+  --border-subtle: rgba(122, 168, 132, 0.15);
+  --border-medium: rgba(122, 168, 132, 0.32);
+  --border-focus: #7AA884;
+
+  --text-primary: #19271E;
+  --text-secondary: #3D5044;
+  --text-muted: #4B5E52;
+  --text-accent: #265B34;
+
+  --accent-main: #2D5A38;
+  --accent-pastel-peach: #FAD4C0;
+  --accent-pastel-sage: #D4E2D4;
+  --accent-pastel-blue: #D1E3F6;
+  --accent-pastel-yellow: #FFF1BD;
+  --accent-coral: #C2410C;
+
+  --brand-gradient: linear-gradient(135deg, #2D5A38 0%, #3D734B 100%);
+  --brand-glow: 0 0 20px rgba(45, 90, 56, 0.25);
+  --card-shadow: 0 12px 28px -8px rgba(74, 94, 80, 0.12);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+}
+
+body.theme-sunshine-pop {
+  --font-display: 'Quicksand', 'Outfit', sans-serif;
+  --bg-primary: #FFFDF7;
+  --bg-secondary: #FFF6E0;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #FFF0CC;
+  --bg-glass: rgba(255, 253, 247, 0.94);
+
+  --border-subtle: rgba(255, 159, 28, 0.18);
+  --border-medium: rgba(255, 107, 107, 0.35);
+  --border-focus: #C2410C;
+
+  --text-primary: #121F38;
+  --text-secondary: #2C3C5C;
+  --text-muted: #3F5070;
+  --text-accent: #B83220;
+
+  --accent-main: #C2410C;
+  --accent-pastel-peach: #FFE3D8;
+  --accent-pastel-sage: #D4F4EE;
+  --accent-pastel-blue: #D6EAFF;
+  --accent-pastel-yellow: #FFF1B0;
+  --accent-coral: #B91C1C;
+
+  --brand-gradient: linear-gradient(135deg, #C2410C 0%, #B91C1C 100%);
+  --brand-glow: 0 0 22px rgba(194, 65, 12, 0.28);
+  --card-shadow: 0 12px 28px -8px rgba(185, 28, 28, 0.15);
+}
+
+body.theme-parisian-vintage {
+  --font-display: 'Playfair Display', 'Quicksand', serif;
+  --bg-primary: #F9F6F0;
+  --bg-secondary: #F2ECE0;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #ECE4D5;
+  --bg-glass: rgba(249, 246, 240, 0.94);
+
+  --border-subtle: rgba(142, 124, 195, 0.18);
+  --border-medium: rgba(142, 124, 195, 0.35);
+  --border-focus: #553C8B;
+
+  --text-primary: #231928;
+  --text-secondary: #3E3245;
+  --text-muted: #4F4058;
+  --text-accent: #553C8B;
+
+  --accent-main: #581C87;
+  --accent-pastel-peach: #F6DFD9;
+  --accent-pastel-sage: #D7E5D8;
+  --accent-pastel-blue: #E2DBF3;
+  --accent-pastel-yellow: #FAF0D8;
+  --accent-coral: #9F1239;
+
+  --brand-gradient: linear-gradient(135deg, #581C87 0%, #6D28D9 100%);
+  --brand-glow: 0 0 22px rgba(88, 28, 135, 0.25);
+  --card-shadow: 0 12px 28px -8px rgba(95, 82, 102, 0.14);
+}
+
+body.theme-forest-adventure {
+  --font-display: 'Quicksand', 'Outfit', sans-serif;
+  --bg-primary: #F4F1EA;
+  --bg-secondary: #EBE5DB;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #E3DBD0;
+  --bg-glass: rgba(244, 241, 234, 0.94);
+
+  --border-subtle: rgba(61, 90, 76, 0.18);
+  --border-medium: rgba(200, 109, 81, 0.35);
+  --border-focus: #1E3A2B;
+
+  --text-primary: #121B17;
+  --text-secondary: #2A3930;
+  --text-muted: #3E4F45;
+  --text-accent: #8D381E;
+
+  --accent-main: #1E3A2B;
+  --accent-pastel-peach: #F3DDD3;
+  --accent-pastel-sage: #D0DDD5;
+  --accent-pastel-blue: #D7E5E5;
+  --accent-pastel-yellow: #F7EAD0;
+  --accent-coral: #9A3412;
+
+  --brand-gradient: linear-gradient(135deg, #1E3A2B 0%, #9A3412 100%);
+  --brand-glow: 0 0 22px rgba(30, 58, 43, 0.25);
+  --card-shadow: 0 12px 28px -8px rgba(61, 90, 76, 0.14);
+}
+
+/* High-Contrast Non-Transparent Menu & Overlay Architecture */
+.mat-mdc-menu-panel,
+.mdc-menu-surface,
+.kids-luxury-menu,
+.theme-menu-panel,
+.currency-menu-panel {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  color: #1E293B !important;
+  opacity: 1 !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05) !important;
+  z-index: 1200 !important;
+}
+
+.mat-mdc-menu-item {
+  color: #334155 !important;
+  opacity: 1 !important;
+
+  &:hover, &:focus {
+    background-color: #F8FAFC !important;
+    color: #0F172A !important;
+  }
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* High-Contrast Accessible Focus Outlines (WCAG AA) */
+*:focus-visible {
+  outline: 2px solid var(--border-focus, #7AA884) !important;
+  outline-offset: 3px !important;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+/* Soft Kids Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-main);
+}
+
+/* Angular Material Kids Friendly Customizations */
+.mat-mdc-button-base {
+  font-family: var(--font-display) !important;
+  letter-spacing: 0.04em !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  border-radius: var(--radius-full) !important;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.mat-mdc-unelevated-button,
+.mat-mdc-raised-button,
+.mat-mdc-flat-button {
+  background-color: var(--accent-main) !important;
+  color: #FFFFFF !important;
+}
+
+.mat-mdc-unelevated-button:hover,
+.mat-mdc-raised-button:hover,
+.mat-mdc-flat-button:hover {
+  filter: brightness(1.08);
+  box-shadow: var(--brand-glow);
+  transform: translateY(-2px);
+}
+
+.mat-mdc-outlined-button {
+  border-color: var(--border-medium) !important;
+  color: var(--text-primary) !important;
+}
+
+.mat-mdc-outlined-button:hover {
+  border-color: var(--accent-main) !important;
+  color: var(--accent-main) !important;
+  background-color: rgba(122, 168, 132, 0.08) !important;
+}
+
+/* Form inputs */
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mat-mdc-text-field-wrapper {
+  background-color: var(--bg-surface) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.mdc-text-field--outlined .mdc-notched-outline__leading,
+.mdc-text-field--outlined .mdc-notched-outline__notch,
+.mdc-text-field--outlined .mdc-notched-outline__trailing {
+  border-color: var(--border-medium) !important;
+}
+
+.mdc-text-field--outlined.mdc-text-field--focused .mdc-notched-outline__leading,
+.mdc-text-field--outlined.mdc-text-field--focused .mdc-notched-outline__notch,
+.mdc-text-field--outlined.mdc-text-field--focused .mdc-notched-outline__trailing {
+  border-color: var(--accent-main) !important;
+}
+
+/* Utility Animations */
+@keyframes softBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmerGlow {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.soft-bounce {
+  animation: softBounce 2.5s infinite ease-in-out;
+}
+
+/* ==========================================================================
+   ENTERPRISE 12-COLUMN GRID SYSTEM & INDIAN HEIRLOOM DESIGN UTILITIES
+   ========================================================================== */
+
+.container-12 {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 24px;
+  row-gap: 32px;
+}
+
+/* 12 Columns System */
+.col-1  { grid-column: span 1 / span 1; }
+.col-2  { grid-column: span 2 / span 2; }
+.col-3  { grid-column: span 3 / span 3; }
+.col-4  { grid-column: span 4 / span 4; }
+.col-5  { grid-column: span 5 / span 5; }
+.col-6  { grid-column: span 6 / span 6; }
+.col-7  { grid-column: span 7 / span 7; }
+.col-8  { grid-column: span 8 / span 8; }
+.col-9  { grid-column: span 9 / span 9; }
+.col-10 { grid-column: span 10 / span 10; }
+.col-11 { grid-column: span 11 / span 11; }
+.col-12 { grid-column: span 12 / span 12; }
+
+/* Responsive Tablet Grid (1024px) */
+@media (max-width: 1024px) {
+  .grid-12 {
+    column-gap: 16px;
+    row-gap: 24px;
+  }
+  .col-8, .col-7, .col-9, .col-10 { grid-column: span 12 / span 12 !important; }
+  .col-4, .col-5, .col-3 { grid-column: span 6 / span 6 !important; }
+  .col-2 { grid-column: span 4 / span 4 !important; }
+}
+
+/* Responsive Mobile Grid (640px) */
+@media (max-width: 640px) {
+  .container-12 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .grid-12 {
+    column-gap: 12px;
+    row-gap: 16px;
+  }
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
+  .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    grid-column: span 12 / span 12 !important;
+  }
+}
+
+/* Rich Indian Heirloom Interaction Utilities */
+.luxury-card-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+  will-change: transform, box-shadow;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -15px rgba(224, 122, 95, 0.2);
+  }
+}
+
+.gold-shimmer-btn {
+  position: relative;
+  overflow: hidden;
+  background-color: #2D3A4B !important;
+  background: var(--brand-gradient) !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 18px rgba(45, 58, 75, 0.28);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.35) 50%,
+      transparent 100%
+    );
+    transform: skewX(-20deg);
+    transition: left 0.75s ease;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(122, 168, 132, 0.42);
+
+    &::before {
+      left: 150%;
+    }
+  }
+}
+
+.indian-festive-badge {
+  background: linear-gradient(135deg, rgba(224, 122, 95, 0.15) 0%, rgba(255, 159, 28, 0.15) 100%);
+  border: 1px solid rgba(224, 122, 95, 0.35);
+  color: #B2583C;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.68rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Global Material Menus & Overlays for Nanhi Maison */
+.mat-mdc-menu-panel.currency-menu-panel,
+.mat-mdc-menu-panel.theme-menu-panel {
+  background: #FFFFFF !important;
+  border-radius: 16px !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 16px 36px -8px rgba(37, 51, 42, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.04) !important;
+  padding: 8px 6px !important;
+  min-width: 240px !important;
+  overflow: hidden !important;
+
+  .menu-header {
+    font-size: 0.6875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #64748B;
+    padding: 6px 14px 8px;
+    border-bottom: 1px solid #F1F5F9;
+    margin-bottom: 6px;
+    letter-spacing: 0.06em;
+  }
+
+  .mat-mdc-menu-item {
+    border-radius: 10px;
+    margin: 2px 0;
+    min-height: 42px;
+    font-size: 0.85rem;
+    color: #1E293B;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #F4ECE0;
+      color: #25332A;
+    }
+
+    .curr-symbol-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      font-weight: 800;
+      color: #7AA884;
+      font-size: 1rem;
+      margin-right: 8px;
+    }
+
+    .curr-name {
+      font-weight: 600;
+      flex: 1;
+    }
+
+    .check-icon {
+      margin-left: auto;
+      color: #10B981;
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+    }
+
+    .theme-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      margin-right: 10px;
+      display: inline-block;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+  }
+}
+
+
+/* ==========================================================================
+   FOLDABLE & DUAL-SCREEN RESPONSIVE ARCHITECTURE
+   Supports Samsung Galaxy Z Fold (folded 280px outer, unfolded 7.6" dual screen),
+   Galaxy Z Flip (flex mode), Microsoft Surface Duo, and all mobile/tablet sizes.
+   ========================================================================== */
+
+/* 1. Foldable Dual Screen - Horizontal Viewport Segments (Book Mode / Unfolded) */
+@media (horizontal-viewport-segments: 2), (screen-spanning: single-fold-vertical) {
+  :root {
+    --fold-seam-width: 24px;
+  }
+
+  .catalog-layout,
+  .terminal-body,
+  .dialog-body {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: calc(var(--fold-seam-width) + 16px) !important;
+  }
+
+  /* Catalog split across hinge */
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  /* POS Terminal split across book hinge */
+  .pos-terminal {
+    width: 96vw !important;
+    max-width: 1400px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .pos-terminal .terminal-body {
+    display: grid !important;
+    grid-template-columns: 1.1fr 0.9fr !important;
+    gap: 32px !important;
+  }
+
+  /* Product details modal: gallery on left segment, buy box on right segment */
+  .product-modal-dialog {
+    max-width: 95vw !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* 2. Foldable Dual Screen - Vertical Viewport Segments (Flex Mode / Clamshell) */
+@media (vertical-viewport-segments: 2), (screen-spanning: single-fold-horizontal) {
+  .pos-terminal {
+    max-height: 94vh !important;
+  }
+  
+  .scanner-viewport {
+    max-height: 35vh !important;
+  }
+
+  .barcode-dialog {
+    max-height: 92vh !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* 3. Ultra-Narrow Foldable Outer Screen (e.g. Galaxy Z Fold Cover Screen 280px - 340px) */
+@media screen and (max-width: 340px) {
+  body {
+    font-size: 13px !important;
+  }
+
+  .header-actions {
+    gap: 4px !important;
+  }
+
+  .action-btn,
+  .currency-pill-btn,
+  .bag-pill-btn {
+    padding: 4px 6px !important;
+    font-size: 0.72rem !important;
+  }
+
+  .bag-total-label,
+  .curr-code-text {
+    display: none !important;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .checkout-modal,
+  .pos-terminal,
+  .barcode-dialog,
+  .membership-dialog,
+  .auth-dialog,
+  .brand-dialog,
+  .guide-dialog {
+    width: 100vw !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    padding: 12px !important;
+  }
+
+  .payment-tabs {
+    grid-template-columns: 1fr !important;
+  }
+
+  .tiers-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 4. Safe Area Insets for Modern Edge-to-Edge Displays & Island Cutouts */
+@supports (padding: env(safe-area-inset-top)) {
+  .main-header,
+  .hub-bar {
+    padding-top: calc(8px + env(safe-area-inset-top));
+    padding-left: calc(16px + env(safe-area-inset-left));
+    padding-right: calc(16px + env(safe-area-inset-right));
+  }
+
+  .floating-ai-btn {
+    bottom: calc(24px + env(safe-area-inset-bottom));
+    right: calc(24px + env(safe-area-inset-right));
+  }
+}

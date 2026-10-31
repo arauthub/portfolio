@@ -1,0 +1,251 @@
+<div class="modal-backdrop" (click)="close.emit()">
+  <div class="panel-surface animate-fade-in" (click)="$event.stopPropagation()">
+    <!-- Top Header -->
+    <div class="panel-header">
+      <div class="brand-heading">
+        <span class="status-indicator"></span>
+        <div>
+          <h3 class="font-display">WAGTAIL OWNER CONTROL SUITE</h3>
+          <span class="sub">Enterprise Headless Wagtail CMS • Real-time Store Management</span>
+        </div>
+      </div>
+      <button class="close-btn" (click)="close.emit()" aria-label="Close Admin Suite">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <!-- Wagtail Direct Admin Callout Box -->
+    <div class="wagtail-cta-card">
+      <div class="cta-left">
+        <div class="cms-logo">
+          <span class="material-symbols-outlined">dashboard_customize</span>
+        </div>
+        <div>
+          <h4>Launch Official Wagtail CMS Admin</h4>
+          <p>Full control to publish runway products, write editorial lookbooks, configure multi-currency & dispatch orders.</p>
+          <div class="cred-pill">
+            <span>Username: <strong>admin</strong></span>
+            <span>Password: <strong>atelier2026!</strong></span>
+          </div>
+        </div>
+      </div>
+      <a [href]="wagtailAdminUrl" target="_blank" class="launch-admin-link">
+        <span class="material-symbols-outlined">open_in_new</span>
+        Open Wagtail Admin
+      </a>
+    </div>
+
+    <div class="controls-grid">
+      <!-- Section 0: Subscription Tier & Feature Access Level -->
+      <div class="control-box full-col">
+        <h4 class="box-title">
+          <span class="material-symbols-outlined">workspace_premium</span>
+          Store Owner Subscription Plan & Access Levels
+        </h4>
+        <p class="box-desc">Choose subscription tier to unlock multi-brand hosting, D3 live animations, barcode reader, in-store POS, and Wagtail AI:</p>
+
+        <div class="subscription-plans-grid">
+          <div 
+            class="plan-card" 
+            [class.selected]="themeService.subscriptionPlan() === 'STARTER'"
+            (click)="setSubscription('STARTER')">
+            <span class="plan-tag">TIER 1</span>
+            <strong>Starter Boutique</strong>
+            <p>Single brand flagship, standard catalog, credit card checkout.</p>
+          </div>
+
+          <div 
+            class="plan-card" 
+            [class.selected]="themeService.subscriptionPlan() === 'GROWTH'"
+            (click)="setSubscription('GROWTH')">
+            <span class="plan-tag">TIER 2</span>
+            <strong>Growth Designer</strong>
+            <p>Multi-brand hosting, D3.js animated canvas, live barcode inventory sync.</p>
+          </div>
+
+          <div 
+            class="plan-card" 
+            [class.selected]="themeService.subscriptionPlan() === 'ENTERPRISE_VIP'"
+            (click)="setSubscription('ENTERPRISE_VIP')">
+            <span class="plan-tag vip">FULL VIP ENTERPRISE</span>
+            <strong>Enterprise Luxury Maison</strong>
+            <p>All features unlocked: Omnichannel In-Store POS, Wagtail AI Stylist & Copywriter, White-Label themes.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 1: D3.js Living Animation Selector -->
+      <div class="control-box">
+        <h4 class="box-title">
+          <span class="material-symbols-outlined">auto_awesome</span>
+          D3.js Living Animation Selection
+        </h4>
+        <p class="box-desc">Select active D3 mathematical motion preset displayed across the storefront:</p>
+        
+        <div class="d3-options-stack">
+          <button 
+            type="button" 
+            class="option-pill-btn" 
+            [class.active]="themeService.currentD3Animation() === 'silk_flow'"
+            (click)="setD3('silk_flow')">
+            Silk Drape Waves (Fluid D3 Ribbons)
+          </button>
+          <button 
+            type="button" 
+            class="option-pill-btn" 
+            [class.active]="themeService.currentD3Animation() === 'heritage_constellation'"
+            (click)="setD3('heritage_constellation')">
+            Golden Star Constellation (Interactive Particle Mesh)
+          </button>
+          <button 
+            type="button" 
+            class="option-pill-btn" 
+            [class.active]="themeService.currentD3Animation() === 'aurora_pulse'"
+            (click)="setD3('aurora_pulse')">
+            Aurora Luxury Pulse (Atmospheric Color Waves)
+          </button>
+          <button 
+            type="button" 
+            class="option-pill-btn" 
+            [class.active]="themeService.currentD3Animation() === 'fabric_weave'"
+            (click)="setD3('fabric_weave')">
+            Loom Warp & Weft (Textile Weave Simulation)
+          </button>
+        </div>
+      </div>
+
+      <!-- Section 2: Brand Font Selection -->
+      <div class="control-box">
+        <h4 class="box-title">
+          <span class="material-symbols-outlined">text_fields</span>
+          Brand Typography & Font Family
+        </h4>
+        <p class="box-desc">Choose typography style to customize headings and editorial identity:</p>
+        
+        <div class="fonts-stack">
+          @for (font of themeService.availableFonts; track font.id) {
+            <label class="font-select-card" [class.selected]="themeService.currentFont() === font.id">
+              <input type="radio" name="font_select" [checked]="themeService.currentFont() === font.id" (change)="setFont(font.id)" />
+              <div class="font-info">
+                <strong>{{ font.name }}</strong>
+                <small>{{ font.category }}</small>
+                <div class="font-preview" [style.font-family]="font.id">{{ font.previewText }}</div>
+              </div>
+            </label>
+          }
+        </div>
+      </div>
+
+      <!-- Section 3: Brand Theme Preset -->
+      <div class="control-box">
+        <h4 class="box-title">
+          <span class="material-symbols-outlined">palette</span>
+          Brand Theme & Palette Presets
+        </h4>
+        <p class="box-desc">Select active color and aesthetic atmosphere:</p>
+        <div class="themes-selector-list">
+          @for (theme of themeService.availableThemes; track theme.id) {
+            <label class="theme-select-card" [class.selected]="themeService.currentTheme() === theme.id">
+              <input type="radio" name="theme_preset" [checked]="themeService.currentTheme() === theme.id" (change)="setTheme(theme.id)" />
+              <div class="theme-card-info">
+                <strong>{{ theme.name }}</strong>
+                <small>{{ theme.tagline }}</small>
+                <div class="palette-dots">
+                  @for (c of theme.paletteColors; track c) {
+                    <span class="dot" [style.background-color]="c"></span>
+                  }
+                </div>
+              </div>
+            </label>
+          }
+        </div>
+      </div>
+
+      <!-- Section 4: Wagtail AI Copywriter Tool -->
+      <div class="control-box">
+        <h4 class="box-title">
+          <span class="material-symbols-outlined">smart_toy</span>
+          Wagtail AI Content Curation Tool
+        </h4>
+        <p class="box-desc">Generate luxury product descriptions and care guidelines in seconds:</p>
+
+        <div class="fields-stack">
+          <div class="field-item">
+            <label>Product Title</label>
+            <input type="text" [(ngModel)]="aiTitle" />
+          </div>
+          <div class="field-item">
+            <label>Fabric / Craft Details</label>
+            <input type="text" [(ngModel)]="aiFabric" />
+          </div>
+          <button class="ai-gen-btn" (click)="generateAiCopy()" [disabled]="isGeneratingCopy()">
+            <span class="material-symbols-outlined">auto_fix_high</span>
+            {{ isGeneratingCopy() ? 'Generating AI Copy...' : 'Generate Luxury Description' }}
+          </button>
+          @if (aiOutput()) {
+            <div class="ai-result-box">
+              <label>AI Generated Editorial Copy:</label>
+              <p>{{ aiOutput() }}</p>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Section 5: Barcode Live Stock Replenishment -->
+      <div class="control-box">
+        <h4 class="box-title">
+          <span class="material-symbols-outlined">barcode_scanner</span>
+          Barcode Live Stock Replenishment
+        </h4>
+        <p class="box-desc">Scan or enter barcode to increment inventory in real-time:</p>
+
+        <div class="fields-stack">
+          <div class="field-item">
+            <label>Garment Barcode / SKU</label>
+            <input type="text" [(ngModel)]="barcodeCode" placeholder="890123450001" />
+          </div>
+          <div class="field-item">
+            <label>Quantity to Add</label>
+            <input type="number" [(ngModel)]="stockAdjustQty" />
+          </div>
+          <button class="sync-backend-btn" (click)="restockBarcode()">
+            <span class="material-symbols-outlined">add_box</span>
+            Replenish Live Stock via Barcode
+          </button>
+          @if (stockAdjustStatus()) {
+            <div class="status-msg">{{ stockAdjustStatus() }}</div>
+          }
+        </div>
+      </div>
+
+      <!-- Section 6: Multi-Currency Engine -->
+      <div class="control-box">
+        <h4 class="box-title">
+          <span class="material-symbols-outlined">currency_exchange</span>
+          Multi-Currency Engine
+        </h4>
+        <div class="currency-chips-grid">
+          @for (c of currencyService.supportedCurrencies(); track c.code) {
+            <button 
+              type="button" 
+              class="currency-chip" 
+              [class.active]="currencyService.activeCurrency() === c.code" 
+              (click)="currencyService.setCurrency(c.code)">
+              <span class="chip-symbol">{{ c.symbol }}</span>
+              <span class="chip-code">{{ c.code }}</span>
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Actions -->
+    <div class="panel-footer">
+      <button mat-stroked-button (click)="close.emit()">Dismiss</button>
+      <button mat-flat-button class="save-btn" (click)="saveQuickEdits()">
+        <span class="material-symbols-outlined">save</span>
+        Apply Live Brand Adjustments
+      </button>
+    </div>
+  </div>
+</div>

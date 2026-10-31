@@ -1,0 +1,28 @@
+<section id="lookbook-section" class="lookbook-container">
+  <div class="lookbook-header">
+    <span class="sub-pill">ROYAL HERITAGE EDITORIAL</span>
+    <h3 class="section-title font-display">Autumn / Festive 2026 Sovereign Lookbook</h3>
+    <blockquote class="curator-quote font-serif">
+      “True Indian luxury is the timeless symphony of master handloom weaves, pure tested gold zari, and generational karigari.”
+    </blockquote>
+  </div>
+
+  <div class="looks-grid">
+    @for (look of looks; track look.id) {
+      <article class="look-card" (click)="exploreCollection.emit('all')">
+        <div class="look-media">
+          <img [src]="look.image" [alt]="look.title" loading="lazy" />
+          <div class="look-overlay">
+            <span class="look-season">{{ look.season }}</span>
+            <h4 class="look-title font-display">{{ look.title }}</h4>
+            <p class="look-desc">{{ look.description }}</p>
+            <div class="hotspot-tag">
+              <span class="pulse-dot"></span>
+              <span>Shop Runway Ensemble • {{ currencyService.format(look.priceUsd) }}</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>

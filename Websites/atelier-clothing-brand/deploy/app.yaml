@@ -1,0 +1,38 @@
+# Google App Engine deployment configuration for Atelier Vogue Wagtail Backend
+runtime: python311
+instance_class: F2
+
+entrypoint: gunicorn -b :$PORT atelier_backend.wsgi:application --workers 2 --threads 4 --timeout 90
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: "atelier_backend.settings.production"
+  DJANGO_SECRET_KEY: "CHANGE_ME_SECRET_KEY_PRODUCTION_GOOGLE_APP_ENGINE"
+  SECURE_SSL_REDIRECT: "True"
+  STORAGE_BACKEND: "gcs"
+  GS_BUCKET_NAME: "atelier-vogue-production-media"
+  DB_NAME: "atelier_production_db"
+  DB_USER: "atelier_app_user"
+  DB_PASSWORD: "CHANGE_ME_DB_PASSWORD"
+  CLOUD_SQL_CONNECTION_NAME: "PROJECT_ID:REGION:INSTANCE_NAME"
+  ALLOWED_HOSTS: ".appspot.com,ateliervogue.com,www.ateliervogue.com"
+  CSRF_TRUSTED_ORIGINS: "https://*.appspot.com,https://ateliervogue.com"
+  STRIPE_PUBLIC_KEY: "pk_live_your_production_stripe_key"
+  STRIPE_SECRET_KEY: "sk_live_your_production_stripe_key"
+  PAYMENT_SANDBOX_MODE: "False"
+
+beta_settings:
+  cloud_sql_instances: "PROJECT_ID:REGION:INSTANCE_NAME"
+
+handlers:
+  - url: /static
+    static_dir: staticfiles/
+    secure: always
+
+  - url: /.*
+    script: auto
+    secure: always
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 10
+  target_cpu_utilization: 0.65

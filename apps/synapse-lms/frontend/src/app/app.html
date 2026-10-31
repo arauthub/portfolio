@@ -1,0 +1,32 @@
+<!-- Skip to Main Content Link for Keyboard / Screen Reader Accessibility -->
+<a href="#main-content" 
+   class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[var(--neon-primary)] focus:text-black focus:font-bold focus:rounded-md focus:shadow-lg focus:outline-none">
+  Skip to main content
+</a>
+
+<div class="min-h-screen flex flex-col justify-between relative z-10">
+  <!-- Top Futuristic Cyber HUD Header -->
+  <app-header></app-header>
+
+  <!-- Main Viewport Router -->
+  <main id="main-content" role="main" class="flex-1 pb-16 focus:outline-none" tabindex="-1">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Futuristic Cyber Footer -->
+  <footer role="contentinfo" class="border-t border-[var(--border-hud)] bg-[#030611]/90 backdrop-blur py-6 px-4 lg:px-8 text-xs font-mono text-slate-500">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true"></span>
+        <span>SYNAPSE LMS CORE // WAGTAIL 5.2 HEADLESS ENGINE // ANGULAR 22 STANDALONE</span>
+      </div>
+      <div class="flex items-center gap-4 text-slate-400 text-[11px]">
+        <span>SYSTEM STATUS: NOMINAL</span>
+        <span aria-hidden="true">•</span>
+        <span>RDBMS: POSTGRESQL 18</span>
+        <span aria-hidden="true">•</span>
+        <span class="text-[var(--neon-primary)]">MULTI-TENANT FABRIC ACTIVE</span>
+      </div>
+    </div>
+  </footer>
+</div>

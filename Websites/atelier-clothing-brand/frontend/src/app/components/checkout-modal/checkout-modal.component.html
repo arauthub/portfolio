@@ -1,0 +1,409 @@
+<div class="modal-backdrop" (click)="close.emit()">
+  <div class="checkout-surface animate-fade-in" (click)="$event.stopPropagation()" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title">
+    <!-- Top Bar -->
+    <div class="checkout-header">
+      <div class="header-branding">
+        <span class="material-symbols-outlined lock-icon">lock</span>
+        <div>
+          <h3 id="checkout-modal-title" class="font-display">ATELIER ENTERPRISE CONCIERGE CHECKOUT</h3>
+          <span class="sub">Encrypted Payment Suite • UPI, Cards, NetBanking, Apple/Google Pay, BNPL & In-Store POS</span>
+        </div>
+      </div>
+      <button class="close-btn" (click)="close.emit()" aria-label="Close Checkout">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <!-- Stepper Navigation -->
+    <div class="checkout-stepper">
+      <div class="step-pill" [class.active]="step() === 1" [class.completed]="step() > 1">
+        <span class="num">1</span>
+        <span class="lbl">Destination</span>
+      </div>
+      <div class="step-line" [class.filled]="step() > 1"></div>
+      <div class="step-pill" [class.active]="step() === 2" [class.completed]="step() > 2">
+        <span class="num">2</span>
+        <span class="lbl">Delivery & Pickup</span>
+      </div>
+      <div class="step-line" [class.filled]="step() > 2"></div>
+      <div class="step-pill" [class.active]="step() === 3">
+        <span class="num">3</span>
+        <span class="lbl">Universal Payment</span>
+      </div>
+    </div>
+
+    <div class="checkout-body">
+      <!-- Left: Form Steps -->
+      <div class="form-container">
+        <!-- STEP 1: Shipping Address -->
+        @if (step() === 1) {
+          <div class="step-content animate-fade-in">
+            <h4 class="step-title">Client Information & Destination</h4>
+            <div class="fields-grid">
+              <div class="field-wrap full">
+                <label>Full Name / Title</label>
+                <input type="text" [ngModel]="customerName()" (ngModelChange)="customerName.set($event)" />
+              </div>
+
+              <div class="field-wrap half">
+                <label>Email (For Order Vault & Invoice)</label>
+                <input type="email" [ngModel]="customerEmail()" (ngModelChange)="customerEmail.set($event)" />
+              </div>
+
+              <div class="field-wrap half">
+                <label>Phone (Courier Delivery & OTP Alerts)</label>
+                <input type="tel" [ngModel]="customerPhone()" (ngModelChange)="customerPhone.set($event)" />
+              </div>
+
+              <div class="field-wrap full">
+                <label>Street Address / Apartment / Penthouse</label>
+                <input type="text" [ngModel]="addressLine()" (ngModelChange)="addressLine.set($event)" />
+              </div>
+
+              <div class="field-wrap third">
+                <label>City</label>
+                <input type="text" [ngModel]="city()" (ngModelChange)="city.set($event)" />
+              </div>
+
+              <div class="field-wrap third">
+                <label>State / Region</label>
+                <input type="text" [ngModel]="state()" (ngModelChange)="state.set($event)" />
+              </div>
+
+              <div class="field-wrap third">
+                <label>Postal Code</label>
+                <input type="text" [ngModel]="postalCode()" (ngModelChange)="postalCode.set($event)" />
+              </div>
+
+              <div class="field-wrap full">
+                <label>Country</label>
+                <input type="text" [ngModel]="country()" (ngModelChange)="country.set($event)" />
+              </div>
+            </div>
+
+            <div class="step-actions">
+              <div></div>
+              <button mat-flat-button class="next-btn" (click)="nextStep()">
+                Continue to Delivery Selection →
+              </button>
+            </div>
+          </div>
+        }
+
+        <!-- STEP 2: Delivery & Pickup Selection -->
+        @if (step() === 2) {
+          <div class="step-content animate-fade-in">
+            <h4 class="step-title">Select Fulfillment & Courier Experience</h4>
+            
+            <div class="shipping-tiers">
+              <label class="tier-card" [class.selected]="shippingMethod() === 'complimentary'">
+                <input type="radio" name="courier" value="complimentary" [checked]="shippingMethod() === 'complimentary'" (change)="shippingMethod.set('complimentary')" />
+                <div class="tier-info">
+                  <div class="tier-top">
+                    <strong>Global Express Luxury Courier</strong>
+                    <span class="price-pill free">COMPLIMENTARY</span>
+                  </div>
+                  <p>DHL / Bluedart Express • 2-3 Business Days • Tamper-Proof Wooden Trunk Packaging • OTP Verification</p>
+                </div>
+              </label>
+
+              <label class="tier-card" [class.selected]="shippingMethod() === 'same_day'">
+                <input type="radio" name="courier" value="same_day" [checked]="shippingMethod() === 'same_day'" (change)="shippingMethod.set('same_day')" />
+                <div class="tier-info">
+                  <div class="tier-top">
+                    <strong>Same-Day White-Glove Chauffeur Delivery</strong>
+                    <span class="price-pill">+{{ currencyService.format(45.00) }}</span>
+                  </div>
+                  <p>Concierge Chauffeur in Electric Sedan • Delivered on Contoured Wood Hanger • Same-Day Fitting</p>
+                </div>
+              </label>
+
+              <label class="tier-card" [class.selected]="shippingMethod() === 'in_store'">
+                <input type="radio" name="courier" value="in_store" [checked]="shippingMethod() === 'in_store'" (change)="shippingMethod.set('in_store')" />
+                <div class="tier-info">
+                  <div class="tier-top">
+                    <strong>In-Store Flagship POS Collection (Self-Pickup)</strong>
+                    <span class="price-pill free">FREE IN-STORE</span>
+                  </div>
+                  <p>Pick up at Milan, New York, or Mumbai Flagship POS Counters within 2 hours. Complimentary garment steaming & fitting room reservation.</p>
+                </div>
+              </label>
+            </div>
+
+            <div class="step-actions">
+              <button mat-stroked-button (click)="prevStep()">← Back</button>
+              <button mat-flat-button class="next-btn" (click)="nextStep()">
+                Proceed to Payment Gateway →
+              </button>
+            </div>
+          </div>
+        }
+
+        <!-- STEP 3: All Payment Options Available -->
+        @if (step() === 3) {
+          <div class="step-content animate-fade-in">
+            <h4 class="step-title">Universal Enterprise Payment Gateway</h4>
+            
+            <div class="gateway-selector">
+              <button 
+                type="button" 
+                class="gw-pill" 
+                [class.active]="paymentGateway() === 'UPI_QR'" 
+                (click)="paymentGateway.set('UPI_QR')">
+                <span class="material-symbols-outlined icon">qr_code_scanner</span>
+                <span>UPI & QR Code</span>
+              </button>
+
+              <button 
+                type="button" 
+                class="gw-pill" 
+                [class.active]="paymentGateway() === 'STRIPE'" 
+                (click)="paymentGateway.set('STRIPE')">
+                <span class="material-symbols-outlined icon">credit_card</span>
+                <span>Credit / Debit Cards</span>
+              </button>
+
+              <button 
+                type="button" 
+                class="gw-pill" 
+                [class.active]="paymentGateway() === 'APPLE_PAY'" 
+                (click)="paymentGateway.set('APPLE_PAY')">
+                <span class="material-symbols-outlined icon">phone_iphone</span>
+                <span>Apple / Google Pay</span>
+              </button>
+
+              <button 
+                type="button" 
+                class="gw-pill" 
+                [class.active]="paymentGateway() === 'NET_BANKING'" 
+                (click)="paymentGateway.set('NET_BANKING')">
+                <span class="material-symbols-outlined icon">account_balance</span>
+                <span>Net Banking</span>
+              </button>
+
+              <button 
+                type="button" 
+                class="gw-pill" 
+                [class.active]="paymentGateway() === 'KLARNA_BNPL'" 
+                (click)="paymentGateway.set('KLARNA_BNPL')">
+                <span class="material-symbols-outlined icon">payments</span>
+                <span>Klarna / BNPL</span>
+              </button>
+
+              <button 
+                type="button" 
+                class="gw-pill" 
+                [class.active]="paymentGateway() === 'COD'" 
+                (click)="paymentGateway.set('COD')">
+                <span class="material-symbols-outlined icon">local_shipping</span>
+                <span>Cash on Delivery</span>
+              </button>
+
+              <button 
+                type="button" 
+                class="gw-pill" 
+                [class.active]="paymentGateway() === 'IN_STORE_PICKUP'" 
+                (click)="paymentGateway.set('IN_STORE_PICKUP')">
+                <span class="material-symbols-outlined icon">point_of_sale</span>
+                <span>Pay In-Store</span>
+              </button>
+            </div>
+
+            <!-- PAYMENT FORM DEPENDING ON GATEWAY -->
+            <!-- 1. UPI Dynamic QR -->
+            @if (paymentGateway() === 'UPI_QR') {
+              <div class="upi-box animate-fade-in">
+                <div class="qr-visual">
+                  <div class="qr-placeholder">
+                    <span class="material-symbols-outlined qr-icon">qr_code_2</span>
+                    <span class="qr-live-badge">SCAN TO PAY</span>
+                  </div>
+                </div>
+                <div class="upi-info">
+                  <h5>Instant UPI One-Tap Checkout</h5>
+                  <p>Scan with Google Pay, PhonePe, Paytm, or BHIM. Zero payment fees.</p>
+                  <div class="vpa-pill">VPA: <code>atelier.vogue@okhdfcbank</code></div>
+                  <div class="supported-apps">
+                    <span class="app-chip">Google Pay</span>
+                    <span class="app-chip">PhonePe</span>
+                    <span class="app-chip">Paytm</span>
+                    <span class="app-chip">BHIM UPI</span>
+                  </div>
+                </div>
+              </div>
+            }
+
+            <!-- 2. Stripe Credit/Debit Cards -->
+            @if (paymentGateway() === 'STRIPE') {
+              <div class="card-inputs-grid animate-fade-in">
+                <div class="field-wrap full">
+                  <label>Card Number (Visa, Mastercard, Amex, RuPay)</label>
+                  <input type="text" [ngModel]="cardNumber()" (ngModelChange)="cardNumber.set($event)" placeholder="4242 •••• •••• 4242" />
+                </div>
+                <div class="field-wrap half">
+                  <label>Cardholder Name</label>
+                  <input type="text" [ngModel]="cardHolder()" (ngModelChange)="cardHolder.set($event)" />
+                </div>
+                <div class="field-wrap fourth">
+                  <label>Expires</label>
+                  <input type="text" [ngModel]="cardExpiry()" (ngModelChange)="cardExpiry.set($event)" placeholder="12/28" />
+                </div>
+                <div class="field-wrap fourth">
+                  <label>CVV / CVC</label>
+                  <input type="password" [ngModel]="cardCvv()" (ngModelChange)="cardCvv.set($event)" placeholder="888" />
+                </div>
+              </div>
+            }
+
+            <!-- 3. Apple Pay & Google Pay -->
+            @if (paymentGateway() === 'APPLE_PAY') {
+              <div class="wallet-box animate-fade-in">
+                <span class="material-symbols-outlined wallet-icon">contactless</span>
+                <h4>1-Click Biometric Express Pay</h4>
+                <p>Authorize instantly with Face ID, Touch ID, or Google Pay on supported devices.</p>
+                <div class="supported-apps">
+                  <span class="app-chip">Apple Pay</span>
+                  <span class="app-chip">Google Pay</span>
+                </div>
+              </div>
+            }
+
+            <!-- 4. Net Banking -->
+            @if (paymentGateway() === 'NET_BANKING') {
+              <div class="net-banking-box animate-fade-in">
+                <label>Select Your Financial Institution</label>
+                <select [ngModel]="selectedBank()" (ngModelChange)="selectedBank.set($event)" class="bank-select">
+                  <option value="HDFC Bank">HDFC Bank (Instant Confirmation)</option>
+                  <option value="ICICI Bank">ICICI Bank NetBanking</option>
+                  <option value="State Bank of India">State Bank of India (SBI)</option>
+                  <option value="Axis Bank">Axis Bank</option>
+                  <option value="Kotak Mahindra Bank">Kotak Mahindra Bank</option>
+                  <option value="Citibank">Citibank Global</option>
+                  <option value="JPMorgan Chase">JPMorgan Chase</option>
+                  <option value="HSBC Private Bank">HSBC Private Bank</option>
+                </select>
+                <p class="sub-note">You will be redirected securely to your banking portal for OTP authorization.</p>
+              </div>
+            }
+
+            <!-- 5. Klarna / BNPL -->
+            @if (paymentGateway() === 'KLARNA_BNPL') {
+              <div class="bnpl-box animate-fade-in">
+                <h4>Pay in 4 Interest-Free Installments</h4>
+                <p>Pay <strong>{{ currencyService.format(finalPayableAmount() / 4) }}</strong> today, and the rest every 2 weeks. No hidden interest or fees.</p>
+                <div class="installments-timeline">
+                  <div class="inst-step"><span>Today</span><strong>{{ currencyService.format(finalPayableAmount() / 4) }}</strong></div>
+                  <div class="inst-step"><span>2 Weeks</span><strong>{{ currencyService.format(finalPayableAmount() / 4) }}</strong></div>
+                  <div class="inst-step"><span>4 Weeks</span><strong>{{ currencyService.format(finalPayableAmount() / 4) }}</strong></div>
+                  <div class="inst-step"><span>6 Weeks</span><strong>{{ currencyService.format(finalPayableAmount() / 4) }}</strong></div>
+                </div>
+              </div>
+            }
+
+            <!-- 6. Cash on Delivery -->
+            @if (paymentGateway() === 'COD') {
+              <div class="cod-box animate-fade-in">
+                <span class="material-symbols-outlined cod-icon">verified_user</span>
+                <h4>Cash on Delivery (COD) with Secure OTP Handover</h4>
+                <p>Pay directly to the white-glove courier upon inspection. An SMS verification code will be sent to your phone prior to delivery.</p>
+              </div>
+            }
+
+            <!-- 7. In-Store POS Pickup -->
+            @if (paymentGateway() === 'IN_STORE_PICKUP') {
+              <div class="pos-pickup-box animate-fade-in">
+                <span class="material-symbols-outlined pos-icon">storefront</span>
+                <h4>Pay at Flagship Boutique Counter (POS)</h4>
+                <p>Reserve this order now. Inspect, try on, and pay at our Milan, New York, or Mumbai boutique registers via cash, card terminal swipe, or store credit.</p>
+              </div>
+            }
+
+            <!-- Sandbox Simulation Notice -->
+            <div class="sandbox-pill">
+              <span class="material-symbols-outlined">science</span>
+              <span><strong>Omnichannel Simulation Gateway:</strong> All payment options are pre-authorized for demo.</span>
+            </div>
+
+            <div class="step-actions">
+              <button mat-stroked-button (click)="prevStep()">← Back</button>
+              <button 
+                mat-flat-button 
+                class="pay-btn gold-shimmer-btn" 
+                (click)="processPayment()"
+                [disabled]="submitting()">
+                @if (submitting()) {
+                  <span><span class="spinner-inline"></span> Processing Transaction...</span>
+                } @else {
+                  <span><span class="material-symbols-outlined">verified</span> CONFIRM ORDER ({{ currencyService.format(finalPayableAmount()) }})</span>
+                }
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Right: Order Mini-Summary Sidebar -->
+      <aside class="order-summary-sidebar">
+        <h4 class="sidebar-title">Order Ledger</h4>
+
+        <div class="sidebar-items-list">
+          @for (item of cartService.items(); track item.id) {
+            <div class="sidebar-item">
+              <img [src]="item.image" [alt]="item.title" />
+              <div class="item-meta">
+                <strong>{{ item.title }}</strong>
+                <small>Size: {{ item.size }} • {{ item.color }} (Qty: {{ item.quantity }})</small>
+                <span class="price font-display">{{ currencyService.format(item.price * item.quantity) }}</span>
+              </div>
+            </div>
+          }
+        </div>
+
+        <div class="sidebar-ledger">
+          <div class="row">
+            <span>Subtotal</span>
+            <span class="font-display">{{ cartService.formattedSubtotal() }}</span>
+          </div>
+
+          <!-- Active Membership Tier Discount Callout -->
+          @if (memberDiscountAmount() > 0) {
+            <div class="row member-saving">
+              <span>👑 {{ membershipService.currentTier().badge_label }} ({{ membershipService.currentTier().discount_percentage }}%)</span>
+              <span class="font-display">-{{ currencyService.format(memberDiscountAmount()) }}</span>
+            </div>
+          }
+
+          @if (cartService.discountAmount() > 0) {
+            <div class="row saving">
+              <span>Promo Coupon</span>
+              <span class="font-display">-{{ cartService.formattedDiscount() }}</span>
+            </div>
+          }
+
+          <div class="row">
+            <span>Courier / Handover</span>
+            <span>{{ shippingMethod() === 'same_day' ? currencyService.format(45.00) : 'Complimentary' }}</span>
+          </div>
+
+          <div class="row">
+            <span>Estimated Tax (8%)</span>
+            <span class="font-display">{{ cartService.formattedTax() }}</span>
+          </div>
+
+          <div class="row total">
+            <span>Total Payable ({{ currencyService.activeCurrency() }})</span>
+            <span class="total-price font-display">{{ currencyService.format(finalPayableAmount()) }}</span>
+          </div>
+        </div>
+
+        <div class="sidebar-guarantee">
+          <span class="material-symbols-outlined">security</span>
+          <div>
+            <strong>Atelier Authenticity Guarantee</strong>
+            <small>Includes Certificate of Couture Authenticity & Carbon Offset</small>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>

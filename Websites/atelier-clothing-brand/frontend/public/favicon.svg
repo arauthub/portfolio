@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5E6CA"/>
+      <stop offset="40%" stop-color="#D4AF37"/>
+      <stop offset="70%" stop-color="#AA771C"/>
+      <stop offset="100%" stop-color="#EAD8C0"/>
+    </linearGradient>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1A1D24"/>
+      <stop offset="100%" stop-color="#0A0B0E"/>
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bgGrad)"/>
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-opacity="0.6"/>
+  <!-- Royal Crown -->
+  <path d="M22 23 L26 27 L32 20 L38 27 L42 23 L40 31 L24 31 Z" fill="url(#goldGrad)"/>
+  <circle cx="22" cy="22" r="1.5" fill="#FFF"/>
+  <circle cx="32" cy="19" r="2" fill="#FFF"/>
+  <circle cx="42" cy="22" r="1.5" fill="#FFF"/>
+  <!-- Serif Monogram AR -->
+  <text x="32" y="47" font-family="'Playfair Display', Georgia, serif" font-size="18" font-weight="700" fill="url(#goldGrad)" text-anchor="middle" letter-spacing="1">AR</text>
+  <line x1="20" y1="52" x2="44" y2="52" stroke="url(#goldGrad)" stroke-width="1" stroke-opacity="0.8"/>
+</svg>

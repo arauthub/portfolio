@@ -1,0 +1,274 @@
+<section id="catalog-section" class="catalog-container container-12">
+  <!-- Section Header -->
+  <div class="catalog-header">
+    <div class="header-intro">
+      <span class="sub-pill">CENTRALISED RUNWAY & HEIRLOOM CATALOG</span>
+      <h3 class="section-title font-display">The Master Fashion Collection</h3>
+      <p class="section-desc">
+        Explore architectural cashmere outerwear, pure Mulberry silk evening gowns, organic Peruvian childrenswear, and tailored neo-streetwear.
+      </p>
+    </div>
+
+    <!-- Live Active Filter Summary -->
+    <div class="product-count-badge">
+      <span>SHOWING <strong>{{ filteredProducts().length }}</strong> OF <strong>{{ products().length }}</strong> RUNWAY CREATIONS</span>
+    </div>
+  </div>
+
+  <!-- Multi-Brand Department Switcher -->
+  <div class="department-switch-bar">
+    <button 
+      class="dept-btn" 
+      [class.active]="selectedDepartment() === 'all'" 
+      (click)="setDepartment('all')">
+      ✨ All Departments
+    </button>
+    <button 
+      class="dept-btn" 
+      [class.active]="selectedDepartment() === 'adults'" 
+      (click)="setDepartment('adults')">
+      👗 Adults (Haute Couture & Tailoring)
+    </button>
+    <button 
+      class="dept-btn" 
+      [class.active]="selectedDepartment() === 'kids'" 
+      (click)="setDepartment('kids')">
+      🧸 Kids (0-12Y Heirloom & Organic)
+    </button>
+    <button 
+      class="dept-btn" 
+      [class.active]="selectedDepartment() === 'unisex'" 
+      (click)="setDepartment('unisex')">
+      ⚡ Contemporary Unisex & Streetwear
+    </button>
+  </div>
+
+  <!-- Hosted Brands Filter Strip -->
+  <div class="brand-filter-strip">
+    <span class="lbl">Hosted Maisons:</span>
+    <button class="brand-chip" [class.active]="selectedBrand() === 'all'" (click)="setBrand('all')">
+      All Brands
+    </button>
+    @for (b of hostedBrands(); track b.slug) {
+      <button 
+        class="brand-chip" 
+        [class.active]="selectedBrand().toLowerCase() === b.name.toLowerCase()"
+        (click)="setBrand(b.name)">
+        <span>{{ b.name }}</span>
+        @if (b.is_promoted) {
+          <span class="promoted-star" title="Sponsored Collection">✦</span>
+        }
+      </button>
+    }
+  </div>
+
+  <!-- Interactive Filter Bar (Spans full 12 columns) -->
+  <div class="filter-controls-bar">
+    <!-- Category Navigation Tabs -->
+    <div class="category-tabs-scroll">
+      <button 
+        class="cat-tab-btn" 
+        [class.active]="selectedCategorySlug() === 'all'"
+        (click)="setCategory('all')">
+        <span>All Categories</span>
+      </button>
+      @for (cat of categories(); track cat.slug) {
+        <button 
+          class="cat-tab-btn" 
+          [class.active]="selectedCategorySlug() === cat.slug"
+          (click)="setCategory(cat.slug)">
+          <span>{{ cat.name }}</span>
+          @if (cat.product_count && cat.product_count > 0) {
+            <span class="cat-count">({{ cat.product_count }})</span>
+          }
+        </button>
+      }
+    </div>
+
+    <!-- Secondary Filtering Row: Search, Sizes, Price & Sort -->
+    <div class="secondary-filter-row">
+      <!-- Search Input with Barcode & SKU Support -->
+      <div class="search-box">
+        <span class="material-symbols-outlined search-icon">search</span>
+        <input 
+          type="text" 
+          placeholder="Search silk, cashmere, SKU, barcode (890123...), or brand..." 
+          [ngModel]="searchQuery()" 
+          (ngModelChange)="searchQuery.set($event)"
+          class="search-input"
+        />
+        @if (searchQuery()) {
+          <button class="clear-search" (click)="searchQuery.set('')">✕</button>
+        }
+      </div>
+
+      <!-- Size Filter Selector -->
+      <div class="filter-dropdown">
+        <label>Size:</label>
+        <select [ngModel]="selectedSize()" (ngModelChange)="selectedSize.set($event)" class="luxury-select">
+          @for (s of availableSizes; track s) {
+            <option [value]="s">{{ s }}</option>
+          }
+        </select>
+      </div>
+
+      <!-- Sorting Selector -->
+      <div class="filter-dropdown">
+        <label>Sort By:</label>
+        <select [ngModel]="sortBy()" (ngModelChange)="sortBy.set($event)" class="luxury-select">
+          <option value="featured">Editorial Highlights</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Top Rated by Patrons</option>
+          <option value="stock">Live Stock Availability</option>
+        </select>
+      </div>
+
+      <!-- In Stock Toggle -->
+      <button 
+        class="in-stock-toggle-btn"
+        [class.active]="onlyInStock()"
+        (click)="onlyInStock.set(!onlyInStock())">
+        <span class="material-symbols-outlined">{{ onlyInStock() ? 'check_box' : 'check_box_outline_blank' }}</span>
+        <span>In Stock Only</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Product Grid -->
+  @if (loading()) {
+    <div class="loading-state">
+      <div class="luxury-spinner"></div>
+      <p>Curating runway collection from Wagtail archival database...</p>
+    </div>
+  } @else if (filteredProducts().length === 0) {
+    <div class="empty-state">
+      <span class="material-symbols-outlined empty-icon">styler</span>
+      <h4>No Creations Match Your Curation</h4>
+      <p>Try resetting filters or searching for alternative cashmere, silk or tailoring terms.</p>
+      <button class="reset-btn" (click)="selectedCategorySlug.set('all'); selectedBrand.set('all'); selectedDepartment.set('all'); searchQuery.set(''); onlyInStock.set(false)">
+        Reset All Filters
+      </button>
+    </div>
+  } @else {
+    <div class="products-grid">
+      @for (product of filteredProducts(); track product.id) {
+        <article class="product-card" (click)="selectProduct.emit(product)">
+          <!-- Top Badges Row -->
+          <div class="card-badges">
+            @if (product.badge_text) {
+              <span class="badge editorial-badge">{{ product.badge_text }}</span>
+            }
+            @if (product.brand_name && product.brand_name !== 'Atelier Vogue') {
+              <span class="badge brand-partner-badge">{{ product.brand_name }}</span>
+            }
+            <button 
+              class="wishlist-btn" 
+              [class.active]="wishlistService.has(product.sku)"
+              (click)="toggleWishlist(product.sku, $event)"
+              matTooltip="Add to Wishlist">
+              <span class="material-symbols-outlined">
+                {{ wishlistService.has(product.sku) ? 'favorite' : 'favorite_border' }}
+              </span>
+            </button>
+          </div>
+
+          <!-- Product Image Showcase with Hover View -->
+          <div class="card-media">
+            <div class="img-wrapper">
+              <img 
+                [src]="product.primary_image" 
+                [alt]="product.title" 
+                class="prod-img primary"
+                (error)="onImgError($event)"
+                loading="lazy"
+              />
+              <img 
+                [src]="product.hover_image || product.primary_image" 
+                [alt]="product.title + ' back drape view'" 
+                class="prod-img hover"
+                (error)="onImgError($event)"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Quick View / Add Floating Overlay -->
+            <div class="card-quick-actions">
+              <button class="quick-view-btn" (click)="selectProduct.emit(product)">
+                <span class="material-symbols-outlined">visibility</span>
+                QUICK VIEW
+              </button>
+              <button class="quick-add-btn gold-shimmer-btn" (click)="quickAddToCart(product, $event)">
+                <span class="material-symbols-outlined">add_shopping_cart</span>
+                ADD TO BAG
+              </button>
+            </div>
+          </div>
+
+          <!-- Card Details -->
+          <div class="card-body">
+            <!-- Brand & Barcode Meta -->
+            <div class="card-meta">
+              <span class="cat-label">{{ product.brand_name || 'Atelier Vogue' }} • {{ product.category_name }}</span>
+              <div class="rating-stars">
+                <span class="material-symbols-outlined star">star</span>
+                <span>{{ product.rating_average || 5.0 }}</span>
+              </div>
+            </div>
+
+            <!-- Title -->
+            <h4 class="product-title font-display">{{ product.title }}</h4>
+
+            <!-- Fabric Teaser -->
+            <p class="fabric-teaser">
+              <span class="material-symbols-outlined mini-icon">diamond</span>
+              {{ product.fabric }}
+            </p>
+
+            <!-- Barcode Indicator -->
+            @if (product.barcode) {
+              <div class="barcode-pill">
+                <span class="material-symbols-outlined icon">barcode</span>
+                <span>{{ product.barcode }}</span>
+              </div>
+            }
+
+            <!-- Color Swatches Interactive Preview -->
+            <div class="swatches-row" (click)="$event.stopPropagation()">
+              @for (swatch of product.color_swatches; track swatch.name) {
+                <button 
+                  class="swatch-circle"
+                  [style.background-color]="swatch.hex"
+                  [class.active]="activeColorMap()[product.id] === swatch.name"
+                  (mouseenter)="setColorPreview(product.id, swatch.name)"
+                  [matTooltip]="swatch.name">
+                </button>
+              }
+              @if (activeColorMap()[product.id]) {
+                <span class="active-color-name">{{ activeColorMap()[product.id] }}</span>
+              }
+            </div>
+
+            <!-- Pricing & Live Stock Status -->
+            <div class="card-footer">
+              <div class="pricing">
+                <span class="current-price font-display">{{ currencyService.format(product.price) }}</span>
+                @if (product.compare_at_price) {
+                  <span class="compare-price">{{ currencyService.format(product.compare_at_price) }}</span>
+                }
+              </div>
+
+              @if (product.inventory_count <= 5) {
+                <span class="stock-warning">Only {{ product.inventory_count }} pieces left!</span>
+              } @else if (product.inventory_count > 0) {
+                <span class="in-stock-tag">{{ product.inventory_count }} in stock</span>
+              } @else {
+                <span class="stock-warning">Out of stock (Pre-order)</span>
+              }
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  }
+</section>

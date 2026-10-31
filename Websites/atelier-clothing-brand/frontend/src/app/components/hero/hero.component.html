@@ -1,0 +1,129 @@
+<section class="hero-section">
+  <!-- Editorial High-Fashion Backdrop with Rich Indian Silk Drapery -->
+  <div class="hero-backdrop">
+    <div class="backdrop-overlay"></div>
+    <img 
+      src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=2000&q=85" 
+      alt="Atelier Riwayat Royal Indian Haute Couture Saree & Sherwani Collection" 
+      class="hero-img"
+    />
+  </div>
+
+  <!-- Content Container with 12-Column Responsive Alignment -->
+  <div class="hero-content-wrapper container-12">
+    <div class="grid-12 hero-layout-grid">
+      <!-- Col 1 to 8: Editorial Text & CTAs -->
+      <div class="col-8 hero-text-col">
+        <div class="hero-badge-pill">
+          <span class="pulse-gem"></span>
+          <span>ROYAL INDIAN HAUTE COUTURE • FESTIVE & BRIDAL UTSAV '26</span>
+        </div>
+
+        <h2 class="hero-title font-display">
+          THE NOOR-E-KASHI<br>
+          <span class="hero-italic font-serif">Regal Silhouettes</span>
+        </h2>
+
+        <p class="hero-description">
+          Hand-woven on heirloom wooden pit-looms by 5th-generation master weavers in Varanasi and Awadh. Woven in pure Mulberry Katan silk, antique gold zari bootis, and real zardozi embroidery for royalty.
+        </p>
+
+        <!-- Call to Actions -->
+        <div class="hero-cta-group">
+          <button mat-flat-button class="cta-primary gold-shimmer-btn" (click)="exploreClicked.emit()">
+            <span class="material-symbols-outlined">shopping_bag</span>
+            EXPLORE ROYAL HEIRLOOMS
+          </button>
+
+          <button mat-stroked-button class="cta-secondary" (click)="lookbookClicked.emit()">
+            <span class="material-symbols-outlined">play_arrow</span>
+            FESTIVE 2026 LOOKBOOK
+          </button>
+        </div>
+
+        <!-- Micro Stats in 3 Mini-Columns -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-val font-display">100% PURE</span>
+            <span class="stat-lbl">Certified Silk Mark Katan</span>
+          </div>
+          <div class="stat-div"></div>
+          <div class="stat-item">
+            <span class="stat-val font-display">450+ HRS</span>
+            <span class="stat-lbl">Master Artisan Zari Weave</span>
+          </div>
+          <div class="stat-div"></div>
+          <div class="stat-item">
+            <span class="stat-val font-display">KASHI & AWADH</span>
+            <span class="stat-lbl">Handloom Heritage</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 9 to 12: Bespoke Trust & Fast Dispatch Card -->
+      <div class="col-4 hero-card-col">
+        <div class="royal-feature-card">
+          <div class="card-glow"></div>
+          <span class="card-badge">ROYAL PRIVILEGE</span>
+          <h4 class="card-headline font-display">Bespoke Bridal & Nawabi Trousseau</h4>
+          <p class="card-text">
+            Complimentary video fitting concierge with our Master Darzi. We deliver customized matching blouses, regal pocket squares, and heirloom trunk packaging.
+          </p>
+          <div class="card-perks">
+            <div class="perk-row">
+              <span class="material-symbols-outlined">verified</span>
+              <span>Govt. Handloom Silk Hallmark</span>
+            </div>
+            <div class="perk-row">
+              <span class="material-symbols-outlined">local_shipping</span>
+              <span>Bluedart Air Express (2-3 Days)</span>
+            </div>
+            <div class="perk-row">
+              <span class="material-symbols-outlined">qr_code_2</span>
+              <span>UPI, Cards & COD Available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand Pillars Banner (12-Column Responsive Alignment) -->
+  <div class="brand-pillars-bar">
+    <div class="container-12">
+      <div class="grid-12 pillar-inner">
+        <div class="col-3 pillar-item">
+          <span class="material-symbols-outlined">diamond</span>
+          <div>
+            <strong>Kashi Handloom Karigari</strong>
+            <small>Woven on traditional pit-looms by master artisans</small>
+          </div>
+        </div>
+
+        <div class="col-3 pillar-item">
+          <span class="material-symbols-outlined">eco</span>
+          <div>
+            <strong>Pure Silk Mark Certified</strong>
+            <small>100% natural mulberry silk & authentic zari</small>
+          </div>
+        </div>
+
+        <div class="col-3 pillar-item">
+          <span class="material-symbols-outlined">local_shipping</span>
+          <div>
+            <strong>Shahi Bluedart Courier</strong>
+            <small>Free express delivery across India over {{ currencyService.formatThreshold() }}</small>
+          </div>
+        </div>
+
+        <div class="col-3 pillar-item">
+          <span class="material-symbols-outlined">straighten</span>
+          <div>
+            <strong>Bespoke Darzi Concierge</strong>
+            <small>Video measurement & custom tailoring guarantee</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

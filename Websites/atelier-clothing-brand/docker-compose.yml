@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: atelier_wagtail_backend
+    ports:
+      - "8000:8080"
+    environment:
+      - DJANGO_SETTINGS_MODULE=atelier_backend.settings.dev
+      - DJANGO_SECRET_KEY=dev-secret-key-atelier-vogue-docker
+      - PAYMENT_SANDBOX_MODE=True
+    volumes:
+      - ./backend:/app
+      - backend_media:/app/media
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: atelier_angular_storefront
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  backend_media:

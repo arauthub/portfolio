@@ -1,0 +1,32 @@
+{
+  "name": "synapse-lms",
+  "version": "1.0.0",
+  "description": "Futuristic Gamified LMS with Wagtail Backend and Angular 22 Frontend",
+  "scripts": {
+    "spin": "./spin-localhost.sh",
+    "start": "./spin-localhost.sh",
+    "dev": "./spin-localhost.sh",
+    "deploy": "./deploy.sh",
+    "deploy:docker": "./deploy.sh --docker",
+    "deploy:build": "./deploy.sh --build",
+    "deploy:package": "./deploy.sh --package",
+    "deploy:health": "./deploy.sh --health",
+    "dev:frontend": "cd frontend && npm start",
+    "dev:backend": "cd backend && .venv/bin/python manage.py runserver 0.0.0.0:8000",
+    "build": "cd frontend && npm run build",
+    "seed": "cd backend && .venv/bin/python manage.py seed_lms_demo",
+    "migrate": "cd backend && .venv/bin/python manage.py migrate"
+  },
+  "keywords": [
+    "lms",
+    "wagtail",
+    "angular22",
+    "gamification",
+    "cyberpunk",
+    "multi-tenant",
+    "white-label"
+  ],
+  "author": "Antigravity Engineering",
+  "license": "MIT"
+}
+

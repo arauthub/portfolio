@@ -6,7 +6,7 @@ Pune, India • theabhijeetraut@gmail.com • [GitHub: github.com/arauthub](http
 
 ## Executive Summary
 
-> 📌 **Portfolio Monorepo Synchronization**: Verified up to date with repository on `2026-10-11 14:13 UTC` • Presubmit Suite Clean
+> 📌 **Portfolio Monorepo Synchronization**: Verified up to date with repository on `2026-10-31 10:56 UTC` • Presubmit Suite Clean
 
 Accomplished **Lead Software Engineer and Solutions Architect** with **12 years of hands-on experience** architecting high-concurrency backend services, distributed systems, and modern AI/ML solutions. 
 - **Cybage Software (Current)**: Lead Software Engineer & Solutions Architect driving enterprise architecture, scalable web platforms, Django/Wagtail CMS ecosystems, and RESTful/event-driven API architectures.
@@ -145,6 +145,12 @@ Accomplished **Lead Software Engineer and Solutions Architect** with **12 years 
 *Tech Stack*: HTML5, Vanilla CSS (Glassmorphism), Modern ES Modules, Web Audio API, Canvas 2D, Git REST API
 * Architected a futuristic, zero-framework Jamstack portal featuring sub-millisecond edge pre-rendering, bi-directional Git telemetry, living 60 FPS interactive particle constellation canvas, and Web Audio cyber synthesis.
 * Built interactive in-browser Holodeck simulators for multi-agent DAG swarms, Matter.js zero-G physics, ARNAS client-side zero-knowledge AES-256-GCM encryption, and a keyboard-driven Cyber Quantum CLI terminal.
+
+
+### **Synapse Lms**
+*Repository*: [`apps/synapse-lms/`](https://github.com/arauthub/All-Projects/tree/main/apps/synapse-lms)  
+*Tech Stack*: Fullstack App / Distributed Service
+* Enterprise modular component engineered for high reliability, clean architecture, and decoupled deployment.
 
 ## Education
 

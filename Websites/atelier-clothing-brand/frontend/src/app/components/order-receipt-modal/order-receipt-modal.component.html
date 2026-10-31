@@ -1,0 +1,126 @@
+<div class="modal-backdrop" (click)="close.emit()">
+  <div class="receipt-surface animate-fade-in" (click)="$event.stopPropagation()">
+    <!-- Header -->
+    <div class="receipt-header">
+      <div class="success-badge">
+        <span class="material-symbols-outlined check-icon">check_circle</span>
+        <span>ORDER CONFIRMED & IN PRODUCTION</span>
+      </div>
+
+      <h3 class="brand-title font-display">ATELIER VOGUE</h3>
+      <span class="order-ref">Order Reference: <strong>{{ order().order_number }}</strong></span>
+      <p class="receipt-subtitle">
+        A bespoke confirmation invoice has been registered and dispatched to <strong>{{ order().customer_email }}</strong>.
+      </p>
+    </div>
+
+    <!-- Fulfillment Timeline -->
+    <div class="timeline-container">
+      <div class="timeline-step completed">
+        <div class="step-dot">✓</div>
+        <span>Order Received</span>
+        <small>Payment Authorized</small>
+      </div>
+      <div class="step-connector active"></div>
+      <div class="timeline-step active">
+        <div class="step-dot">2</div>
+        <span>Atelier Inspection</span>
+        <small>Artisanal Review</small>
+      </div>
+      <div class="step-connector"></div>
+      <div class="timeline-step">
+        <div class="step-dot">3</div>
+        <span>Courier Dispatch</span>
+        <small>{{ order().carrier }}</small>
+      </div>
+      <div class="step-connector"></div>
+      <div class="timeline-step">
+        <div class="step-dot">4</div>
+        <span>Delivered</span>
+        <small>3-5 Days</small>
+      </div>
+    </div>
+
+    <!-- Delivery & Tracking Summary Card -->
+    <div class="delivery-card">
+      <div class="card-col">
+        <label>DESTINATION</label>
+        <strong>{{ order().customer_name }}</strong>
+        <span>{{ order().shipping_method }}</span>
+      </div>
+
+      <div class="card-col">
+        <label>TRACKING NUMBER</label>
+        <span class="tracking-code font-display">{{ order().tracking_number }}</span>
+        <small>Carrier: {{ order().carrier }}</small>
+      </div>
+    </div>
+
+    <!-- Itemized Breakdown -->
+    <div class="items-table-wrap">
+      <table class="receipt-table">
+        <thead>
+          <tr>
+            <th>Silhouette</th>
+            <th>Specification</th>
+            <th>Qty</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of order().items; track item.id) {
+            <tr>
+              <td>
+                <div class="item-name-cell">
+                  <img [src]="item.image" [alt]="item.title" />
+                  <strong>{{ item.title }}</strong>
+                </div>
+              </td>
+              <td>Size: {{ item.size }} • {{ item.color }}</td>
+              <td>{{ item.quantity }}</td>
+              <td class="font-display">{{ currencyService.format(item.price * item.quantity) }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Ledger Totals -->
+    <div class="receipt-ledger">
+      <div class="ledger-row">
+        <span>Subtotal</span>
+        <span>{{ currencyService.format(order().subtotal) }}</span>
+      </div>
+      @if (order().discount_amount > 0) {
+        <div class="ledger-row discount">
+          <span>Promotional Saving</span>
+          <span>-{{ currencyService.format(order().discount_amount) }}</span>
+        </div>
+      }
+      <div class="ledger-row">
+        <span>Express Courier</span>
+        <span>{{ order().shipping_cost === 0 ? 'COMPLIMENTARY' : currencyService.format(order().shipping_cost) }}</span>
+      </div>
+      <div class="ledger-row">
+        <span>Luxury Sales Tax</span>
+        <span>{{ currencyService.format(order().tax_amount) }}</span>
+      </div>
+      <div class="ledger-row total">
+        <strong>TOTAL PAID ({{ currencyService.activeCurrency() }})</strong>
+        <strong class="total-val font-display">{{ currencyService.format(order().total_amount) }}</strong>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="receipt-actions">
+      <button mat-stroked-button class="print-btn" (click)="printInvoice()">
+        <span class="material-symbols-outlined">print</span>
+        Print / Save Official Invoice
+      </button>
+
+      <button mat-flat-button class="done-btn" (click)="close.emit()">
+        Continue Exploring Collection
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,253 @@
+<div class="modal-backdrop" (click)="close.emit()">
+  <div class="modal-dialog-surface animate-fade-in" (click)="$event.stopPropagation()" role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
+    <!-- Close Modal Button -->
+    <button class="close-btn" (click)="close.emit()" aria-label="Close dialog">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+
+    <!-- 12-Column Layout for Product Modal Surface -->
+    <div class="grid-12 modal-grid-12">
+      <!-- Left Column (Col 1 to 7): High-Res Editorial Gallery -->
+      <div class="col-7 gallery-col">
+        <div class="main-image-container">
+          <img (error)="onImgError($event)" [src]="selectedImage()" [alt]="product().title" class="main-gallery-img" />
+          @if (product().badge_text) {
+            <span class="modal-badge-tag">{{ product().badge_text }}</span>
+          }
+          <div class="silk-mark-corner">
+            <span class="material-symbols-outlined icon">verified</span>
+            <span>SILK MARK CERTIFIED</span>
+          </div>
+        </div>
+
+        <!-- Thumbnail Selector -->
+        <div class="thumbnails-strip">
+          <button 
+            class="thumb-btn" 
+            [class.active]="selectedImage() === product().primary_image"
+            (click)="changeImage(product().primary_image)">
+            <img (error)="onImgError($event)" [src]="product().primary_image" alt="Front view thumbnail" />
+          </button>
+
+          @if (product().hover_image) {
+            <button 
+              class="thumb-btn" 
+              [class.active]="selectedImage() === product().hover_image"
+              (click)="changeImage(product().hover_image)">
+              <img (error)="onImgError($event)" [src]="product().hover_image" alt="Back angle thumbnail" />
+            </button>
+          }
+
+          @for (img of product().extra_images; track img) {
+            <button 
+              class="thumb-btn" 
+              [class.active]="selectedImage() === img"
+              (click)="changeImage(img)">
+              <img (error)="onImgError($event)" [src]="img" alt="Gallery thumbnail" />
+            </button>
+          }
+        </div>
+      </div>
+
+      <!-- Right Column (Col 8 to 12): Luxury Fashion Details & Atelier Ordering -->
+      <div class="col-5 details-col">
+        <div class="category-sku">
+          <span class="cat">{{ product().category_name }}</span>
+          <span class="dot">•</span>
+          <span class="sku">SKU: {{ product().sku }}</span>
+        </div>
+
+        <h3 id="product-modal-title" class="product-title font-display">{{ product().title }}</h3>
+
+        <!-- Rating & Client Reviews -->
+        <div class="rating-bar">
+          <div class="stars">
+            <span class="material-symbols-outlined star-fill">star</span>
+            <span class="material-symbols-outlined star-fill">star</span>
+            <span class="material-symbols-outlined star-fill">star</span>
+            <span class="material-symbols-outlined star-fill">star</span>
+            <span class="material-symbols-outlined star-fill">star</span>
+          </div>
+          <span class="rating-text">{{ product().rating_average || 5.0 }} ({{ product().review_count || 18 }} Verified Royal Patrons)</span>
+        </div>
+
+        <!-- Pricing -->
+        <div class="price-bar">
+          <span class="price-val font-display">{{ currencyService.format(product().price) }}</span>
+          @if (product().compare_at_price) {
+            <span class="compare-val">{{ currencyService.format(product().compare_at_price) }}</span>
+            <span class="saving-pill">SAVE {{ currencyService.format(product().compare_at_price! - product().price) }}</span>
+          }
+        </div>
+
+        <!-- Indian Handloom Heritage Highlights -->
+        <div class="savoir-faire-box">
+          <div class="spec-row">
+            <span class="material-symbols-outlined icon">diamond</span>
+            <div>
+              <strong>Pure Weave Composition:</strong>
+              <span>{{ product().fabric }}</span>
+            </div>
+          </div>
+          <div class="spec-row">
+            <span class="material-symbols-outlined icon">verified</span>
+            <div>
+              <strong>Government Hallmark:</strong>
+              <span class="eco-badge">100% Genuine Silk Mark Certified</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Color Swatches -->
+        <div class="selector-section">
+          <div class="selector-header">
+            <span class="label">ROYAL SHADE:</span>
+            <span class="active-val">{{ selectedColor()?.name }}</span>
+          </div>
+          <div class="swatches-palette">
+            @for (swatch of product().color_swatches; track swatch.name) {
+              <button 
+                class="swatch-btn" 
+                [style.background-color]="swatch.hex"
+                [class.selected]="selectedColor()?.name === swatch.name"
+                (click)="selectColor(swatch)"
+                [matTooltip]="swatch.name">
+              </button>
+            }
+          </div>
+        </div>
+
+        <!-- Interactive Size Selector & Fit Finder -->
+        <div class="selector-section">
+          <div class="selector-header">
+            <span class="label">INDIAN SIZE:</span>
+            <button class="fit-finder-trigger" (click)="fitFinderOpen.update(v => !v)">
+              <span class="material-symbols-outlined">straighten</span>
+              {{ fitFinderOpen() ? 'Close Fit Guide' : 'Sizing & Drape Guide' }}
+            </button>
+          </div>
+
+          <!-- Fit Finder Interactive Panel -->
+          @if (fitFinderOpen()) {
+            <div class="fit-finder-card animate-fade-in">
+              <div class="fit-row">
+                <label>Bust / Chest Measurement:</label>
+                <select class="fit-select" [ngModel]="clientHeight()" (ngModelChange)="clientHeight.set($event); calculateFit()">
+                  <option value="34">34 inches (XS / UK 8)</option>
+                  <option value="36">36 inches (S / UK 10)</option>
+                  <option value="38">38 inches (M / UK 12)</option>
+                  <option value="40">40 inches (L / UK 14)</option>
+                  <option value="42">42 inches (XL / UK 16)</option>
+                  <option value="custom">Bespoke Custom Stitching</option>
+                </select>
+              </div>
+
+              <div class="fit-result-badge">
+                <span class="material-symbols-outlined">auto_awesome</span>
+                <span>{{ fitRecommendation() }}</span>
+                <button class="apply-fit-btn" (click)="applyRecommendedSize(fitRecommendation())">Select Size</button>
+              </div>
+            </div>
+          }
+
+          <!-- Size Buttons -->
+          <div class="sizes-grid">
+            @for (s of product().available_sizes; track s) {
+              <button 
+                class="size-box" 
+                [class.selected]="selectedSize() === s"
+                (click)="selectSize(s)">
+                {{ s }}
+              </button>
+            }
+          </div>
+
+          @if (product().inventory_count <= 10) {
+            <div class="inventory-status warning">
+              <span class="material-symbols-outlined">info</span>
+              Only {{ product().inventory_count }} heirloom pieces remaining in Varanasi atelier.
+            </div>
+          }
+        </div>
+
+        <!-- Indian Postal Pincode Delivery Checker Widget -->
+        <div class="pincode-check-widget">
+          <label class="pincode-label">
+            <span class="material-symbols-outlined">local_shipping</span>
+            CHECK DISPATCH & COD AVAILABILITY
+          </label>
+          <div class="pincode-input-row">
+            <input 
+              type="text" 
+              placeholder="Enter 6-digit Pincode" 
+              maxlength="6" 
+              [ngModel]="pincodeInput()" 
+              (ngModelChange)="pincodeInput.set($event)"
+              (keyup.enter)="checkPincode()"
+            />
+            <button class="pincode-check-btn" (click)="checkPincode()">CHECK</button>
+          </div>
+          @if (pincodeStatus().checked) {
+            <p class="pincode-msg" [class.success]="pincodeStatus().valid" [class.error]="!pincodeStatus().valid">
+              {{ pincodeStatus().message }}
+            </p>
+          }
+        </div>
+
+        <!-- Quantity & Add to Cart -->
+        <div class="action-row">
+          <div class="quantity-stepper">
+            <button (click)="setQuantity(-1)" [disabled]="quantity() <= 1">−</button>
+            <span class="qty-val">{{ quantity() }}</span>
+            <button (click)="setQuantity(1)">+</button>
+          </div>
+
+          <button mat-flat-button class="add-to-bag-cta gold-shimmer-btn" (click)="addToBag()">
+            <span class="material-symbols-outlined">shopping_bag</span>
+            ADD TO POTLI • {{ currencyService.format(product().price * quantity()) }}
+          </button>
+
+          <button class="share-look-btn" (click)="shareProduct()" matTooltip="Share this Look & Meta Preview" aria-label="Share Look">
+            <span class="material-symbols-outlined">share</span>
+          </button>
+        </div>
+
+        <!-- Master Darzi Video Consultation Feature -->
+        <div class="darzi-concierge-card">
+          <div class="darzi-inner">
+            <span class="material-symbols-outlined icon">videocam</span>
+            <div class="text">
+              <strong>Complimentary Video Tailoring Consultation</strong>
+              <small>Schedule 1-on-1 video call with our Master Darzi for customized fitting</small>
+            </div>
+            <button class="book-darzi-btn" (click)="bookDarziConsult()">
+              {{ darziBooked() ? '✓ Scheduled!' : 'Book Video Call' }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Complete The Look Interactive Outfit Builder -->
+        <div class="complete-look-box">
+          <div class="bundle-header">
+            <span class="material-symbols-outlined">auto_fix_high</span>
+            <div>
+              <strong>Complete The Royal Shahi Look</strong>
+              <small>Bundle with The Rajwada Antique Zari Velvet Potli & save 15%</small>
+            </div>
+          </div>
+          <div class="bundle-actions">
+            <button class="bundle-add-btn" (click)="addBundleLook()">
+              + Add Royal Potli Bundle (-15% Privilege)
+            </button>
+          </div>
+        </div>
+
+        <!-- Care Guide -->
+        <div class="care-guide-section">
+          <strong>Artisanal Care Guide:</strong>
+          <p>{{ product().care_guide }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

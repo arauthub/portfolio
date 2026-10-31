@@ -1,0 +1,163 @@
+<footer class="luxury-footer">
+  <!-- Newsletter VIP Section -->
+  <div class="newsletter-strip">
+    <div class="strip-content container-12">
+      <div class="text-block">
+        <span class="sub-label">THE ATELIER RIWAYAT PRIVÉ CIRCLE</span>
+        <h4 class="font-display">Receive Private Trunk Show Invitations & 15% Royal Privilege</h4>
+        <p>Subscribers receive bridal trunk show access, master tailor video consultation, and seasonal festive lookbook releases.</p>
+      </div>
+
+      <div class="form-block">
+        @if (!subscribed()) {
+          <div class="subscribe-input-group">
+            <input 
+              type="email" 
+              placeholder="Enter your email address..." 
+              [ngModel]="emailInput()" 
+              (ngModelChange)="emailInput.set($event)"
+              (keyup.enter)="subscribeNewsletter()"
+            />
+            <button class="gold-shimmer-btn" (click)="subscribeNewsletter()">JOIN PRIVÉ</button>
+          </div>
+        } @else {
+          <div class="subscribed-pill">
+            <span class="material-symbols-outlined">check_circle</span>
+            <span>Welcome to the Atelier Circle. Use code <strong>RIWAYAT15</strong> at checkout for 15% off.</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Certifications & Eco Trust Ribbon (12-Column Alignment) -->
+  <div class="cert-ribbon">
+    <div class="container-12">
+      <div class="grid-12 cert-grid">
+        <div class="col-3 cert-item">
+          <span class="material-symbols-outlined cert-icon">verified</span>
+          <div>
+            <strong>100% Silk Mark Certified</strong>
+            <p>Govt-tested pure Banarasi silk filament</p>
+          </div>
+        </div>
+
+        <div class="col-3 cert-item">
+          <span class="material-symbols-outlined cert-icon">handshake</span>
+          <div>
+            <strong>Master Karigar Guild</strong>
+            <p>Direct artisan provenance & fair living wages</p>
+          </div>
+        </div>
+
+        <div class="col-3 cert-item">
+          <span class="material-symbols-outlined cert-icon">local_shipping</span>
+          <div>
+            <strong>Bluedart Luxury Air Courier</strong>
+            <p>Insured tamper-proof express delivery</p>
+          </div>
+        </div>
+
+        <div class="col-3 cert-item">
+          <span class="material-symbols-outlined cert-icon">shield_with_heart</span>
+          <div>
+            <strong>3D Secure Bank Encryption</strong>
+            <p>Zero-compromise vault transaction security</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Links & Flagships 12-Column Grid -->
+  <div class="container-12">
+    <div class="grid-12 footer-main-grid">
+      <!-- Col 1 to 4: Brand Manifesto -->
+      <div class="col-4 brand-column">
+        <h3 class="footer-logo font-display">ATELIER RIWAYAT</h3>
+        <p class="brand-manifesto">
+          Royal Indian Haute Couture, Banarasi Handlooms & Regal Festive Heirlooms. Hand-woven by 5th-generation master weavers in Varanasi and Awadh with pure Silk Mark certification.
+        </p>
+
+        <div class="tech-stack-badges">
+          <span class="badge">100% Silk Mark Certified</span>
+          <span class="badge">Master Karigar Handloom</span>
+          <span class="badge">Shahi Express Courier</span>
+          <span class="badge">3D Secure Checkout</span>
+          <span class="badge">Custom Bridal Fits</span>
+          <span class="badge">Ethical Craft Traceable</span>
+        </div>
+      </div>
+
+      <!-- Col 5 to 6: Royal Weaves -->
+      <div class="col-2 links-column">
+        <h5 class="col-title font-display">ROYAL WEAVES</h5>
+        <ul class="col-list">
+          <li><a>Banarasi Katan Sarees</a></li>
+          <li><a>Bridal Velvet Lehengas</a></li>
+          <li><a>Nawabi Shahi Sherwanis</a></li>
+          <li><a>Chanderi Tissue Anarkalis</a></li>
+          <li><a>Antique Zari Potlis</a></li>
+          <li><a>Hand-Tooled Mojris</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 7 to 9: Client Concierge -->
+      <div class="col-3 links-column">
+        <h5 class="col-title font-display">CLIENT CONCIERGE</h5>
+        <ul class="col-list">
+          <li><a>Book Master Tailor Video Call</a></li>
+          <li><a>Government Silk Mark Verification</a></li>
+          <li><a>Bluedart Luxury Courier Tracking</a></li>
+          <li><a>Heirloom Silk Storage & Care</a></li>
+          <li><a>Custom Bridal Trousseau Packaging</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 10 to 12: Flagships & Wagtail Vault -->
+      <div class="col-3 links-column admin-box">
+        <h5 class="col-title font-display">FLAGSHIP BOUTIQUES</h5>
+        <ul class="col-list flagships-list">
+          <li><strong>Mumbai:</strong> Kala Ghoda, Fort</li>
+          <li><strong>New Delhi:</strong> The Qutub, Mehrauli</li>
+          <li><strong>Hyderabad:</strong> Jubilee Hills, Rd 36</li>
+          <li><strong>Bengaluru:</strong> Lavelle Road</li>
+        </ul>
+        <div class="concierge-contact-card">
+          <div class="contact-item">
+            <span class="material-symbols-outlined icon">call</span>
+            <span>+91 98200 12345 (Direct Patron Line)</span>
+          </div>
+          <div class="contact-item">
+            <span class="material-symbols-outlined icon">mail</span>
+            <span>concierge&#64;atelier-riwayat.in</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Copyright & Legal -->
+  <div class="footer-bottom">
+    <div class="container-12 bottom-inner">
+      <span>© 2026 ATELIER RIWAYAT COUTURE PVT. LTD. ALL RIGHTS RESERVED.</span>
+      <div class="payment-badges-row">
+        <span class="pay-chip">VISA</span>
+        <span class="pay-chip">MASTERCARD</span>
+        <span class="pay-chip">RUPAY</span>
+        <span class="pay-chip">UPI / QR</span>
+        <span class="pay-chip">APPLE PAY</span>
+        <span class="pay-chip">KLARNA</span>
+      </div>
+      <div class="bottom-links">
+        <a>Silk Mark Verification</a>
+        <span>•</span>
+        <a>Terms of Sovereign Craft</a>
+        <span>•</span>
+        <a>Bluedart Express Courier</a>
+        <span>•</span>
+        <a>Privacy & Vault Security</a>
+      </div>
+    </div>
+  </div>
+</footer>

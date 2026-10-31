@@ -1,14 +1,22 @@
 {
-  "buildTime": "2026-10-30T15:28:36.203Z",
+  "buildTime": "2026-10-31T10:57:11.797Z",
   "targetBranch": "main",
   "gitCommitCount": 15,
   "recentCommits": [
+    {
+      "hash": "4af1f60",
+      "fullHash": "4af1f6032250f53932b4f913bf4d16a44d30229d",
+      "author": "Abhijeet Raut",
+      "date": "2026-10-30 20:58:36 +0530",
+      "relativeDate": "19 hours ago",
+      "message": "fix(profile): update Cybage tenure (2017-Present), Persistent tenure (2014-2017), and education to MCA (2014)"
+    },
     {
       "hash": "54a60cf",
       "fullHash": "54a60cf24aac345482521d1a4ab1d8410821781c",
       "author": "Abhijeet Raut",
       "date": "2026-10-23 00:35:38 +0530",
-      "relativeDate": "8 days ago",
+      "relativeDate": "9 days ago",
       "message": "fix(portfolio): eliminate overlapping card content and add robust offline HD card download"
     },
     {
@@ -16,7 +24,7 @@
       "fullHash": "6e4155f800a2048e7a9b0346568553f302b2ace2",
       "author": "Abhijeet Raut",
       "date": "2026-10-23 00:20:08 +0530",
-      "relativeDate": "8 days ago",
+      "relativeDate": "9 days ago",
       "message": "fix(portfolio): set Cybage Software as current company, Persistent Systems as past, and correct text inconsistencies"
     },
     {
@@ -24,7 +32,7 @@
       "fullHash": "23d5560c5421fdce0e179213ce997b1401c97778",
       "author": "Abhijeet Raut",
       "date": "2026-10-23 00:04:56 +0530",
-      "relativeDate": "8 days ago",
+      "relativeDate": "9 days ago",
       "message": "feat(extensions): prepare api-pulse-pro v1.0.0 for Chrome Web Store release and add store assets"
     },
     {
@@ -32,7 +40,7 @@
       "fullHash": "3d5df8a4791c20c24d7cdc6292501c5f29602d57",
       "author": "Abhijeet Raut",
       "date": "2026-10-23 00:02:45 +0530",
-      "relativeDate": "8 days ago",
+      "relativeDate": "9 days ago",
       "message": "fix(portfolio): optimize mobile layout, ensure universal rich card unfurling across media, and fix modal scrolling"
     },
     {
@@ -58,14 +66,6 @@
       "date": "2026-10-14 21:22:48 +0530",
       "relativeDate": "2 weeks ago",
       "message": "fix(portfolio): resolve UI broken layout, fix section navigation IDs, card action buttons, and drawer scrolling"
-    },
-    {
-      "hash": "7345971",
-      "fullHash": "7345971be2470fa4689198648256d2bd9be3a47b",
-      "author": "Abhijeet Raut",
-      "date": "2026-10-14 21:01:11 +0530",
-      "relativeDate": "2 weeks ago",
-      "message": "feat(portfolio): add slick cyber hamburger menu for smaller devices and optimize rendering performance"
     }
   ],
   "systemsCount": 11,
