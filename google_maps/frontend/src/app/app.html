@@ -1,0 +1,97 @@
+<div class="h-screen w-screen flex flex-col bg-slate-950 text-slate-100 overflow-hidden font-sans" style="height: 100vh; width: 100vw; display: flex; flex-direction: column; overflow: hidden;">
+  
+  <!-- Global Top Navigation Bar -->
+  <header class="h-16 border-b border-slate-800/80 bg-slate-950/90 backdrop-blur-xl px-5 flex items-center justify-between z-30 flex-shrink-0" style="height: 64px; min-height: 64px;">
+    
+    <!-- Left: Branding & GCP Project -->
+    <div class="flex items-center gap-3.5">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 via-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-sky-500/20">
+        <i class="fa-solid fa-earth-americas text-lg"></i>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-sm font-extrabold text-white tracking-wide">Google Maps Platform Studio</h1>
+          <span class="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-sky-950 text-sky-400 border border-sky-800">
+            Enterprise
+          </span>
+        </div>
+        <p class="text-[11px] text-slate-400 flex items-center gap-1.5">
+          <i class="fa-solid fa-cloud text-sky-400 text-[10px]"></i>
+          GCP Project: <span class="text-slate-200 font-mono font-medium">{{ gcpProjectId }}</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Center: Version Switcher Tabs -->
+    <nav class="flex items-center gap-1.5 bg-slate-900/90 p-1.5 rounded-2xl border border-slate-800/90 shadow-inner">
+      <button
+        *ngFor="let ver of versions"
+        (click)="switchVersion(ver.id)"
+        [class.bg-sky-600]="activeVersion === ver.id"
+        [class.text-white]="activeVersion === ver.id"
+        [class.shadow-md]="activeVersion === ver.id"
+        [class.text-slate-400]="activeVersion !== ver.id"
+        class="px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-2 transition-all hover:text-white"
+      >
+        <i [class]="ver.icon" class="text-xs"></i>
+        <span>{{ ver.name }}</span>
+        <span
+          [class.bg-sky-700]="activeVersion === ver.id"
+          [class.text-sky-200]="activeVersion === ver.id"
+          [class.bg-slate-800]="activeVersion !== ver.id"
+          [class.text-slate-500]="activeVersion !== ver.id"
+          class="px-1.5 py-0.2 rounded text-[10px] font-mono font-bold"
+        >
+          {{ ver.badge }}
+        </span>
+      </button>
+    </nav>
+
+    <!-- Right: Telemetry & API Key Status Modal Trigger -->
+    <div class="flex items-center gap-3">
+      
+      <!-- Key Status Badge -->
+      <button
+        (click)="openKeyModal()"
+        class="flex items-center gap-2 px-3 py-1.5 rounded-xl border transition-all text-xs"
+        [class.bg-emerald-950/60]="hasMapsKey"
+        [class.border-emerald-700/60]="hasMapsKey"
+        [class.text-emerald-300]="hasMapsKey"
+        [class.bg-amber-950/60]="!hasMapsKey"
+        [class.border-amber-700/60]="!hasMapsKey"
+        [class.text-amber-300]="!hasMapsKey"
+      >
+        <span class="w-2 h-2 rounded-full" [class.bg-emerald-400]="hasMapsKey" [class.bg-amber-400]="!hasMapsKey" [class.animate-pulse]="!hasMapsKey"></span>
+        <span class="font-medium font-mono text-[11px]">{{ hasMapsKey ? 'API Key Active' : 'API Key Setup' }}</span>
+        <i class="fa-solid fa-gear text-[10px] ml-0.5"></i>
+      </button>
+
+      <!-- Docs / Info Link -->
+      <a
+        href="http://localhost:8000/docs"
+        target="_blank"
+        class="btn-secondary text-xs py-1.5 px-3 flex items-center gap-1.5"
+        title="Open Backend OpenAPI Swagger Docs"
+      >
+        <i class="fa-solid fa-book text-[11px]"></i>
+        <span>API Docs</span>
+      </a>
+
+    </div>
+  </header>
+
+  <!-- Main Viewport containing the selected application version -->
+  <main class="flex-1 w-full relative overflow-hidden" style="flex: 1; position: relative; overflow: hidden; height: calc(100vh - 64px);">
+    <app-store-finder *ngIf="activeVersion === 'version1'"></app-store-finder>
+    <app-geo-ai-assistant *ngIf="activeVersion === 'version2'"></app-geo-ai-assistant>
+    <app-data-visualizer *ngIf="activeVersion === 'version3'"></app-data-visualizer>
+  </main>
+
+  <!-- API Key Setup Modal -->
+  <app-api-key-modal
+    [isOpen]="isKeyModalOpen"
+    (close)="closeKeyModal()"
+    (keysUpdated)="onKeysUpdated($event)"
+  ></app-api-key-modal>
+
+</div>
