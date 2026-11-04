@@ -46,12 +46,16 @@ The application interprets multimodal spatial inputs to generate, manipulate, an
 
 ## Visual Showcase & Inspiration
 
-| Showcase | Preview | Description |
+| Showcase | Screenshot Asset | Highlights |
 |---|---|---|
-| **Hero Concept Art** | `frontend/assets/screenshots/hero_concept_artwork.jpg` | Dual-world synthesis: Meta Quest 3 bridging 1:1 CAD & 80s synthwave horizon |
-| **G+1 Farmhouse Studio** | `frontend/assets/screenshots/screenshot_farmhouse_studio.png` | 1:1 scale Living Hall, 3.6m ceiling, central courtyard & CAD telemetry HUD |
-| **1980s Retro Studio** | `frontend/assets/screenshots/screenshot_retro_studio.png` | Horizon sun, CRT monitor arrays with phosphor scanlines & cassette decks |
-| **Sunroom & Pergola Deck** | `frontend/assets/screenshots/screenshot_sunroom_pergola.png` | G+1 First Floor low-E curtain glass sunroom & cedar timber pergola slats |
+| **Spatial OS Hero Overview** | [`screenshots/01_hero_spatial_os_overview.png`](screenshots/01_hero_spatial_os_overview.png) | Meta Quest 3 bridging 1:1 architectural CAD with 1980s synthwave horizon |
+| **G+1 Farmhouse Studio** | [`screenshots/02_farmhouse_ground_floor_walkthrough.png`](screenshots/02_farmhouse_ground_floor_walkthrough.png) | 1:1 scale Living Hall, 3.6m ceiling, courtyard & CAD telemetry HUD |
+| **First Floor Sunroom & Pergola** | [`screenshots/03_farmhouse_sunroom_pergola.png`](screenshots/03_farmhouse_sunroom_pergola.png) | G+1 First Floor low-E curtain glass sunroom & cedar timber pergola slats |
+| **1980s Retro Studio** | [`screenshots/04_retro_80s_synthwave_studio.png`](screenshots/04_retro_80s_synthwave_studio.png) | Horizon sun, CRT monitor arrays with phosphor scanlines & cassette decks |
+| **Predictive Ghost Wireframes** | [`screenshots/05_predictive_ghost_wireframes.png`](screenshots/05_predictive_ghost_wireframes.png) | Sub-15ms predictive ghost wireframe state masking cloud LLM latency |
+| **Meta Quest Hand Tracking** | [`screenshots/06_quest_hand_tracking_vr_palette.png`](screenshots/06_quest_hand_tracking_vr_palette.png) | 25-joint micro-gesture pinch mechanics with 3D in-VR Spatial Palette |
+| **PydanticAI Thought Stream** | [`screenshots/07_mcp_agentic_thought_stream.png`](screenshots/07_mcp_agentic_thought_stream.png) | Real-time streaming reasoning HUD logging Model Context Protocol (MCP) tool execution |
+| **Enterprise BIM IFC 4x3** | [`screenshots/08_bim_ifc_structural_telemetry.png`](screenshots/08_bim_ifc_structural_telemetry.png) | Structural load capacity (48.5 kN/m), thermal U-values, and Prometheus metrics |
 
 ---
 

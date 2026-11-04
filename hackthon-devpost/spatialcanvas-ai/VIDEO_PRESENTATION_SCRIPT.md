@@ -9,38 +9,38 @@
 
 ## 🖼️ High-Resolution Screenshots Gallery (All 8 Core Modules & Screens)
 
-All 8 high-resolution screenshots are stored in the [`screenshots/`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots) folder at 1920x1080 Full HD resolution.
+All 8 high-resolution screenshots are stored in the [`screenshots/`](screenshots/) folder at 1920x1080 Full HD resolution.
 
 ````carousel
-![Hero Spatial Operating System Overview](file:///Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/01_hero_spatial_os_overview.png)
+![Hero Spatial Operating System Overview](screenshots/01_hero_spatial_os_overview.png)
 <!-- slide -->
-![1:1 Scale G+1 Farmhouse Ground Floor Walkthrough](file:///Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/02_farmhouse_ground_floor_walkthrough.png)
+![1:1 Scale G+1 Farmhouse Ground Floor Walkthrough](screenshots/02_farmhouse_ground_floor_walkthrough.png)
 <!-- slide -->
-![G+1 First Floor Sunroom Studio and Timber Pergola](file:///Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/03_farmhouse_sunroom_pergola.png)
+![G+1 First Floor Sunroom Studio and Timber Pergola](screenshots/03_farmhouse_sunroom_pergola.png)
 <!-- slide -->
-![1980s Retro Synthwave Creation Studio with CRT Shaders](file:///Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/04_retro_80s_synthwave_studio.png)
+![1980s Retro Synthwave Creation Studio with CRT Shaders](screenshots/04_retro_80s_synthwave_studio.png)
 <!-- slide -->
-![Sub-15ms Predictive Ghost Wireframe Engine](file:///Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/05_predictive_ghost_wireframes.png)
+![Sub-15ms Predictive Ghost Wireframe Engine](screenshots/05_predictive_ghost_wireframes.png)
 <!-- slide -->
-![Meta Quest 25-Joint Hand Tracking & 3D Spatial Palette](file:///Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/06_quest_hand_tracking_vr_palette.png)
+![Meta Quest 25-Joint Hand Tracking & 3D Spatial Palette](screenshots/06_quest_hand_tracking_vr_palette.png)
 <!-- slide -->
-![PydanticAI Thought Stream & MCP Tool Execution](file:///Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/07_mcp_agentic_thought_stream.png)
+![PydanticAI Thought Stream & MCP Tool Execution](screenshots/07_mcp_agentic_thought_stream.png)
 <!-- slide -->
-![Enterprise BIM IFC 4x3 Structural Telemetry](file:///Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/08_bim_ifc_structural_telemetry.png)
+![Enterprise BIM IFC 4x3 Structural Telemetry](screenshots/08_bim_ifc_structural_telemetry.png)
 ````
 
 ### Detailed Screen & Module Index:
 
 | Index & Screenshot File | Core Module & Screen | Functionality Highlight |
 | :--- | :--- | :--- |
-| **01** [`01_hero_spatial_os_overview.png`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots/01_hero_spatial_os_overview.png) | **Spatial OS Hero Overview** | Visionary creator wearing Meta Quest 3 stepping inside the prompt doorway, uniting architectural drafting and retro media. |
-| **02** [`02_farmhouse_ground_floor_walkthrough.png`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots/02_farmhouse_ground_floor_walkthrough.png) | **1:1 Scale G+1 Farmhouse** | 8m x 6m Grand Living Hall, 3.6m ceiling clearance, Japanese maple biophilic courtyard, teak furniture, and floating oak stairs. |
-| **03** [`03_farmhouse_sunroom_pergola.png`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots/03_farmhouse_sunroom_pergola.png) | **First Floor G+1 Extension** | East-facing sunroom studio with low-E curtain glazing ($U=1.15\text{ W/m}^2\text{K}$), drafting workbench, and cedar louver pergola deck. |
-| **04** [`04_retro_80s_synthwave_studio.png`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots/04_retro_80s_synthwave_studio.png) | **1980s Retro Media Studio** | Glowing sliced horizon sun, neon magenta grid floor, curved Sony Trinitron CRT monitors with live phosphor scanlines, and 3D holograms. |
-| **05** [`05_predictive_ghost_wireframes.png`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots/05_predictive_ghost_wireframes.png) | **Predictive State Engine** | $<15\text{ms}$ translucent cyan wireframe bounding volume projected at user cursor to mask cloud LLM latency and prevent VR nausea. |
-| **06** [`06_quest_hand_tracking_vr_palette.png`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots/06_quest_hand_tracking_vr_palette.png) | **Hand Tracking & Spatial Palette** | Meta Quest 25-joint hand tracking with pinch gesture mechanics and floating cylindrical 3D in-VR spatial tool palette. |
-| **07** [`07_mcp_agentic_thought_stream.png`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots/07_mcp_agentic_thought_stream.png) | **PydanticAI Thought Stream** | Real-time streaming reasoning HUD logging Model Context Protocol (MCP) JSON-RPC 2.0 tool execution latencies and node deltas. |
-| **08** [`08_bim_ifc_structural_telemetry.png`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots/08_bim_ifc_structural_telemetry.png) | **Parametric BIM / IFC 4x3 & Metrics** | Engineering validation: $48.5\text{ kN/m}$ load-bearing walls, 120-min fire rating ($F_{120}$), Prometheus `/metrics` exposition for Cloud Monitoring. |
+| **01** [`01_hero_spatial_os_overview.png`](screenshots/01_hero_spatial_os_overview.png) | **Spatial OS Hero Overview** | Visionary creator wearing Meta Quest 3 stepping inside the prompt doorway, uniting architectural drafting and retro media. |
+| **02** [`02_farmhouse_ground_floor_walkthrough.png`](screenshots/02_farmhouse_ground_floor_walkthrough.png) | **1:1 Scale G+1 Farmhouse** | 8m x 6m Grand Living Hall, 3.6m ceiling clearance, Japanese maple biophilic courtyard, teak furniture, and floating oak stairs. |
+| **03** [`03_farmhouse_sunroom_pergola.png`](screenshots/03_farmhouse_sunroom_pergola.png) | **First Floor G+1 Extension** | East-facing sunroom studio with low-E curtain glazing ($U=1.15\text{ W/m}^2\text{K}$), drafting workbench, and cedar louver pergola deck. |
+| **04** [`04_retro_80s_synthwave_studio.png`](screenshots/04_retro_80s_synthwave_studio.png) | **1980s Retro Media Studio** | Glowing sliced horizon sun, neon magenta grid floor, curved Sony Trinitron CRT monitors with live phosphor scanlines, and 3D holograms. |
+| **05** [`05_predictive_ghost_wireframes.png`](screenshots/05_predictive_ghost_wireframes.png) | **Predictive State Engine** | $<15\text{ms}$ translucent cyan wireframe bounding volume projected at user cursor to mask cloud LLM latency and prevent VR nausea. |
+| **06** [`06_quest_hand_tracking_vr_palette.png`](screenshots/06_quest_hand_tracking_vr_palette.png) | **Hand Tracking & Spatial Palette** | Meta Quest 25-joint hand tracking with pinch gesture mechanics and floating cylindrical 3D in-VR spatial tool palette. |
+| **07** [`07_mcp_agentic_thought_stream.png`](screenshots/07_mcp_agentic_thought_stream.png) | **PydanticAI Thought Stream** | Real-time streaming reasoning HUD logging Model Context Protocol (MCP) JSON-RPC 2.0 tool execution latencies and node deltas. |
+| **08** [`08_bim_ifc_structural_telemetry.png`](screenshots/08_bim_ifc_structural_telemetry.png) | **Parametric BIM / IFC 4x3 & Metrics** | Engineering validation: $48.5\text{ kN/m}$ load-bearing walls, 120-min fire rating ($F_{120}$), Prometheus `/metrics` exposition for Cloud Monitoring. |
 
 ---
 
@@ -213,7 +213,7 @@ Voiceover:
 
 ### 1. Launch the Application Locally
 ```bash
-cd /Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai
+cd spatialcanvas-ai
 ./run.sh
 ```
 

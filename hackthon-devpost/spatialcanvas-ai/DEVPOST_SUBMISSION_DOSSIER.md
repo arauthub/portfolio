@@ -28,13 +28,13 @@ The codebase integrates key features from the **Meta XR SDK** and WebXR standard
 
 | Meta VR Feature | Implementation in Code | File Location |
 |---|---|---|
-| **WebXR Hand Tracking** | 25-joint skeleton tracking via `XRHand` API with micro-gesture pinch detection | [`frontend/js/xr/xr-manager.js`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/frontend/js/xr/xr-manager.js#L135-L185) |
-| **Room-Scale 6DoF Tracking** | 1:1 metric scale physical walkthroughs using `local-floor` and `bounded-floor` reference spaces | [`frontend/js/xr/xr-manager.js`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/frontend/js/xr/xr-manager.js#L45-L60) |
-| **Meta Quest Controllers** | Quest 2/3/Pro Touch controller models, laser pointers, trigger selection, thumbstick locomotion | [`frontend/js/xr/xr-manager.js`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/frontend/js/xr/xr-manager.js#L70-L130) |
-| **Spatial Audio & Acoustics** | Procedural Web Audio API 3D spatializer with acoustic reverb scaling to room volume | [`frontend/js/audio/spatial-audio.js`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/frontend/js/audio/spatial-audio.js) |
-| **Voice SDK / Dictation** | Natural language spatial voice command processing streaming to backend agents | [`frontend/js/ui/spatial-hud.js`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/frontend/js/ui/spatial-hud.js#L20-L50) |
-| **Spatial Anchors** | Anchoring 1:1 floor plans and procedural assets via `spatial_anchor` type | [`backend/app/schemas/spatial_types.py`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/backend/app/schemas/spatial_types.py#L45-L60) |
-| **Mixed Reality Passthrough** | `layers`, `plane-detection`, and `mesh-detection` feature flags for AR overlay | [`frontend/js/xr/xr-manager.js`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/frontend/js/xr/xr-manager.js#L47-L55) |
+| **WebXR Hand Tracking** | 25-joint skeleton tracking via `XRHand` API with micro-gesture pinch detection | [`frontend/js/xr/xr-manager.js`](frontend/js/xr/xr-manager.js#L135-L185) |
+| **Room-Scale 6DoF Tracking** | 1:1 metric scale physical walkthroughs using `local-floor` and `bounded-floor` reference spaces | [`frontend/js/xr/xr-manager.js`](frontend/js/xr/xr-manager.js#L45-L60) |
+| **Meta Quest Controllers** | Quest 2/3/Pro Touch controller models, laser pointers, trigger selection, thumbstick locomotion | [`frontend/js/xr/xr-manager.js`](frontend/js/xr/xr-manager.js#L70-L130) |
+| **Spatial Audio & Acoustics** | Procedural Web Audio API 3D spatializer with acoustic reverb scaling to room volume | [`frontend/js/audio/spatial-audio.js`](frontend/js/audio/spatial-audio.js) |
+| **Voice SDK / Dictation** | Natural language spatial voice command processing streaming to backend agents | [`frontend/js/ui/spatial-hud.js`](frontend/js/ui/spatial-hud.js#L20-L50) |
+| **Spatial Anchors** | Anchoring 1:1 floor plans and procedural assets via `spatial_anchor` type | [`backend/app/schemas/spatial_types.py`](backend/app/schemas/spatial_types.py#L45-L60) |
+| **Mixed Reality Passthrough** | `layers`, `plane-detection`, and `mesh-detection` feature flags for AR overlay | [`frontend/js/xr/xr-manager.js`](frontend/js/xr/xr-manager.js#L47-L55) |
 
 ---
 
