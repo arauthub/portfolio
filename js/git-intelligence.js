@@ -17,10 +17,10 @@ export const STATIC_GIT_SNAPSHOT = {
     open_issues: 0,
     license: "MIT",
     language: "Python / TypeScript / Go",
-    pushed_at: "2026-11-04T17:41:31.802420+00:00"
+    pushed_at: "2026-11-04T18:14:24.988290+00:00"
   },
   activeBranch: "main",
-  headCommit: "dcdc1de",
+  headCommit: "42146b9",
   presubmitAudit: {
     status: "PASSED",
     score: "5 / 5 Checks Green",
@@ -34,12 +34,29 @@ export const STATIC_GIT_SNAPSHOT = {
   },
   commits: [
     {
+        "hash": "42146b9",
+        "fullHash": "42146b902c55714925205c76df9d549df5290270",
+        "author": "Abhijeet Raut",
+        "authorTag": "@arauthub",
+        "date": "2026-11-04 23:11:31 +0530",
+        "relativeDate": "33 minutes ago",
+        "message": "feat(spatialcanvas-ai): execute recording commands and compile presentation demo walkthrough GIF",
+        "type": "feat",
+        "badge": "Feat",
+        "branch": "main",
+        "stats": {
+            "additions": 14,
+            "deletions": 2,
+            "filesChanged": 1
+        }
+    },
+    {
         "hash": "dcdc1de",
         "fullHash": "dcdc1de91d8dfb2e0ec006aca556f335da0ede52",
         "author": "Abhijeet Raut",
         "authorTag": "@arauthub",
         "date": "2026-11-04 23:03:02 +0530",
-        "relativeDate": "8 minutes ago",
+        "relativeDate": "41 minutes ago",
         "message": "docs(spatialcanvas-ai): add video presentation script options and inspiration screenshots gallery",
         "type": "docs",
         "badge": "Docs",
@@ -56,7 +73,7 @@ export const STATIC_GIT_SNAPSHOT = {
         "author": "Abhijeet Raut",
         "authorTag": "@arauthub",
         "date": "2026-11-04 18:54:22 +0530",
-        "relativeDate": "4 hours ago",
+        "relativeDate": "5 hours ago",
         "message": "feat(spatialcanvas-ai): implement SpatialCanvas AI for Meta Quest & GCP hackathon",
         "type": "feat",
         "badge": "Feat",
@@ -177,23 +194,6 @@ export const STATIC_GIT_SNAPSHOT = {
         "date": "2026-10-31 16:40:29 +0530",
         "relativeDate": "4 days ago",
         "message": "feat(portfolio): sync Synapse LMS to Jamstack portfolio catalog and harden CI workflow",
-        "type": "feat",
-        "badge": "Feat",
-        "branch": "main",
-        "stats": {
-            "additions": 14,
-            "deletions": 2,
-            "filesChanged": 1
-        }
-    },
-    {
-        "hash": "3c5d6db",
-        "fullHash": "3c5d6dbc077b9b2e616b62b564c1ea637cac7318",
-        "author": "Abhijeet Raut",
-        "authorTag": "@arauthub",
-        "date": "2026-10-31 16:27:11 +0530",
-        "relativeDate": "4 days ago",
-        "message": "feat: enterprise luxury storefronts, spec-driven development, and Synapse LMS",
         "type": "feat",
         "badge": "Feat",
         "branch": "main",
