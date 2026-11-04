@@ -44,6 +44,17 @@ The application interprets multimodal spatial inputs to generate, manipulate, an
 
 ---
 
+## Visual Showcase & Inspiration
+
+| Showcase | Preview | Description |
+|---|---|---|
+| **Hero Concept Art** | `frontend/assets/screenshots/hero_concept_artwork.jpg` | Dual-world synthesis: Meta Quest 3 bridging 1:1 CAD & 80s synthwave horizon |
+| **G+1 Farmhouse Studio** | `frontend/assets/screenshots/screenshot_farmhouse_studio.png` | 1:1 scale Living Hall, 3.6m ceiling, central courtyard & CAD telemetry HUD |
+| **1980s Retro Studio** | `frontend/assets/screenshots/screenshot_retro_studio.png` | Horizon sun, CRT monitor arrays with phosphor scanlines & cassette decks |
+| **Sunroom & Pergola Deck** | `frontend/assets/screenshots/screenshot_sunroom_pergola.png` | G+1 First Floor low-E curtain glass sunroom & cedar timber pergola slats |
+
+---
+
 ## How We Built It
 
 We designed a decoupled, high-performance architecture:

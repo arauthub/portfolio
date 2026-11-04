@@ -48,6 +48,17 @@ Whether synthesizing 1980s retro-aesthetic digital media studios or generating m
 
 ---
 
+## 📸 Visual Showcase & Inspiration
+
+| Showcase | Preview Asset | Highlights |
+|---|---|---|
+| **Hero Concept Art** | [`frontend/assets/screenshots/hero_concept_artwork.jpg`](frontend/assets/screenshots/hero_concept_artwork.jpg) | Meta Quest 3 bridging 1:1 architectural CAD with 1980s synthwave horizon |
+| **G+1 Farmhouse Studio** | [`frontend/assets/screenshots/screenshot_farmhouse_studio.png`](frontend/assets/screenshots/screenshot_farmhouse_studio.png) | 1:1 scale Living Hall, 3.6m ceiling, courtyard & CAD telemetry HUD |
+| **1980s Retro Studio** | [`frontend/assets/screenshots/screenshot_retro_studio.png`](frontend/assets/screenshots/screenshot_retro_studio.png) | Horizon sun, CRT monitor arrays with phosphor scanlines & cassette decks |
+| **Sunroom & Pergola Deck** | [`frontend/assets/screenshots/screenshot_sunroom_pergola.png`](frontend/assets/screenshots/screenshot_sunroom_pergola.png) | G+1 First Floor low-E curtain glass sunroom & cedar timber pergola slats |
+
+---
+
 ## 🛠️ Architecture
 
 ```
