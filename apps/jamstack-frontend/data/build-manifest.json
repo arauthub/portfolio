@@ -1,9 +1,26 @@
 {
-  "buildTime": "2026-11-04T17:33:02.618809+00:00",
+  "buildTime": "2026-11-04T17:41:31.801725+00:00",
   "targetBranch": "main",
-  "headCommit": "ce6952f",
+  "headCommit": "dcdc1de",
   "gitCommitCount": 12,
   "recentCommits": [
+    {
+      "hash": "dcdc1de",
+      "fullHash": "dcdc1de91d8dfb2e0ec006aca556f335da0ede52",
+      "author": "Abhijeet Raut",
+      "authorTag": "@arauthub",
+      "date": "2026-11-04 23:03:02 +0530",
+      "relativeDate": "8 minutes ago",
+      "message": "docs(spatialcanvas-ai): add video presentation script options and inspiration screenshots gallery",
+      "type": "docs",
+      "badge": "Docs",
+      "branch": "main",
+      "stats": {
+        "additions": 14,
+        "deletions": 2,
+        "filesChanged": 1
+      }
+    },
     {
       "hash": "ce6952f",
       "fullHash": "ce6952f53fd10102bf7faaff12b384a707cb7912",
@@ -116,23 +133,6 @@
       "message": "fix(ci): add httpx to myagents dependencies and use Node 22 for Angular 22 build",
       "type": "chore",
       "badge": "Chore",
-      "branch": "main",
-      "stats": {
-        "additions": 14,
-        "deletions": 2,
-        "filesChanged": 1
-      }
-    },
-    {
-      "hash": "94ecbca",
-      "fullHash": "94ecbca44ffe755f9a058c7f7fa4d2059a3697a1",
-      "author": "Abhijeet Raut",
-      "authorTag": "@arauthub",
-      "date": "2026-10-31 16:40:29 +0530",
-      "relativeDate": "4 days ago",
-      "message": "feat(portfolio): sync Synapse LMS to Jamstack portfolio catalog and harden CI workflow",
-      "type": "feat",
-      "badge": "Feat",
       "branch": "main",
       "stats": {
         "additions": 14,
