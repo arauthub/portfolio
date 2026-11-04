@@ -44,6 +44,7 @@ class SceneManager:
     def __init__(self):
         self.active_scenes: Dict[str, SpatialScene] = {}
         self.current_scene_id: str = "g1_farmhouse"
+        self.farmhouse_plan: Optional[ArchitecturalPlan] = None
         self._initialize_presets()
 
     def _initialize_presets(self):
@@ -465,6 +466,7 @@ class SceneManager:
             sunroom,
             pergola_deck,
         ]
+        self.farmhouse_plan = plan
 
         # Convert to 3D spatial nodes
         nodes = plan.to_spatial_nodes()
@@ -683,6 +685,12 @@ class SceneManager:
         elif scene_id == "retro_80s_studio":
             self.active_scenes["retro_80s_studio"] = self._build_retro_studio_scene()
         return self.get_scene(scene_id)
+
+    def get_bim_export(self) -> Dict[str, Any]:
+        """Returns IFC 4x3 compliant BIM architectural exchange payload."""
+        if not self.farmhouse_plan:
+            self._build_g1_farmhouse_scene()
+        return self.farmhouse_plan.export_bim_ifc()
 
 
 scene_manager = SceneManager()

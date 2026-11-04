@@ -35,6 +35,15 @@ async def list_presets() -> List[Dict[str, Any]]:
     ]
 
 
+@router.get("/export/bim")
+async def export_bim_model() -> Dict[str, Any]:
+    """Exports Industry Foundation Classes (IFC 4x3) compliant BIM model
+    of the active architectural layout with load capacities, U-values, and storey elevations.
+    Compatible with Revit, ArchiCAD, and Blender BIM.
+    """
+    return scene_manager.get_bim_export()
+
+
 @router.get("/{scene_id}", response_model=SpatialScene)
 async def get_scene_by_id(scene_id: str) -> SpatialScene:
     """Returns a specific spatial scene by ID."""

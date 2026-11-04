@@ -104,9 +104,10 @@ class SceneBuilder {
   buildScene(sceneData) {
     this.currentSceneData = sceneData;
 
-    // Reset old nodes
+    // Enterprise VRAM Cleanup: Dispose all geometries, materials, and textures
     while (this.nodesGroup.children.length > 0) {
       const child = this.nodesGroup.children[0];
+      this.disposeHierarchy(child);
       this.nodesGroup.remove(child);
     }
     retroRenderer.animatedScreens = [];
@@ -238,9 +239,37 @@ class SceneBuilder {
 
   clearPredictiveGhost() {
     if (this.activeGhostMesh) {
+      this.disposeHierarchy(this.activeGhostMesh);
       this.scene.remove(this.activeGhostMesh);
       this.activeGhostMesh = null;
     }
+  }
+
+  disposeHierarchy(obj) {
+    if (!obj) return;
+    obj.traverse((child) => {
+      if (child.geometry) {
+        child.geometry.dispose();
+      }
+      if (child.material) {
+        if (Array.isArray(child.material)) {
+          child.material.forEach((mat) => this.disposeMaterial(mat));
+        } else {
+          this.disposeMaterial(child.material);
+        }
+      }
+    });
+  }
+
+  disposeMaterial(mat) {
+    if (!mat) return;
+    if (mat.map) mat.map.dispose();
+    if (mat.lightMap) mat.lightMap.dispose();
+    if (mat.bumpMap) mat.bumpMap.dispose();
+    if (mat.normalMap) mat.normalMap.dispose();
+    if (mat.specularMap) mat.specularMap.dispose();
+    if (mat.envMap) mat.envMap.dispose();
+    mat.dispose();
   }
 }
 

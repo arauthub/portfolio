@@ -4,8 +4,9 @@ and spatial inspection tools for PydanticAI agents and external MCP clients.
 """
 
 from __future__ import annotations
+import json
 import time
-from typing import Dict, Any, List, Callable
+from typing import Dict, Any, List, Callable, Optional
 from app.schemas.mcp_schemas import (
     MCPToolDefinition,
     MCPToolCallRequest,
@@ -209,6 +210,137 @@ class SpatialMCPServer:
                 human_readable_summary=f"Error executing MCP tool '{tool_name}': {str(err)}",
                 execution_time_ms=(time.time() - start_time) * 1000,
             )
+
+    def handle_jsonrpc(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        """Processes standard JSON-RPC 2.0 requests adhering to the Model Context Protocol (MCP) spec.
+        Supports:
+        - initialize: Negotiates capabilities and server identity
+        - ping: Liveness probe
+        - tools/list: Lists all spatial drafting, media, and validation tools
+        - tools/call: Executes an MCP tool with provided arguments
+        - resources/list: Enumerates spatial scene blueprints & resources
+        - resources/read: Reads a specific spatial resource schema
+        """
+        req_id = payload.get("id")
+        method = payload.get("method")
+        params = payload.get("params", {})
+
+        if payload.get("jsonrpc") != "2.0" or not method:
+            return {
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "error": {
+                    "code": -32600,
+                    "message": "Invalid Request: 'jsonrpc' must be '2.0' and 'method' is required.",
+                },
+            }
+
+        # 1. Ping
+        if method == "ping":
+            return {"jsonrpc": "2.0", "id": req_id, "result": {}}
+
+        # 2. Protocol Initialization
+        if method == "initialize":
+            return {
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "protocolVersion": "2024-11-05",
+                    "serverInfo": {
+                        "name": "SpatialCanvas AI Enterprise MCP Server",
+                        "version": "1.0.0",
+                    },
+                    "capabilities": {
+                        "tools": {"listChanged": False},
+                        "resources": {"subscribe": False, "listChanged": False},
+                    },
+                },
+            }
+
+        # 3. Tools Listing
+        if method == "tools/list":
+            tools_data = []
+            for tool in self.list_tools():
+                tools_data.append({
+                    "name": tool.name,
+                    "description": tool.description,
+                    "inputSchema": tool.parameters,
+                })
+            return {"jsonrpc": "2.0", "id": req_id, "result": {"tools": tools_data}}
+
+        # 4. Tool Invocation
+        if method == "tools/call":
+            tool_name = params.get("name")
+            tool_args = params.get("arguments", {})
+            if not tool_name:
+                return {
+                    "jsonrpc": "2.0",
+                    "id": req_id,
+                    "error": {"code": -32602, "message": "Missing 'name' in tools/call params."},
+                }
+            call_req = MCPToolCallRequest(tool_name=tool_name, arguments=tool_args)
+            call_resp = self.invoke_tool(call_req)
+            return {
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": call_resp.human_readable_summary,
+                        }
+                    ],
+                    "isError": not call_resp.success,
+                    "spatial_nodes": [
+                        n.model_dump() if hasattr(n, "model_dump") else n
+                        for n in call_resp.generated_nodes
+                    ],
+                    "execution_time_ms": call_resp.execution_time_ms,
+                    "structured_data": call_resp.result,
+                },
+            }
+
+        # 5. Resources Listing
+        if method == "resources/list":
+            res_data = [r.model_dump() for r in self.list_resources()]
+            return {"jsonrpc": "2.0", "id": req_id, "result": {"resources": res_data}}
+
+        # 6. Resources Read
+        if method == "resources/read":
+            uri = params.get("uri")
+            matched = next((r for r in self.resources if r.uri == uri), None)
+            if not matched:
+                return {
+                    "jsonrpc": "2.0",
+                    "id": req_id,
+                    "error": {"code": -32602, "message": f"Resource URI '{uri}' not found."},
+                }
+            from app.services.scene_manager import scene_manager
+            scene_key = "g1_farmhouse" if "farmhouse" in uri else "retro_80s_studio"
+            scene = scene_manager.get_scene(scene_key)
+            return {
+                "jsonrpc": "2.0",
+                "id": req_id,
+                "result": {
+                    "contents": [
+                        {
+                            "uri": uri,
+                            "mimeType": "application/json",
+                            "text": scene.model_dump_json(indent=2),
+                        }
+                    ]
+                },
+            }
+
+        # Unknown method
+        return {
+            "jsonrpc": "2.0",
+            "id": req_id,
+            "error": {
+                "code": -32601,
+                "message": f"Method '{method}' not found on Spatial MCP Server.",
+            },
+        }
 
 
 mcp_server = SpatialMCPServer()

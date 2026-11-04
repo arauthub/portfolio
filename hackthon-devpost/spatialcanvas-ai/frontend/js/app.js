@@ -10,6 +10,9 @@ class SpatialCanvasApp {
     this.pingInterval = null;
     this.lastPingTime = 0;
     this.currentSceneId = "g1_farmhouse";
+    this.lastSceneVersion = 0;
+    this.reconnectAttempts = 0;
+    this.maxReconnectDelayMs = 20000;
 
     this.initWebSocket();
     this.startRenderLoop();
@@ -23,7 +26,8 @@ class SpatialCanvasApp {
       this.ws = new WebSocket(wsUrl);
 
       this.ws.onopen = () => {
-        console.log("Connected to SpatialCanvas AI WebSocket backend.");
+        console.log("Connected to SpatialCanvas AI Enterprise WebSocket bridge.");
+        this.reconnectAttempts = 0;
         this.startPingPong();
       };
 
@@ -36,9 +40,15 @@ class SpatialCanvasApp {
       };
 
       this.ws.onclose = () => {
-        console.log("WebSocket disconnected. Reconnecting in 2 seconds...");
         clearInterval(this.pingInterval);
-        setTimeout(() => this.initWebSocket(), 2000);
+        this.reconnectAttempts++;
+        // Exponential backoff with random jitter for enterprise Wi-Fi resilience
+        const backoffMs = Math.min(
+          this.maxReconnectDelayMs,
+          1000 * Math.pow(1.4, this.reconnectAttempts)
+        ) + Math.random() * 600;
+        console.log(`WebSocket disconnected. Reconnecting in ${Math.round(backoffMs)}ms (attempt #${this.reconnectAttempts})...`);
+        setTimeout(() => this.initWebSocket(), backoffMs);
       };
     } catch (e) {
       console.error("Failed to initialize WebSocket:", e);
@@ -67,6 +77,11 @@ class SpatialCanvasApp {
 
       switch (type) {
         case "full_scene":
+          if (payload.version && payload.version < this.lastSceneVersion) {
+            console.warn(`Dropped stale scene packet v${payload.version} (current: v${this.lastSceneVersion})`);
+            break;
+          }
+          this.lastSceneVersion = payload.version || (this.lastSceneVersion + 1);
           this.currentSceneId = payload.scene_id || "g1_farmhouse";
           window.sceneBuilder.buildScene(payload);
           window.spatialHUD.updateNodeCount(payload.nodes?.length || 0);

@@ -57,8 +57,10 @@ class WebXRManager {
         window.sceneBuilder.renderer.xr.setSession(session);
         this.session = session;
         this.btnEnterVR.innerHTML = "<span>Exit VR</span>";
+        this.createVRPalette();
         session.addEventListener("end", () => {
           this.session = null;
+          this.removeVRPalette();
           this.btnEnterVR.innerHTML = "<span>Enter VR (Meta Quest)</span>";
         });
       } catch (err) {
@@ -106,15 +108,128 @@ class WebXRManager {
     }
   }
 
+  createVRPalette() {
+    this.removeVRPalette();
+    const group = new THREE.Group();
+    group.name = "world_space_vr_palette";
+
+    // Position floating palette 1.8m in front of user, 1.2m high, tilted 15 degrees
+    group.position.set(0, 1.25, -1.6);
+    group.rotation.x = THREE.MathUtils.degToRad(-15);
+
+    // Canvas Background
+    const canvas = document.createElement("canvas");
+    canvas.width = 512;
+    canvas.height = 256;
+    const ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "rgba(15, 23, 42, 0.92)";
+    ctx.strokeStyle = "#38bdf8";
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.roundRect(8, 8, 496, 240, 20);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = "#38bdf8";
+    ctx.font = "bold 24px 'SF Mono', monospace";
+    ctx.fillText("🥽 SPATIALCANVAS VR OS", 32, 45);
+
+    ctx.fillStyle = "#94a3b8";
+    ctx.font = "14px 'SF Mono', monospace";
+    ctx.fillText("Aim laser pointer & pull trigger to interact", 32, 75);
+
+    const bgTex = new THREE.CanvasTexture(canvas);
+    const bgGeom = new THREE.PlaneGeometry(1.4, 0.7);
+    const bgMat = new THREE.MeshBasicMaterial({ map: bgTex, transparent: true, side: THREE.DoubleSide });
+    const bgMesh = new THREE.Mesh(bgGeom, bgMat);
+    group.add(bgMesh);
+
+    // Interactive Buttons in 3D
+    const buttons = [
+      { label: "🏡 Farmhouse", action: "scene_farmhouse", x: -0.45, y: -0.05, color: "#0284c7" },
+      { label: "🕹️ 80s Studio", action: "scene_retro", x: 0.0, y: -0.05, color: "#ec4899" },
+      { label: "🌅 Sunroom", action: "add_sunroom", x: 0.45, y: -0.05, color: "#38bdf8" },
+      { label: "🪵 Pergola", action: "add_pergola", x: -0.25, y: -0.22, color: "#f59e0b" },
+      { label: "📐 Validate", action: "validate_scale", x: 0.25, y: -0.22, color: "#22c55e" },
+    ];
+
+    buttons.forEach((btn) => {
+      const btnCanvas = document.createElement("canvas");
+      btnCanvas.width = 256;
+      btnCanvas.height = 80;
+      const bCtx = btnCanvas.getContext("2d");
+
+      bCtx.fillStyle = btn.color;
+      bCtx.beginPath();
+      bCtx.roundRect(4, 4, 248, 72, 12);
+      bCtx.fill();
+
+      bCtx.fillStyle = "#ffffff";
+      bCtx.font = "bold 26px sans-serif";
+      bCtx.textAlign = "center";
+      bCtx.textBaseline = "middle";
+      bCtx.fillText(btn.label, 128, 40);
+
+      const bTex = new THREE.CanvasTexture(btnCanvas);
+      const bGeom = new THREE.PlaneGeometry(0.38, 0.12);
+      const bMat = new THREE.MeshBasicMaterial({ map: bTex, transparent: true });
+      const bMesh = new THREE.Mesh(bGeom, bMat);
+      bMesh.position.set(btn.x, btn.y, 0.02);
+      bMesh.userData = { action: btn.action, type: "vr_button" };
+      group.add(bMesh);
+    });
+
+    window.sceneBuilder.scene.add(group);
+    this.vrPaletteGroup = group;
+  }
+
+  removeVRPalette() {
+    if (this.vrPaletteGroup) {
+      if (window.sceneBuilder && window.sceneBuilder.disposeHierarchy) {
+        window.sceneBuilder.disposeHierarchy(this.vrPaletteGroup);
+      }
+      window.sceneBuilder.scene.remove(this.vrPaletteGroup);
+      this.vrPaletteGroup = null;
+    }
+  }
+    if (!this.session) return;
+    const inputSources = this.session.inputSources;
+    if (inputSources && inputSources[controllerIndex]) {
+      const gamepad = inputSources[controllerIndex].gamepad;
+      if (gamepad && gamepad.hapticActuators && gamepad.hapticActuators.length > 0) {
+        try {
+          gamepad.hapticActuators[0].pulse(strength, durationMs);
+        } catch (e) {}
+      }
+    }
+  }
+
   onSelectStart(event) {
     const controller = event.target;
-    // Perform Raycast into scene for floor teleportation or node selection
+    this.triggerHaptic(0, 0.7, 30);
+    this.triggerHaptic(1, 0.7, 30);
+
+    // Perform Raycast into scene for floor teleportation, VR palette buttons, or node selection
     const tempMatrix = new THREE.Matrix4();
     tempMatrix.identity().extractRotation(controller.matrixWorld);
 
     const raycaster = new THREE.Raycaster();
     raycaster.ray.origin.setFromMatrixPosition(controller.matrixWorld);
     raycaster.ray.direction.set(0, 0, -1).applyMatrix4(tempMatrix);
+
+    // Check VR Palette UI buttons first
+    if (this.vrPaletteGroup) {
+      const uiHits = raycaster.intersectObjects(this.vrPaletteGroup.children, true);
+      if (uiHits.length > 0) {
+        const action = uiHits[0].object.userData?.action;
+        if (action) {
+          this.executeVRAction(action);
+          this.triggerHaptic(0, 0.9, 50);
+          return;
+        }
+      }
+    }
 
     const intersects = raycaster.intersectObjects(window.sceneBuilder.nodesGroup.children, true);
     if (intersects.length > 0) {
@@ -129,7 +244,23 @@ class WebXRManager {
         if (window.spatialAudio) {
           window.spatialAudio.playTeleportWhoosh();
         }
+        this.triggerHaptic(0, 0.4, 20);
       }
+    }
+  }
+
+  executeVRAction(action) {
+    console.log(`[Enterprise WebXR] Executing Spatial Action in VR: ${action}`);
+    if (action === "scene_farmhouse") {
+      window.app.switchScene("g1_farmhouse");
+    } else if (action === "scene_retro") {
+      window.app.switchScene("retro_80s_studio");
+    } else if (action === "add_sunroom") {
+      window.app.sendVoiceCommand("Add an east-facing sunroom studio on the first floor");
+    } else if (action === "add_pergola") {
+      window.app.sendVoiceCommand("Add a cedar timber pergola rooftop terrace deck");
+    } else if (action === "validate_scale") {
+      window.app.sendVoiceCommand("Validate 1:1 architectural scale, headroom clearances, and VR ergonomics");
     }
   }
 

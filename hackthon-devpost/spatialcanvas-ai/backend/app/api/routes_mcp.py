@@ -30,3 +30,12 @@ async def invoke_mcp_tool(req: MCPToolCallRequest) -> MCPToolCallResponse:
     """Invokes a specific MCP spatial tool directly."""
     return mcp_server.invoke_tool(req)
 
+
+@router.post("/jsonrpc")
+async def mcp_jsonrpc_endpoint(payload: Dict[str, Any]) -> Dict[str, Any]:
+    """Standard JSON-RPC 2.0 endpoint for external Model Context Protocol hosts
+    (e.g., Claude Desktop, Cursor, external AI agents).
+    Supports methods: initialize, ping, tools/list, tools/call, resources/list, resources/read.
+    """
+    return mcp_server.handle_jsonrpc(payload)
+
