@@ -17,10 +17,10 @@ export const STATIC_GIT_SNAPSHOT = {
     open_issues: 0,
     license: "MIT",
     language: "Python / TypeScript / Go",
-    pushed_at: "2026-11-04T18:33:09.900501+00:00"
+    pushed_at: "2026-11-04T18:49:28.190576+00:00"
   },
   activeBranch: "main",
-  headCommit: "884ae77",
+  headCommit: "baef5d1",
   presubmitAudit: {
     status: "PASSED",
     score: "5 / 5 Checks Green",
@@ -34,12 +34,29 @@ export const STATIC_GIT_SNAPSHOT = {
   },
   commits: [
     {
+        "hash": "baef5d1",
+        "fullHash": "baef5d1258bc3cad0ac589ea2e0ef69da0e6e940",
+        "author": "Abhijeet Raut",
+        "authorTag": "@arauthub",
+        "date": "2026-11-05 00:03:09 +0530",
+        "relativeDate": "16 minutes ago",
+        "message": "docs(spatialcanvas): use git-friendly relative paths for all screenshots and links",
+        "type": "docs",
+        "badge": "Docs",
+        "branch": "main",
+        "stats": {
+            "additions": 14,
+            "deletions": 2,
+            "filesChanged": 1
+        }
+    },
+    {
         "hash": "884ae77",
         "fullHash": "884ae777e2f4d4cfc84a539438ba2acca81ec794",
         "author": "Abhijeet Raut",
         "authorTag": "@arauthub",
         "date": "2026-11-04 23:57:51 +0530",
-        "relativeDate": "5 minutes ago",
+        "relativeDate": "22 minutes ago",
         "message": "docs(spatialcanvas): add high-res screenshots suite and comprehensive video scripts",
         "type": "docs",
         "badge": "Docs",
@@ -56,7 +73,7 @@ export const STATIC_GIT_SNAPSHOT = {
         "author": "Abhijeet Raut",
         "authorTag": "@arauthub",
         "date": "2026-11-04 23:44:24 +0530",
-        "relativeDate": "19 minutes ago",
+        "relativeDate": "35 minutes ago",
         "message": "feat(spatialcanvas): complete enterprise VR architecture overhaul",
         "type": "feat",
         "badge": "Feat",
@@ -73,7 +90,7 @@ export const STATIC_GIT_SNAPSHOT = {
         "author": "Abhijeet Raut",
         "authorTag": "@arauthub",
         "date": "2026-11-04 23:11:31 +0530",
-        "relativeDate": "52 minutes ago",
+        "relativeDate": "68 minutes ago",
         "message": "feat(spatialcanvas-ai): execute recording commands and compile presentation demo walkthrough GIF",
         "type": "feat",
         "badge": "Feat",
@@ -90,7 +107,7 @@ export const STATIC_GIT_SNAPSHOT = {
         "author": "Abhijeet Raut",
         "authorTag": "@arauthub",
         "date": "2026-11-04 23:03:02 +0530",
-        "relativeDate": "60 minutes ago",
+        "relativeDate": "76 minutes ago",
         "message": "docs(spatialcanvas-ai): add video presentation script options and inspiration screenshots gallery",
         "type": "docs",
         "badge": "Docs",
@@ -179,23 +196,6 @@ export const STATIC_GIT_SNAPSHOT = {
         "message": "fix(ci): delegate monorepo CI verification to parallel matrix jobs in GitHub Actions runner",
         "type": "chore",
         "badge": "Chore",
-        "branch": "main",
-        "stats": {
-            "additions": 14,
-            "deletions": 2,
-            "filesChanged": 1
-        }
-    },
-    {
-        "hash": "0692b71",
-        "fullHash": "0692b71952b98fc227c3e07105c7bd5361478bd5",
-        "author": "Abhijeet Raut",
-        "authorTag": "@arauthub",
-        "date": "2026-10-31 16:58:52 +0530",
-        "relativeDate": "4 days ago",
-        "message": "chore(cleanup): remove root symlinks, enforce automated Jamstack portfolio sync, and add CI gatekeeper to pre-commits",
-        "type": "chore",
-        "badge": "Pre-Push Gatekeeper",
         "branch": "main",
         "stats": {
             "additions": 14,
