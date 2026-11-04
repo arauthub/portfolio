@@ -82,3 +82,4 @@ def test_enterprise_jsonrpc_api_endpoint():
     assert data["result"]["isError"] is False
     assert "spatial_nodes" in data["result"]
     assert len(data["result"]["spatial_nodes"]) > 0
+

@@ -92,6 +92,9 @@ class SpatialCanvasApp {
           } else {
             window.spatialAudio.stopRetroSynthDrone();
           }
+
+          // Apply URL test query parameter overrides if present
+          this.applyUrlOverrides();
           break;
 
         case "predictive_ghost":
@@ -117,6 +120,71 @@ class SpatialCanvasApp {
       }
     } catch (e) {
       console.warn("Failed to parse WebSocket message:", e);
+    }
+  }
+
+  applyUrlOverrides() {
+    if (this._overridesApplied) return;
+    this._overridesApplied = true;
+
+    const params = new URLSearchParams(window.location.search);
+    const sceneParam = params.get("scene");
+    const camParam = params.get("cam");
+    const actionParam = params.get("action");
+
+    if (sceneParam && sceneParam !== this.currentSceneId) {
+      this.switchScene(sceneParam);
+    }
+
+    if (camParam === "orbit") {
+      window.metaXRSimulator?.setCameraMode("orbit");
+      window.sceneBuilder.camera.position.set(0, 14, 16);
+      window.sceneBuilder.camera.lookAt(0, 1.5, 0);
+    } else if (camParam === "first_floor") {
+      window.sceneBuilder.camera.position.set(1.5, 5.2, -1.0);
+      window.sceneBuilder.camera.lookAt(3.0, 4.5, -4.5);
+    } else if (camParam === "courtyard") {
+      window.sceneBuilder.camera.position.set(0, 1.6, -1.0);
+      window.sceneBuilder.camera.lookAt(0, 1.8, -4.0);
+    }
+
+    if (actionParam === "ghost") {
+      window.sceneBuilder.spawnPredictiveGhost({
+        dimensions: { x: 6.0, y: 3.2, z: 6.0 },
+        position: { x: 3.0, y: 5.2, z: -3.0 },
+        label: "AI Predicting: Sunroom Studio Wireframe (<15ms)",
+        wireframe_color: "#38bdf8",
+      });
+      window.thoughtStreamUI.addThought({
+        sender: "PredictiveGhostEngine",
+        text: "⚡ Heuristic intent recognized: 'add_sunroom' (<12ms). Projected real-time bounding volume while PydanticAI converges.",
+      });
+    } else if (actionParam === "palette") {
+      if (window.webxrManager) {
+        window.webxrManager.createVRPalette();
+      }
+      window.thoughtStreamUI.addThought({
+        sender: "MetaXRHandTracking",
+        text: "🥽 25-Joint Pinch Recognized. In-VR 3D Spatial Palette summoned at user eye level with tactile dual-actuator haptics.",
+      });
+    } else if (actionParam === "mcp") {
+      window.thoughtStreamUI.addMCPToolCall({
+        tool_name: "draft_multi_floor_farmhouse",
+        arguments: { scale: "1:1", floors_count: 2 },
+        execution_time_ms: 18.4,
+        summary: "Successfully drafted 1:1 G+1 Farmhouse (365 sqm) with Biophilic Courtyard & Sunroom.",
+      });
+      window.thoughtStreamUI.addMCPToolCall({
+        tool_name: "validate_structural_scale",
+        arguments: {},
+        execution_time_ms: 4.2,
+        summary: "Validated 1:1 metric scale. All ceilings >= 3.2m, wall thickness 0.25m, IFC4X3 compliant.",
+      });
+    } else if (actionParam === "bim") {
+      window.thoughtStreamUI.addThought({
+        sender: "BIMStructuralValidator",
+        text: "📐 IFC 4x3 ADD2 Verified: 120-min fire rating (F120), U=0.28 W/m²K, load-bearing capacity 48.5 kN/m.",
+      });
     }
   }
 

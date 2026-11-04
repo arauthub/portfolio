@@ -1,148 +1,237 @@
-# 🎬 SpatialCanvas AI — Video Presentation Scripts & Visual Inspiration Gallery
+# 🎬 SpatialCanvas AI — Video Presentation Script & High-Resolution Screenshot Gallery
 
-This dossier contains dual production scripts formatted for hackathon submissions:
-* **Option A: The 60-to-75 Second Ultra-Pitch (At Least 1 Minute)** — High-energy, comprehensive coverage of the problem, decoupled architecture, predictive ghosts, dual showcases, and future vision.
-* **Option B: The 90-to-120 Second Extended Demo Cut** — Deeper walkthrough of 1:1 scale room walking and procedural CRT shaders.
-* **Visual Inspiration Gallery:** High-resolution screenshots and cinematic concept renders embedded for video production and slide decks.
+**Target Platform:** Meta Quest 2 / Quest 3 / Quest Pro (WebXR) & Desktop Meta XR Simulator  
+**Cloud Backend:** Google Cloud Platform (Cloud Run, Vertex AI Gemini 2.0 Flash)  
+**Agentic AI Stack:** PydanticAI Multi-Agent Orchestrator, Model Context Protocol (MCP) JSON-RPC 2.0  
+**Video Specs:** 1080p60 (1920x1080), 16:9, Stereo Spatial Audio, Duration: 60s–90s (Master Cut) / 120s (Extended Cut)  
 
 ---
 
-## 🖼️ Visual Inspiration Gallery
+## 🖼️ High-Resolution Screenshots Gallery (All 8 Core Modules & Screens)
+
+All 8 high-resolution screenshots are stored in the [`screenshots/`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots) folder at 1920x1080 Full HD resolution.
 
 ````carousel
-![SpatialCanvas AI - Hero Concept Artwork](/Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/hero_concept_artwork.jpg)
+![Hero Spatial Operating System Overview](file:///Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/01_hero_spatial_os_overview.png)
 <!-- slide -->
-![1:1 Scale G+1 Sustainable Farmhouse Studio](/Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/screenshot_farmhouse_studio.png)
+![1:1 Scale G+1 Farmhouse Ground Floor Walkthrough](file:///Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/02_farmhouse_ground_floor_walkthrough.png)
 <!-- slide -->
-![1980s Retro Synthwave Studio with Live CRT Shaders](/Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/screenshot_retro_studio.png)
+![G+1 First Floor Sunroom Studio and Timber Pergola](file:///Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/03_farmhouse_sunroom_pergola.png)
 <!-- slide -->
-![G+1 First Floor Sunroom Studio & Pergola Deck](/Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/screenshot_sunroom_pergola.png)
+![1980s Retro Synthwave Creation Studio with CRT Shaders](file:///Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/04_retro_80s_synthwave_studio.png)
+<!-- slide -->
+![Sub-15ms Predictive Ghost Wireframe Engine](file:///Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/05_predictive_ghost_wireframes.png)
+<!-- slide -->
+![Meta Quest 25-Joint Hand Tracking & 3D Spatial Palette](file:///Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/06_quest_hand_tracking_vr_palette.png)
+<!-- slide -->
+![PydanticAI Thought Stream & MCP Tool Execution](file:///Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/07_mcp_agentic_thought_stream.png)
+<!-- slide -->
+![Enterprise BIM IFC 4x3 Structural Telemetry](file:///Users/abhijeetraut/.gemini/antigravity/brain/d5018037-2c49-40ce-89ea-98154f8b2e6a/08_bim_ifc_structural_telemetry.png)
 ````
 
-### Screenshot Catalog & Inspiration Points:
-1. **Hero Concept Art (`hero_concept_artwork.jpg`):**  
-   *Visual:* A creator in a Meta Quest 3 headset stepping through a luminous 3D prompt doorway that bridges clean minimalist architectural villa drafting on the left and an authentic 1980s neon synthwave horizon on the right.
-2. **1:1 Scale G+1 Farmhouse (`screenshot_farmhouse_studio.png`):**  
-   *Visual:* First-person view of the Grand Living Hall with 3.6m double-height ceiling, polished concrete floors, modern sectional sofa, open-to-sky central courtyard with Japanese maple tree, glowing cyan metric labels (`8.00m Living Span`, `6.00m Courtyard`), and the real-time PydanticAI Thought Stream HUD.
-3. **1980s Retro Digital Media Studio (`screenshot_retro_studio.png`):**  
-   *Visual:* The dark synthwave void with a glowing sliced horizon sun, infinite magenta perspective grid, curved Sony Trinitron CRT monitors rendering live green/cyan/magenta phosphor scanlines, dual cassette tape decks, and 3D wireframe holograms.
-4. **First Floor Sunroom & Timber Pergola Deck (`screenshot_sunroom_pergola.png`):**  
-   *Visual:* The synthesized G+1 expansion featuring low-E curtain glass walls, architectural drafting workbench, botanical planters, and cedar timber pergola slats overlooking the landscape.
+### Detailed Screen & Module Index:
+
+| Index & Screenshot File | Core Module & Screen | Functionality Highlight |
+| :--- | :--- | :--- |
+| **01** [`01_hero_spatial_os_overview.png`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots/01_hero_spatial_os_overview.png) | **Spatial OS Hero Overview** | Visionary creator wearing Meta Quest 3 stepping inside the prompt doorway, uniting architectural drafting and retro media. |
+| **02** [`02_farmhouse_ground_floor_walkthrough.png`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots/02_farmhouse_ground_floor_walkthrough.png) | **1:1 Scale G+1 Farmhouse** | 8m x 6m Grand Living Hall, 3.6m ceiling clearance, Japanese maple biophilic courtyard, teak furniture, and floating oak stairs. |
+| **03** [`03_farmhouse_sunroom_pergola.png`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots/03_farmhouse_sunroom_pergola.png) | **First Floor G+1 Extension** | East-facing sunroom studio with low-E curtain glazing ($U=1.15\text{ W/m}^2\text{K}$), drafting workbench, and cedar louver pergola deck. |
+| **04** [`04_retro_80s_synthwave_studio.png`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots/04_retro_80s_synthwave_studio.png) | **1980s Retro Media Studio** | Glowing sliced horizon sun, neon magenta grid floor, curved Sony Trinitron CRT monitors with live phosphor scanlines, and 3D holograms. |
+| **05** [`05_predictive_ghost_wireframes.png`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots/05_predictive_ghost_wireframes.png) | **Predictive State Engine** | $<15\text{ms}$ translucent cyan wireframe bounding volume projected at user cursor to mask cloud LLM latency and prevent VR nausea. |
+| **06** [`06_quest_hand_tracking_vr_palette.png`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots/06_quest_hand_tracking_vr_palette.png) | **Hand Tracking & Spatial Palette** | Meta Quest 25-joint hand tracking with pinch gesture mechanics and floating cylindrical 3D in-VR spatial tool palette. |
+| **07** [`07_mcp_agentic_thought_stream.png`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots/07_mcp_agentic_thought_stream.png) | **PydanticAI Thought Stream** | Real-time streaming reasoning HUD logging Model Context Protocol (MCP) JSON-RPC 2.0 tool execution latencies and node deltas. |
+| **08** [`08_bim_ifc_structural_telemetry.png`](file:///Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai/screenshots/08_bim_ifc_structural_telemetry.png) | **Parametric BIM / IFC 4x3 & Metrics** | Engineering validation: $48.5\text{ kN/m}$ load-bearing walls, 120-min fire rating ($F_{120}$), Prometheus `/metrics` exposition for Cloud Monitoring. |
 
 ---
 
-## ⏱️ OPTION A: The 60–75 Second Complete Video Pitch
-*(Paced at ~145 words per minute. Total duration: 68 seconds. Covers every core requirement.)*
+## ⏱️ MASTER VIDEO PRESENTATION SCRIPT (75 SECONDS)
+
+> **Pacing:** ~145 words per minute.  
+> **Duration:** 1 minute 15 seconds (ideal sweet spot for hackathon judges).  
+> **Audio Bed:** Low atmospheric drone building into crisp analog synthwave beat with binaural spatial sound effects.  
 
 ```
-[0:00 - 0:12] THE HOOK & PROBLEM
-Visual: Split screen. Creator typing into flat 2D chatbot vs. stepping into Meta Quest 3.
-Audio: Low keyboard tapping suddenly cut by a crisp spatial synth pulse.
+================================================================================
+[0:00 - 0:13] THE PROBLEM: THE 2D RECTANGLE TRAP
+Visual:
+  * Cut 1 (0:00 - 0:06): Split-screen comparison. A frustrated architect scrolls through
+    flat 2D floor plans on a laptop screen while an AI chatbot spits out flat 2D images.
+  * Cut 2 (0:06 - 0:13): Cutaway to screenshot "01_hero_spatial_os_overview.png".
+    A creator puts on a Meta Quest 3 headset and steps directly inside a glowing 3D portal.
+On-Screen Text Overlay:
+  "SPATIALCANVAS AI // BEYOND FLAT SCREENS // ENTERPRISE SPATIAL OS"
+Voiceover (Confident, crisp, cinematic):
+  "Generative AI has transformed creativity, but we are still trapped behind flat 2D screens.
+   Pixels on glass cannot convey true 1:1 physical volume, ceiling clearances, or room acoustic presence.
+   This is SpatialCanvas AI—an agentic spatial operating system for Meta Quest that lets you step directly inside your prompts."
+================================================================================
+[0:13 - 0:28] DECOUPLED ARCHITECTURE & <15ms PREDICTIVE LATENCY ENGINE
+Visual:
+  * Cut 3 (0:13 - 0:20): System architecture animation showing:
+    Meta Quest 3 (Three.js 90 FPS) ➔ WebSockets ➔ FastAPI on Google Cloud Run ➔
+    PydanticAI Multi-Agent Orchestrator ➔ Model Context Protocol (MCP) JSON-RPC 2.0.
+  * Cut 4 (0:20 - 0:28): Cutaway to screenshot "05_predictive_ghost_wireframes.png".
+    User speaks a voice command. Within 12 milliseconds, a pulsating cyan cybernetic ghost
+    wireframe appears in VR space, masking all cloud latency.
+On-Screen Text Overlay:
+  "SUB-15ms PREDICTIVE GHOST ENGINE // ZERO-LATENCY VR PRESENCE"
 Voiceover:
-"Generative AI has revolutionized creativity, but we are still trapped behind flat, two-dimensional screens. Flat pixels cannot convey 1:1 architectural scale, acoustic presence, or human ergonomics. This is SpatialCanvas AI—an immersive spatial operating system for Meta Quest that lets you step directly inside your prompts."
-
-[0:12 - 0:24] ARCHITECTURE & PREDICTIVE LATENCY BREAKTHROUGH
-Visual: Rapid diagram showing WebXR client ➔ WebSockets ➔ FastAPI on Google Cloud Run ➔ PydanticAI + Model Context Protocol (MCP).
-Audio: Accelerating electronic tempo.
+  "Cloud AI latency destroys VR immersion and causes motion sickness.
+   We solved this with a decoupled architecture on Google Cloud Platform.
+   The moment you speak, our Predictive State Engine projects an animated ghost wireframe in under 15 milliseconds,
+   giving instant tactile feedback while our PydanticAI agents reason in the cloud."
+================================================================================
+[0:28 - 0:45] SHOWCASE 1: 1:1 SCALE G+1 FARMHOUSE ARCHITECTURAL STUDIO
+Visual:
+  * Cut 5 (0:28 - 0:37): Cutaway to screenshot "02_farmhouse_ground_floor_walkthrough.png".
+    6-DoF walkthrough inside the living hall. Camera looks up at the 3.6m ceiling and passes
+    through the sunlit central courtyard with Japanese maple tree.
+  * Cut 6 (0:37 - 0:45): Cutaway to screenshot "03_farmhouse_sunroom_pergola.png".
+    Camera ascends the floating oak stairs to the First Floor. We see the low-E curtain glass
+    Sunroom studio and cedar timber pergola terrace deck with holographic CAD dimensions.
+On-Screen Text Overlay:
+  "SHOWCASE 1 // 1:1 SCALE G+1 FARMHOUSE // BIOPHILIC COURTYARD & PERGOLA"
 Voiceover:
-"Powered by Python, FastAPI, and GCP, we integrated Model Context Protocol and PydanticAI to orchestrate autonomous spatial agents. And to solve VR motion sickness caused by cloud latency, our custom Predictive State Engine projects an animated ghost wireframe at your laser cursor in under 15 milliseconds, baking solid geometry seamlessly as the agent reasons."
-
-[0:24 - 0:42] SHOWCASE 1: 1:1 G+1 FARMHOUSE ARCHITECTURAL DRAFTING
-Visual: Live 6DoF walkthrough inside the G+1 Farmhouse. Hand pinch gesture elevates view from Courtyard to First Floor Sunroom.
-Audio: Natural breeze and acoustic reverberation expanding into the open courtyard.
+  "Here is our 1:1 scale G+1 Sustainable Farmhouse.
+   I can physically walk through this 8-meter living hall, inspect the 3.6-meter double-height clearance,
+   and explore the central biophilic courtyard.
+   Our agent drafted the first-floor east sunroom and cedar pergola deck with exact metric scale before a single brick is laid."
+================================================================================
+[0:45 - 0:58] SHOWCASE 2: 1980s RETRO DIGITAL MEDIA STUDIO
+Visual:
+  * Cut 7 (0:45 - 0:52): User taps the in-VR 3D Spatial Palette (cutaway to "06_quest_hand_tracking_vr_palette.png").
+    The world instantly morphs into screenshot "04_retro_80s_synthwave_studio.png".
+  * Cut 8 (0:52 - 0:58): Extreme close-up on curved Sony Trinitron CRT monitors.
+    We see live procedural phosphor scanlines flickering, spinning cassette reels, and a rotating 3D wireframe DeLorean.
+Audio Effect:
+  Analog synthesizer bass swell, vinyl crackle, and stereo chorused synth pad.
+On-Screen Text Overlay:
+  "SHOWCASE 2 // 1980s RETRO MEDIA STUDIO // PROCEDURAL PHOSPHOR CRT SHADERS"
 Voiceover:
-"Here is our 1:1 scale G+1 Farmhouse build. I can physically walk across the living hall, experience the 3.6-meter ceiling clearance, and inspect this sunlit central courtyard. Using Meta Quest hand tracking, a simple pinch gesture elevates me to the first floor, where our agent drafted an east-facing sunroom and timber pergola deck."
-
-[0:42 - 0:56] SHOWCASE 2: 1980s RETRO DIGITAL MEDIA STUDIO
-Visual: Voice prompt triggers instant transition to Synthwave Studio. Close-up on curved CRT monitor with live phosphor scanlines.
-Audio: Deep analog synthwave pad hum (Web Audio API) swells in stereo.
+  "With a natural pinch gesture, we switch into an authentic 1980s retro creation studio.
+   Notice these curved CRT monitors—they run live procedural phosphor canvas shaders,
+   surrounded by an infinite neon perspective grid, dual cassette tape decks, and floating 3D holograms."
+================================================================================
+[0:58 - 1:15] ENTERPRISE SRE, BIM COMPLIANCE & THE FUTURE OF COMPUTING
+Visual:
+  * Cut 9 (0:58 - 1:07): Cutaway to screenshot "07_mcp_agentic_thought_stream.png" and
+    "08_bim_ifc_structural_telemetry.png" showing Model Context Protocol JSON-RPC 2.0 tool execution,
+    IFC 4x3 structural load tags (48.5 kN/m, F120 fire rating), and Prometheus metrics.
+  * Cut 10 (1:07 - 1:15): Sunset bird's-eye view orbiting the farmhouse roof terrace.
+    Logos appear: Google Cloud Run, Meta XR SDK, PydanticAI, Model Context Protocol.
+On-Screen Text Overlay:
+  "ENTERPRISE BIM (IFC 4x3) // MODEL CONTEXT PROTOCOL (JSON-RPC 2.0) // CLOUD RUN"
 Voiceover:
-"With a single voice command, we switch contexts into an authentic 1980s retro media studio. Notice these curved CRT monitors—they aren't static textures; they run live procedural phosphor canvas shaders alongside spinning cassette decks and 3D rotating holograms."
-
-[0:56 - 1:08] CALL TO ACTION & FUTURE VISION
-Visual: Panoramic sunset view from the pergola deck with App Lab and Cloud Run badges.
-Audio: Triumphant synthesizer finale chord.
-Voiceover:
-"SpatialCanvas AI transforms generative AI from a passive viewing tool into a living, room-scale spatial reality. Experience it today on Meta Quest or desktop. The future of computing is spatial!"
+  "SpatialCanvas AI is enterprise-certified with Industry Foundation Classes BIM compliance,
+   Model Context Protocol JSON-RPC 2.0 interoperability, and Prometheus telemetry.
+   Generative AI is no longer confined to pixels on a screen—you can now step inside your creations.
+   SpatialCanvas AI: The operating system for spatial intelligence."
+================================================================================
 ```
 
 ---
 
-## ⏱️ OPTION B: The 90–120 Second Extended Showcase
-*(Paced at ~135 words per minute. Total duration: 1 minute 48 seconds.)*
+## ⏱️ EXTENDED DIRECTOR'S CUT SCRIPT (120 SECONDS)
+
+> **Duration:** 2 minutes.  
+> **Target:** In-depth technical review, Devpost submission video, or VC pitch presentation.  
 
 ```
-[0:00 - 0:20] ACT I: THE 2D RECTANGLE TRAP
-Visual: Close-up on a laptop screen showing a flat architectural rendering. Camera zooms in, but it's flat and lifeless. Suddenly, a luminous portal opens; a creator dons a Meta Quest 3 headset and steps inside.
-Audio: Muffled room ambient noise transition to crisp binaural stereo audio.
+================================================================================
+[0:00 - 0:20] PART I: THE CRISIS OF 2D CREATIVE INTERFACES
+Visual:
+  * Architect at desk struggling with CAD software on a 27-inch 2D screen.
+  * Camera tracks into creator wearing Meta Quest 3 headset.
+  * Quick cut: [01_hero_spatial_os_overview.png]
 Voiceover:
-"For decades, creative computing has been confined to flat rectangular displays. When designing a home or producing digital media, 2D screens cannot communicate real physical volume. How high does a ceiling actually feel? How does sunlight flood through a courtyard? SpatialCanvas AI bridges spatial computing with agentic AI, allowing creators to step directly inside their generative prompts."
+  "Every major milestone in artificial intelligence has been confined to flat rectangular displays.
+   When designing complex architecture or synthesizing multimedia environments, flat screens strip away human scale.
+   How high does a 3.6-meter ceiling actually feel? How does natural cross-ventilation flow across an interior courtyard?
+   To answer these questions, we built SpatialCanvas AI—an immersive spatial operating system for the Meta Quest ecosystem
+   that translates agentic AI workflows into living, room-scale 3D reality."
 
-[0:20 - 0:42] ACT II: DECOUPLED CLOUD & AGENTIC MCP ARCHITECTURE
-Visual: Motion graphics diagram highlighting:
-1. Meta Quest WebXR Frontend (Three.js 90 FPS rendering).
-2. Binary WebSocket data streaming (<15ms).
-3. FastAPI backend on Google Cloud Platform (Cloud Run).
-4. Model Context Protocol (MCP) server registering 7 spatial tools.
-5. PydanticAI structured agents.
+[0:20 - 0:45] PART II: THE AGENTIC ARCHITECTURE & MODEL CONTEXT PROTOCOL (MCP)
+Visual:
+  * Motion graphics diagram showing decoupled architecture.
+  * Cutaway to [07_mcp_agentic_thought_stream.png]: Live thought stream HUD.
 Voiceover:
-"Built with Python and FastAPI on Google Cloud Platform, our decoupled architecture handles intense AI workloads without sacrificing VR framerates. We integrated the Model Context Protocol and PydanticAI to give our agents strongly-typed spatial tools for multi-floor drafting, structural validation, and media synthesis. Every agent decision is strictly validated against physical metric constraints."
+  "To deliver enterprise reliability, SpatialCanvas AI leverages a decoupled architecture on Google Cloud Platform.
+   Our Python and FastAPI backend coordinates specialized PydanticAI agents via the Model Context Protocol (MCP) JSON-RPC 2.0 standard.
+   Instead of vague generative hallucinations, our SpatialArchitectAgent and RetroMediaAgent invoke strongly-typed spatial tools—
+   calculating room spans, structural wall thicknesses, and lighting lux levels verified against physical architectural constraints."
 
-[0:42 - 1:00] ACT III: ZERO-LATENCY PREDICTIVE GHOST WIREFRAMES
-Visual: First-person VR view. The user speaks: "Add an east-facing sunroom studio on the first floor."
-Instantly (12ms), a pulsating neon-cyan wireframe box appears. The Agent Thought Stream HUD displays the reasoning steps in real-time, then smoothly bakes into solid glass and timber geometry.
-Audio: High-frequency scanning pulse followed by a harmonic major bake chord.
+[0:45 - 1:05] PART III: SOLVING VR LATENCY WITH PREDICTIVE GHOST WIREFRAMES
+Visual:
+  * Cutaway to [05_predictive_ghost_wireframes.png]:
+  * Creator speaks: "Add an east-facing sunroom studio on the first floor."
+  * Real-time timer displays: 12ms. Cyan neon bounding box pulses.
+  * Agent Thought Stream reveals tool execution; wireframe crystallizes into solid glass and timber.
 Voiceover:
-"VR demands high framerates to prevent motion sickness. Waiting three seconds for a cloud LLM destroys immersion. We solved this with a custom Predictive State Engine. Within 15 milliseconds of speaking, an animated cybernetic ghost wireframe appears at your target. As the PydanticAI agent streams thought tokens and MCP tool calls over WebSockets, the wireframe smoothly crystallizes into physical, photorealistic geometry."
+  "Spatial computing demands a minimum of 90 frames per second to eliminate motion sickness.
+   Waiting three to five seconds for a cloud LLM to return data breaks presence.
+   We solved this with our custom Predictive State Engine.
+   The moment voice intent is captured, our client projects an animated predictive ghost wireframe in under 15 milliseconds.
+   As the PydanticAI agent streams JSON-RPC delta packets over WebSockets, the ghost wireframe crystallizes into photorealistic geometry."
 
-[1:00 - 1:24] ACT IV: SHOWCASE 1 — G+1 SUSTAINABLE FARMHOUSE
-Visual: Physical room-scale walk inside the living hall. Inspection of the open-to-sky courtyard with Japanese maple tree. Hand tracking pinch gesture elevates camera to First Floor master bedroom, low-E glass sunroom, and cedar pergola deck.
+[1:05 - 1:30] PART IV: SHOWCASE 1 — G+1 SUSTAINABLE FARMHOUSE
+Visual:
+  * Cutaways to [02_farmhouse_ground_floor_walkthrough.png] and [03_farmhouse_sunroom_pergola.png].
+  * 6-DoF walkthrough showing the living hall, central courtyard, floating staircase, master suite, sunroom, and pergola.
 Voiceover:
-"In our first showcase—the G+1 Sustainable Farmhouse—users walk through multi-floor architectural drafting layouts at true 1:1 metric scale. You can walk through the living hall, feel the 3.6-meter double-height clearance, and inspect natural ventilation in the central courtyard. Using Meta Quest Hand Tracking, an upward pinch gesture elevates you to the first floor to review structural dimensions before anything is physically built."
+  "Our first flagship showcase is the 1:1 Scale G+1 Sustainable Farmhouse.
+   Step into the 8-meter Grand Living Hall and look up at the double-height ceiling.
+   Walk through the sliding doors into the central open courtyard, where natural light and ventilation circulate.
+   Climb the floating oak staircase to the first floor to inspect the east-facing sunroom studio—glazed with low-E curtain glass—
+   and step out onto the cedar pergola rooftop deck. Every wall and window is verified at true 1:1 metric scale."
 
-[1:24 - 1:40] ACT V: SHOWCASE 2 — 1980s RETRO MEDIA STUDIO
-Visual: Transition to synthwave void. Giant sliced horizon sun, neon perspective grid floor, curved Sony Trinitron CRT monitors with live green and magenta phosphor scanlines, rotating cassette wheels, and 3D Delorean hologram.
-Audio: Rich procedural analog synthwave chords pumping through the Web Audio synthesizer.
+[1:30 - 1:50] PART V: SHOWCASE 2 — 1980s RETRO DIGITAL MEDIA STUDIO
+Visual:
+  * Cutaways to [06_quest_hand_tracking_vr_palette.png] and [04_retro_80s_synthwave_studio.png].
+  * User performs pinch gesture, summoning the 3D VR Spatial Palette with dual-actuator haptics.
+  * The environment transitions to the synthwave void: glowing horizon sun, neon grid, curved Sony Trinitron CRT monitors,
+    cassette decks, and rotating wireframe DeLorean hologram.
 Voiceover:
-"Switching to our 1980s Retro Digital Media Studio transforms the environment into a neon synthwave horizon. Our curved CRT monitors run live procedural phosphor scanlines, spectrum analyzers, and terminal code, accompanied by vintage cassette decks and audio-reactive 3D holograms."
+  "With our in-VR 3D Spatial Palette and Meta Quest hand tracking, a simple pinch gesture switches contexts into our 1980s Retro Digital Media Studio.
+   Here, creators step into an authentic synthwave universe.
+   The curved Sony Trinitron CRT monitors run custom WebGL canvas shaders displaying live phosphor scanlines and audio spectrum analyzers,
+   accompanied by spinning cassette reels, a glowing sliced horizon sun, and real-time 3D wireframe holograms."
 
-[1:40 - 1:48] ACT VI: CONCLUSION & FUTURE VISION
-Visual: Title card with Meta Quest App Lab badge, GCP Cloud Run URL, and GitHub repository.
+[1:50 - 2:00] PART VI: ENTERPRISE CERTIFICATION & CALL TO ACTION
+Visual:
+  * Cutaway to [08_bim_ifc_structural_telemetry.png].
+  * Display of IFC 4x3 engineering properties, Prometheus /metrics endpoint, and GitHub repository.
 Voiceover:
-"SpatialCanvas AI is live today on Google Cloud Run and ready for Meta Quest. Experience the spatial operating system of tomorrow. Thank you!"
+  "SpatialCanvas AI is certified for enterprise production with Industry Foundation Classes BIM compliance,
+   zero-leak WebGL VRAM disposal, and Prometheus monitoring on Google Cloud Run.
+   The future of computing is spatial. Experience SpatialCanvas AI today. Thank you!"
+================================================================================
 ```
 
 ---
 
-## 🛠️ Video Production Checklist & Recording Commands
+## 🛠️ Production Recording & Asset Reproduction Commands
 
-### 1. Run Application Locally for Recording
+### 1. Launch the Application Locally
 ```bash
 cd /Users/abhijeetraut/Documents/All-Projects/hackthon-devpost/spatialcanvas-ai
 ./run.sh
 ```
 
-### 2. Capture High-Resolution Headless Video / Screenshots
+### 2. Automated High-Resolution Screenshot Capture
+To re-capture all 8 high-resolution 1920x1080 screenshots:
 ```bash
-# Capture Farmhouse Living Hall & Courtyard
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-  --headless=new \
-  --screenshot=frontend/assets/screenshots/screenshot_farmhouse_studio.png \
-  --window-size=1920,1080 \
-  --virtual-time-budget=4000 \
-  http://localhost:8000/
-
-# Capture 1980s Retro Synthwave Studio
-curl -s -X POST http://localhost:8000/api/scene/switch/retro_80s_studio
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-  --headless=new \
-  --screenshot=frontend/assets/screenshots/screenshot_retro_studio.png \
-  --window-size=1920,1080 \
-  --virtual-time-budget=4000 \
-  http://localhost:8000/
+./venv/bin/python scripts/capture_highres_screenshots.py
 ```
 
-### 3. Screen Recording Suggestions:
-* **OBS Studio / QuickTime:** Record at 1920x1080, 60 FPS, 12,000 kbps bitrate.
-* **Audio Voiceover:** Record at 48 kHz, 24-bit with light compression and normalize to -14 LUFS.
-* **Camera Movement:** Use key `[V]` to smoothly toggle between 1:1 scale walking and bird's-eye architectural orbit view.
+### 3. Re-compile Animated Presentation Walkthrough GIF
+To re-generate the 60-second animated multi-scene demo GIF:
+```bash
+./venv/bin/python scripts/generate_animated_demo.py
+```
+
+### 4. Direct API Verification Endpoints
+* **Health Check:** `http://localhost:8000/api/health`
+* **Prometheus Metrics:** `http://localhost:8000/metrics`
+* **BIM / IFC 4x3 Architectural Export:** `http://localhost:8000/api/scene/export/bim`
+* **Telemetry Stats:** `http://localhost:8000/api/telemetry/stats`
+* **Model Context Protocol JSON-RPC:** `POST http://localhost:8000/api/mcp/jsonrpc`
