@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpatialCanvas AI - Immersive VR Creation Studio & Spatial OS</title>
+  <meta name="description" content="Agentic AI operating system for spatial computing built for Meta Quest & Google Cloud Platform with PydanticAI and Model Context Protocol (MCP).">
+  <link rel="stylesheet" href="css/spatial.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20width=%22100%22%20height=%22100%22><text y=%22.9em%22 font-size=%2290%22>🥽</text></svg>">
+</head>
+<body>
+  <!-- 3D WebGL / WebXR Viewport -->
+  <div id="canvas-container"></div>
+  <div id="simulator-crosshair" class="simulator-crosshair"></div>
+
+  <!-- Spatial OS HUD Overlay -->
+  <div class="hud-overlay">
+    <!-- Top Status Bar -->
+    <header class="top-bar">
+      <div class="brand-section">
+        <div class="brand-logo">SC</div>
+        <div class="brand-title">SpatialCanvas AI</div>
+        <span class="badge badge-mcp">MCP v1.0</span>
+        <span class="badge badge-gcp">GCP Cloud Run</span>
+      </div>
+
+      <div class="telemetry-cluster">
+        <div class="stat-item">
+          <span class="stat-dot"></span>
+          <span id="telemetry-vr">WebXR Ready</span>
+        </div>
+        <div class="stat-item" style="color: #38bdf8;">
+          ⚡ <span id="telemetry-latency">12ms</span> (Predictive)
+        </div>
+        <div class="stat-item" style="color: #4ade80;">
+          <span id="telemetry-fps">90 FPS</span>
+        </div>
+        <div class="stat-item" style="color: #cbd5e1;">
+          📦 <span id="telemetry-nodes">38 nodes</span>
+        </div>
+      </div>
+
+      <button id="btn-enter-vr" class="btn-enter-vr" title="Enter VR in Meta Quest Browser">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 8h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4l-2 2-2-2H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2z"/>
+          <circle cx="8" cy="12" r="2"/>
+          <circle cx="16" cy="12" r="2"/>
+        </svg>
+        <span>Enter VR (Meta Quest)</span>
+      </button>
+    </header>
+
+    <!-- Middle Working Area -->
+    <main class="middle-section">
+      <!-- Agent Thought Stream Panel (Left) -->
+      <aside class="thought-stream-panel" id="thought-stream-panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            Agent Thought Stream
+          </div>
+          <span class="badge badge-mcp" style="font-size: 9px;">PydanticAI</span>
+        </div>
+        <div class="thought-log-container" id="thought-log-container">
+          <div class="thought-card complete">
+            <div class="thought-sender">🤖 SpatialOrchestrator &bull; Ready</div>
+            <div class="thought-text">SpatialCanvas AI initialized. Connected to Model Context Protocol (MCP) server & GCP Vertex AI. Speak or click prompts below to synthesize 3D spaces.</div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Quick Scene Controls (Right) -->
+      <aside class="scene-controls-panel">
+        <div class="panel-title" style="margin-bottom: 4px;">Studio Presets</div>
+        <button id="btn-scene-farmhouse" class="control-btn active">
+          <span>🏡</span> G+1 Farmhouse (1:1)
+        </button>
+        <button id="btn-scene-retro" class="control-btn">
+          <span>🕹️</span> 80s Retro Studio
+        </button>
+        <hr style="border: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin: 4px 0;">
+        <button id="btn-toggle-camera-mode" class="control-btn" title="Toggle between 1:1 scale walking and bird's-eye architectural orbit">
+          <span>🔄</span> Mode: 1:1 Scale Walk
+        </button>
+        <button id="btn-reset-scene" class="control-btn" title="Reset scene to factory blueprint">
+          <span>⏮️</span> Reset Scene
+        </button>
+      </aside>
+    </main>
+
+    <!-- Bottom Voice Command & Presets Area -->
+    <footer class="bottom-bar">
+      <!-- One-Click Preset Prompts -->
+      <div class="presets-pill-bar">
+        <button class="pill-btn" data-prompt="Draft a sustainable G+1 farmhouse with living hall and courtyard at 1:1 scale">
+          🏡 1:1 G+1 Farmhouse
+        </button>
+        <button class="pill-btn" data-prompt="Add an east-facing sunroom studio on the first floor">
+          🌅 Add Sunroom Studio
+        </button>
+        <button class="pill-btn" data-prompt="Add a cedar timber pergola rooftop terrace deck">
+          🪵 Add Rooftop Pergola
+        </button>
+        <button class="pill-btn" data-prompt="Transform this space into a 1980s retro synthwave studio with CRT monitors">
+          🕹️ 80s Synth Studio
+        </button>
+        <button class="pill-btn" data-prompt="Spawn curved Sony Trinitron CRT monitor with green phosphor">
+          📺 Spawn CRT Screen
+        </button>
+        <button class="pill-btn" data-prompt="Validate 1:1 architectural scale, headroom clearances, and VR ergonomics">
+          📐 Validate 1:1 Scale
+        </button>
+      </div>
+
+      <!-- Voice Command Input Field -->
+      <div class="voice-command-bar">
+        <button id="mic-btn" class="mic-btn" title="Click to speak (Web Speech API voice command)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
+          </svg>
+        </button>
+        <input
+          type="text"
+          id="prompt-input"
+          class="prompt-input"
+          placeholder="Speak or type a spatial command (e.g. 'Add an east-facing sunroom studio on first floor')..."
+          autocomplete="off"
+        >
+        <button id="send-btn" class="send-btn">
+          Synthesize ➔
+        </button>
+      </div>
+
+      <!-- Controls Hint -->
+      <div class="keyboard-hint">
+        🎮 <b>Controls:</b> [WASD] Walk 1:1 Scale | [Click Viewport] Mouse Look | [Click Floor] Teleport | [V] Toggle Walk/Orbit | [Space/C] Elevate
+      </div>
+    </footer>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/lib/three.min.js"></script>
+  <script src="js/lib/OrbitControls.js"></script>
+  <script src="js/audio/spatial-audio.js"></script>
+  <script src="js/scene/architectural-renderer.js"></script>
+  <script src="js/scene/retro-renderer.js"></script>
+  <script src="js/scene/scene-builder.js"></script>
+  <script src="js/xr/xr-manager.js"></script>
+  <script src="js/xr/xr-simulator.js"></script>
+  <script src="js/ui/thought-stream.js"></script>
+  <script src="js/ui/spatial-hud.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
